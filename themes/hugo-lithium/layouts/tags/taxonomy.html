@@ -1,0 +1,58 @@
+{{ partial "header.html" . }}
+
+<main class="contentlist" role="main">
+
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}
+    {{ $pages = .Site.RegularPages }}
+    {{ end }}
+    {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
+    <h2 class="archive-year-title" style="padding-top:100px;">{{ .Key }}</h2>
+    {{ range .Pages }}
+
+    <article class="archive-container">
+      
+      <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
+        
+      <div class="archive-info-cont">
+        <div class="archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg">{{ partial "calendar.svg" (dict "width" 16 "height" 16) }}</span></div>
+      
+        <div class="archive-readtime">{{ .ReadingTime }} {{ i18n "reading-time" }}<span class="archive-svg">{{ partial "time.svg" (dict "width" 16 "height" 16) }}</span></div>
+      
+      {{range .Params.Authors }}
+        <div><a href="{{ "authors/" | relLangURL }}{{ . | urlize }}">
+        {{ . }}<span class="archive-svg">{{ partial "avatar.svg" (dict "width" 16 "height" 16) }}</span></a></div> 
+
+      {{ end }}
+      </div>      
+
+      <div class="archive-description">
+        {{ $params := .Params }}
+
+     
+      {{ with $params.Description }}
+        {{ . }}
+      {{ else }}
+        {{ .Summary }}
+     {{ end }}
+     
+      </div>
+      <div class="archive-tags-cont"> 
+    {{ range .Params.tags }}
+      <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}"  class="archive-tags">
+        {{ . }}
+      </a>  
+    {{ end }}
+      </div>
+    </article>
+    {{ end }}
+    {{ end }}
+
+
+</main>
+
+{{ partial "footer.html" . }}
+
+
+
+<!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->

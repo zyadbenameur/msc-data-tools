@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on Data science for students</title>
+    <link>/authors/</link>
+    <description>Recent content in Authors on Data science for students</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/authors/zyad-benameur/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/zyad-benameur/</guid>
+      <description>This is my bio. I am a power ranger.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/patrik-carvalho-carreira/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/patrik-carvalho-carreira/</guid>
+      <description>This is my bio. I am a at Videns.</description>
+    </item>
+    
+    <item>
+      <title>Jonh Doe</title>
+      <link>/authors/jonh-doe/</link>
+      <pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/jonh-doe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/john-doe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/john-doe/</guid>
+      <description>This is my bio. I am a ninja turtle.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<nav class="nav" id="nav">
+    <ul class="nav-links">
+    {{ range .Site.Menus.main }}
+    <li id="menulist"><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+    </ul>
+
+    
+    <ul class="nav-linksResp">
+    <span id="closebtnMenu" onclick="closeMen()">&times;</span>
+    
+       <div class="buttonThemeResp">
+        <button class="colorBtn light--hidden" aria-label="Toggle light mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+        <button class="colorBtn dark--hidden" aria-label="Toggle dark mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+       </div>    
+    {{ range .Site.Menus.main }}
+    <li id="menulistresp"><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+
+    </ul>
+</nav>

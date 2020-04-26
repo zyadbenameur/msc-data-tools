@@ -1,0 +1,999 @@
+---
+title: "Systèmes de recommandation en R"
+authors: 
+  - Patrik Carvalho-Carreira
+  - Zyad Benameur
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+toc: true
+description: Tutoriel sur les méthodes de systèmes de recommandations, présentant les ressources disponibles sur `R`, une revue de litérature et un example d'implémentation.
+slug: Recommander-systems
+categories:
+  - Tutorial
+tags:
+  - R
+  - Recommander system
+  - Tutorial
+  - Article reviews
+  - R libraries
+---
+
+```{r setup, echo=FALSE, purl=FALSE}
+knitr::opts_chunk$set(echo = TRUE, include=TRUE , cache=TRUE, message=FALSE, comment=NA , fig.align = 'center')
+```
+
+# Recommender systems    
+
+Au cours des dernières années, certaines grandes entreprises ont connu un essor phénoménal grâce aux données de leurs utilisateurs. La collecte de ses données leurs permette de prendre de meilleures décisions et invite l’utilisateur a utilisé davantage leurs plateformes. Cette fidélisation et satisfaction de la clientèle est au coeur des systèmes de recommandations. 
+
+Selon _**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. (2015) [1]}}**_, les systèmes de recommandation (_**S.R.**_), dans leur forme la plus simple, peuvent être vu comme un système de classification. Cette approche permet aux systèmes de recommandaions de proposer des produits ou services "personnalisés" selon les préférences de l'utilisateur. Effectivement, Ces systèmes permettent aussi aux entreprises d'augmenter le nombre d'items vendus, de vendre plus de produits divers et d'avoir une meilleure compréhension des besoins de leurs clients.  _**\textcolor{PdfGreen}{\hyperlink{handbook}{(Ricci et al. (2015) [1] - p.5)}}**_  
+
+## Importance dans l'industrie  
+
+Afin de mettre l'emphase sur l'importance des _**S.R.**_, une étude de McKinsey [^1] révèle que 35% des achats de consommateurs sur Amazon provient d'algorithmes basé sur la recommandation de produits. Dans le même ordre d'idée, 75% de ce qui est visionné par les utilisateurs de NetFlix proviennent de leurs algorithmes de recommandations. En 2006 [^2], Netflix avait d'ailleurs lancé une compétition avec un prix d'un million si une équipe pouvait augmenter la performance de leurs _**S.R.**_ de 10%.    
+
+[^1]:https://www.mckinsey.com/industries/retail/our-insights/how-retailers-can-keep-up-with-consumers
+[^2]:https://www.inf.unibz.it/~ricci/ISR/papers/ieeecomputer.pdf
+
+## Utilité  
+
+Voici les utilités principales des _**S.R.**_, autant du côté de l'utilisateur, que du fournisseur de service. Cette liste n'est pas complète ni exaustive, mais couvre largement les principaux attraits des _**S.R.**_.  
+
+```{r, echo=FALSE, purl=FALSE}
+
+x=data.frame("Fournisseur de service" = c("Vendre plus d'items","Vendre plus de variété d'items","Augmenter la satisfaction des clients","Augmenter la fidélité des clients","Meilleure compréhension des attentes des clients"),
+             "Utilisateur" = c("Trouver les bons items","Trouver la bonne séquence d'items","Meilleure expérience de navigation","Avoir des recommandations crédible","Trouver le bon package d'items"))
+colnames(x)=c("Fournisseur de service", "Utilisateur")
+knitr::kable(x, caption = "Utilité des _**S.R.**_ (<link>[Ricci, F. et al. 2018](https://www.researchgate.net/publication/227268858_Recommender_Systems_Handbook))")
+
+```
+
+# Revue de littérature   
+Dans cette section, on présente quelques articles complets couvrants différents aspects touchants aux _**S.R.**_. On a voulus offrir une variétés d'articles et d'études qui donnera au lecteur une compréhension globale et précise des différents modèles et approches, classiques et plus récentes, utilisées en _**S.R.**_. À noter que certains de ces articles proposent également des revues de littératures.  
+  
+* ***\textcolor{PdfGreen}{\hyperlink{Mansur et al. 2017}{Mansur et al. (2017) [2]}}*** et 
+_**\textcolor{PdfGreen}{\hyperlink{Seyednezhad et al. 2018}{Seyednezhad et al. (2018) [3]}}**_ ont réalisés deux revues complètes sur les _**S.R.**_, couvrant les approches les plus populaires : *Content Based, Collaborative Filtering et Hybrid*.  
+Le deuxième article inclut deux chapitres supplémentaires discutants deux aspects plus récents dans les _**S.R.**_: *Le contexte et les médias-sociaux*.  
+* L'article suivant, par ***\textcolor{PdfGreen}{\hyperlink{R. Chen et al. 2018}{R. Chen et al. (2018) [4]}}***, offre une revue complète sur les _**S.R.**_ *"à filtrage collaboratif"*, incluant une liste de revues similaires précédentes. Les auteurs exposent les méthodes classiques, les méthodes adaptées aux médias sociaux, en passant par les approches des modèles hybrides.  
+* ***\textcolor{PdfGreen}{\hyperlink{Lops, P. et al. 2019}{Lops, P. et al. (2019) [5]}}*** proposent dans leur article une analyse des dernières tendances en matière de _**S.R.**_ *"Content-Based"*, ainsi qu'une liste d'articles parus sur le sujet.  
+* Voici un article par ***\textcolor{PdfGreen}{\hyperlink{cano, E. et al. 2019}{Çano, E. et al. (2019) [6]}}*** offrant une revue de litérature sur les _**S.R.**_ *"Hybrid"*.  
+* L'apprentissage profond dans les _**S.R.**_ est de plus en plus utilisé. Voici deux articles par 
+***\textcolor{PdfGreen}{\hyperlink{Batmaz, Z. et al. 2019}{Batmaz, Z. et al. (2019) [7]}}*** et 
+***\textcolor{PdfGreen}{\hyperlink{ZHANG, S.et al. 2018}{ZHANG, S.et al. (2018) [8]}}*** 
+offrants des revues sur les _**S.R.**_ *"deep learning based"*.  
+* Voici un article par ***\textcolor{PdfGreen}{\hyperlink{Portugal, I. et al. 2016}{Portugal, I. et al. (2016) [9]}}*** 
+offrant une revue de littérature des méthodes d'apprentissage machine utilisées dans les _**S.R.**_.  
+* Finalement, voici un livre complet par _**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. (2015) [1]}}**_ 
+disponible gratuitement, dont l'objet d'étude est les _**S.R.**_, offrant une revue complète de différentes techniques, ainsi que plusieurs chapitres sur l'évaluation des _**S.R.**_. <link>[(Livre disponible \textcolor{darkpastelblue}{ici})](https://www.researchgate.net/publication/227268858_Recommender_Systems_Handbook)
+  
+# Description des méthodes  
+Il existe plusieurs approches différentes pour les _**S.R.**_. Ces approchent se différencient principalement par les algorithmes utilisés. On peut identifier 5 principales approches basées sur une taxonomie proposée par  ***\textcolor{PdfGreen}{\hyperlink{Burke, R. 2006}{Burke, R. (2006) [10]}}*** :
+\   
+\    
+\    
+
+|                   |  
+|:-----------------:|   
+| **Knowledge Based** |
+| **Demographic Based** |
+| **Content Based** |
+| **Collaborative Based** |
+| **Hybrid** |
+
+Dans la section suivante, on présente les grandes lignes de ces différentes approches.  
+
+## Knowledge Based  
+Ces _**S.R.**_ sont adaptés aux items qui sont très peu acheté par un utilisateur. l'exemple donné ici est celui de l'achat d'une maison. Il n'est pas envisageable d'avoir un grand historique d'achat par utilisateur pour ce genre d'item, dans ce cas, l'utilisation d'un _**S.R.**_ "_Knowledge based_" est utile.  
+Ce type de _**S.R.**_ utilise les connaissances liés au domaine ou à l'industrie pour pouvoir faire des recommandations en agissant comme un système de filtrage avancé, respectant les conditions énumérées par l'utilisateur en lui proposant les résultats pertinents.  
+
+## Demographic Based  
+Ce type de _**S.R.**_ se base sur l'assomption que les recommendations peuvent se faire en utilisant les attributs démographiques des utilisateurs (Âge, sexe, langue, etc...).  
+Par exemple, on pourra recommander un contenu à un jeune utilisateur qui est populaire auprés des jeunes du même âge.  
+
+## Content Based  
+
+Les _**S.R.**_ "content based" apprennent à faire des recommandations à partir des items que l'utilisateur a apprécié/acheté par le passé. Le _**S.R.**_ peut calculer une similarité entre les items à partir de leurs attributs, et recommander les items les plus proches à ceux précédement appréciés par l'utilisateur.  
+Par exemple, si l'utilisateur à aimé un film de comédie, le _**S.R.**_ pourra lui recommander d'autres films du même genre.  
+
+## Collaborative Based  
+Les _**S.R.**_ collaboratifs utilisent la communauté d'utilisateurs afin de générer des recommandations. Le cas le plus simple est de recommander à l'utilisateur des items que des utilisateurs similaires ont appréciés par le passé.  
+Il y a différentes manières de calculer cette similarité en fonction du type de recommandation.  
+Deux grandes approches sont populaires dans les _**S.R.**_ collaboratifs : "Item based" et "User based".  
+
+* __*Item based collaborative filtering RS*__  
+utilise pour les recommandations à travers la popularité des associations entre produits. Par exemple, si plusieurs utilisateurs aiment un livre A et B, quand un nouvel utilisateur indqique qu'il aime le livre A, on pourrat lui recommander le livre B.  
+* __*User based collaborative filtering RS*__  
+se base les la similarité entre le comportement des utilisateurs afin de faire des recommandations.  
+Par exemple, si Thomas et George ont des goûts très similaires, et que Thomas aime le livre A, il est très probable que George aime aussi le livre A.  
+
+
+## Hybrid 
+Les approches hybrides des _**S.R.**_ tentent d'utiliser une combinaison des approches vues précédement afin d'avoir les bénéfices de chaque approche.  
+Il y a également des méthodes incluant le contexte dans lequel est l'utilisateur afin de produire la recommandation. (contexte temporel par exemple)  
+Ce sont des méthodes plus avancées qu'on ne couvrira pas plus en détails dans ce rapport.  
+
+
+## Sources de données :
+Il existe trois sources de données traditionnellement utilisées dans les _**S.R.**_.  
+  
+1. Item :  
+Sont les objets à être recommandés : Films, articles, pages web, etc...  
+Peuvent avoir différents attributs selon la tâche de recommandation voulue (Genre, avteur, résumé, etc...).  
+2. Utilisateur :  
+Une multitude de de données peuvent être recueillies sur les utilisateurs, dépendamment du type de _**S.R.**_ qu'on veut mettre en place : Avis, notes, données démographiques, historique de navigation, historique de recherche, réseau, etc...  
+Ces données constituent le modèle d'utilisateur utilisé dans le _**S.R.**_ et constituent un élément très important pour la personnalisation des recommandations.  
+3. Transaction  
+Constitue une intéraction entre l'utilisateur et le _**S.R.**_. Cet historique d'intéractions devient une source importante de données pour le _**S.R.**_.  
+Ces intéractions peuvent être de type _explicite_ (Rating numérique, satisfaction sur une échelle, Like, binaire/oui/non, etc...) ou _implicite_ (Termes de recherche, Click, historique de navigation, etc...).  
+  
+  
+# Méthodes d'apprentissage machine utilisées
+Cette section a pour but d'informer son lecteur sur les différentes approches utilisées en apprentissage machines pour les systèmes de recommandations. Tel que mentionné dans _**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. p.229 (2015) [1]}}**_, il faut d'abord traiter les données avant de pouvoir les utiliser dans nos modèles d'apprentissage.   D'abord, différentes méthodes de pré-traitement sont proposées. Ensuite, il sera question des algortihmes utilisés pour les différentes approches d'apprentisage machine répertoriées par _**\textcolor{PdfGreen}{\hyperlink{Ramzan, B. et AL 2019}{Ramzan, B. et AL (2019) [11]}}**_. Des références sont proprosées afin de fournir des ressources supplémentaires à la compréhension des méthodes. 
+
+## Pré-traitement des données
+### Mesures de similarités 
+
+Plusieurs méthodes requièrent de pouvoir mesurer la similarité entre les individus. Pour ce faire, différentes mesures de similarités sont utilisées. _**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. p.229-230 (2015) [1]}}**_ propose différentes mesure de distance tel que la distance euclidienne, la "similarité cosine" et la corrélation pearson. D'autres mesures de distance sont proposés et testés dans 
+_**\textcolor{PdfGreen}{\hyperlink{N. Lathia, et al. 2008}{N. Lathia, et al. (2008) [12]}}**_. Dans leur contexte, ils ont trouvé que la mesure de similarité n'améliorait pas la performance comparativement à une méthode aléatoire.  
+
+### Échantillonage
+Il est important que les échantillons représentent bien les données originales. Ainsi, le choix des observations dans nos échantillons doit se faire de façon aléatoire. Plusieurs méthodes d'échantillonage existe, la plus classique étant l'échantillonage aléatoire simple. Cela consiste à ce que toutes les observations aient une probabilité égal de se retrouver dans l'un des échantillons.  D'autres méthodes existent et peuvent être utilisés. Par exemple, lorsqu'il y a présence de classes rares[^1000]. Cette revue _**\textcolor{PdfGreen}{\hyperlink{Haibo He, \& Garcia, E. A. (2009) (p.229-230)}{Haibo He, \& Garcia, E. A. p.229-230 (2009) [13]}}**_ propose une méthode pour palier à ce problème. _**\textcolor{PdfGreen}{\hyperlink{Batista, G et al. (2004)}{Batista, G et al. (2004)[14]}}**_ évalue dix différentes méthodes de sous et de sur-échantillonage.
+
+Généralement, il faut diviser nos données afin d'avoir un échantillon d'entraînement et de test. On ajuste un modèle sur l'échantillon d'entraînement et on évalue ensuite la performance de ce modèle sur l'échantillon test. Cependant, comme le fait mention _**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. p.251 (2015) [1]}}**_, il faudra diviser l'échantillon en trois: entraînement, validation et test. "L'échantillon d'entraînement sert à ajuster le modèle, l'échantillon de validation sert à ajuster les hyperparamètres et le test sert à évaluer le modèle". _**\textcolor{PdfGreen}{\hyperlink{handbook}{[1]}}**_ Il est à noter que l'échantillon test est divisé en "known" et "unknown" data. Les données connu dans l'échantillon test permettent de faire des recommendations et on évalue ensuite les recommendations grâce aux données "inconnus". La validation-croisé peut aussi être utilisé. 
+
+[^1000]:Cela pose problème en classification puisque les observations d'une même classe sont sous-représenté et le taux de bonne classification sera bon alors que le taux de faux positifs ou négatifs sera élevé.
+
+L'échantillonage est une technique répandu et une des plus importantes dans le contexte de "Data Mining". Effectivement, cela permet d'avoir un sous-ensemble représentatif des données disponibles lorsqu'il est sélectionné de façon aléatoire. De plus, il est possible de diviser les données de façon à avoir un échantillon d'entraînement, de validation et test. Cela permet d'entraîner des modèles, d'évaluer leurs performances et de calculer la performance sans biais du meilleur modèle.
+
+### Réduction de la dimension
+
+Les techniques de réduction de dimensions permettent de régler deux problèmes rencontrés dans les bases de données; les matrices creuses(sparse matrix) et un grand nombre de prédicteurs.
+
+#### PCA
+
+L'analyse en composante principale utilise les vecteurs et valeurs propres afin d'obtenir une nouvelle matrice où chaque colonne est une combinaison linéaires des prédicteurs. Pour ce faire, il faut utiliser la matrice de variance-covariance. Il est recommandé de standardisé les données avant d'obtenir la matrice de variance-covariance afin de mettre les données sur la même échelle. Une fois notre nouvelle matrice de composantes principales créée, il faut ensuite choisir les composantes qui permettent d'expliquer le plus de variance dans les données. Le chapitre 10.2 de _**\textcolor{PdfGreen}{\hyperlink{handbook}{James et al. (2013) [15]}}**_ offre les détails de cette méthode.
+
+#### SVD
+
+La décomposition à valeur singulière (Single Value Decomposition) est une méthode de factorisation matricielle permettant de réduire la dimension d'une matrice. Cette méthode peut être utilisé dans le PCA. Cela permet de trouver les composantes principales sans passer par la matrice de variance-covariance. Cette <link>[***\textcolor{darkpastelblue}{vidéo}***](https://www.youtube.com/watch?v=UyAfmAZU_WI) sur youtube, , permet de bien comprendre l'intuition derrière le SVD. Cet article, _**\textcolor{PdfGreen}{\hyperlink{Wall, ME et al. (2003)}{Wall, ME et al. (2003) [24]}}**_, portant sur l'analyse de gènes, offre aussi une bonne explication sur le PCA et le SVD, ainsi que leurs différences. 
+
+## Méthodes supervisées 
+
+Afin de faire de la classification, il est possible d'utiliser des algorithmes populaires d'apprentisage supervisé. Parmi ces algorithmes, on peut compter le kNN, l'arbre de décision, les forêt aléatoire, la régression logistique, les SVM, les réseaux de neuronnes artificiels et des méthodes d'ensemble dont les plus populaires sont le bagging et le boosting. Ces méthodes et autres sont proposées et expliquées dans _**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. (2015) p.237-247 [1]}}**_. Certaines ressources et revues littéraires sont mis de l'avant par l'auteur afin d'encourager le lecteur à avoir une meilleure compréhension de ces méthodes. _**\textcolor{PdfGreen}{\hyperlink{James et al. (2013)}{James et al. (2013) [15]}}**_ offre une introduction à la majorité des méthodes énumérés ci-haut. Il procure aussi des exemples avec R afin de mettre ces méthodes en place.
+
+## Méthodes non-supervisés
+### Analyse de regroupement
+
+Il existe deux grandes catégories d'algorithme de regroupement;soit les méthodes de partition et les méthodes hiérarchiques. Ces méthodes utilisent les mesures de similarités discutées plus haut. Il faut essayer différents algorithmes puisqu'ils agissent différemment face à la structure des observations. Une des méthodes les plus connue est le k-means. Il consiste à regrouper les observations similaires autour de n centroïdes en calculant la distance qui les séparent. Plusieurs autres algorithmes existent tels que le regroupement hiérarchique, DBSCAN _**\textcolor{PdfGreen}{\hyperlink{Ester et al. (1996)}{Ester et al. (1996) [16]}}**_ et autres._**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. (2015) p.252-254 [1]}}**_ Il est à noter que certaines de ces méthodes utilisent des heuristiques et ne convergent pas à la solution optimale. Se reférer à <link>[***\textcolor{darkpastelblue}{MIT 6.006 Introduction to Algorithms, Fall 2011}***](https://www.youtube.com/watch?v=HtSuA80QTyo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb) afin d'avoir une introduction à l'algorithmique. 
+
+### Règles d'associations
+
+Les règles d'association sont une méthode qui cherchent des patterns dans les données afin d'identifier les observations qui se ressemblent et qui se présentent ensemble. Par exemple, si on a plusieurs utilisateurs avec des paniers de "films", il est possible d'identifier la fréquence à laquelle deux films se retrouvent dans les "paniers" des utilisateurs. Comme il est mentionné dans _**\textcolor{PdfGreen}{\hyperlink{Weiyang Lin et al. (2002)}{Weiyang Lin et al. (2002) [17]}}**_, "les règles tels que 90% des utilisateurs aimant l'article A & B aiment aussi l'article C, 30% aiment tous les articles" sont très utile dans les systèmes de recommandation. Cet article, _**\textcolor{PdfGreen}{\hyperlink{Agrawal, R. and Srikant, R. (1994)}{Agrawal, R. and Srikant, R. (1994) [18]}}**_, présente aussi un algorithme alternatif à l'algorithme "Apriori"  afin de générer des règles d'associations tels que la fréquence, support, confiance et le lift. Contrairement à l'algorithme "Apriori", l'avantage est qu'il n'est pas nécessaire de spécifier un support minimum. Ces papiers proposent des méthodes et des cas utilisant les règles d'association dans les systèmes de recommandation; _**\textcolor{PdfGreen}{\hyperlink{Mobasher, B. et al. (1994)}{Mobasher, B. et al. (1994)}{Mobasher, B. et al. (1994) [19]}}**_, _**\textcolor{PdfGreen}{\hyperlink{Smyth, B. et al. (2005)}{Smyth, B. et al. (2005) [20]}}**_ et _**\textcolor{PdfGreen}{\hyperlink{Smetsers, Rick. et al. (2013)}{Smetsers, Rick. et al. (2013) [21]}}**_.
+
+## Application
+
+Le lecteur est invité à consulter le tableau "Classification of Recommender Systems Research" dans _**\textcolor{PdfGreen}{\hyperlink{Adomavicius, G. \& Tuzhilin, A. (2005)}{Adomavicius, G. \& Tuzhilin, A. (2005) [22]}}**_ afin de connaître les techniques les plus utilisés pour les systèmes "content-based", "collaboratif" et "hybride". 
+
+# Évaluation 
+Différentes méthodes d'évaluation existe pour les systèmes de recommendation. Normalement, les modèles sont évalués en utilisant les prédictions faites sur l'échantillon test et il est ainsi possible d'avoir une métrique de performance tel que le taux de bonne classification. Cependant, dans le contexte d'un système de recommendation, il faut aussi tenir compte d'autres facteurs. Tel que mentionné dans _**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. (2015) p.266 [1]}}**_, la découverte de nouveaux items, la diversité des items et même la rapidité du système peuvent être utilisé pour l'évaluation. De ce fait, il est aussi possible d'évaluer un système de recommendation en le testant sur un petit groupe d'utilisateurs afin de savoir s'il répond aux besoins des utilisateurs. On propose ainsi trois différentes façon d'évaluer un système de recommandation; approche classique, étude sur les utilisateurs et expérimentation en ligne. Le lecteur est invité à consulter _**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. (2015) Ch.8 [1]}}**_ afin d'avoir plus d'informations sur les différentes approches. Seul l'approche classique sera abordé brièvement ici. C'est aussi cette méthode qui sera utilisé dans le tutoriel.
+  
+L'approche classique est l'approche avec laquelle on évalue la performance du modèle sur l'échantillon test. Ces mesures de performances peuvent être variés. Dans le cas d'une classification, la précision, le AUC ou le ROC peuvent être utilisé. Cette article _**\textcolor{PdfGreen}{\hyperlink{Demšar, J. (2006)}{Demšar, J. (2006) [23]}}**_ utilise aussi des tests afin de comparer des modèles de classifications entre eux. Ces tests diffèrent selon la structure des échantillons utilisés, soit apparié ou indépendant. De plus, des mesures de distance peuvent être utilisés selon le contexte de prédiction. Les indices de performance les plus utilisés sont le RMSE, le MAE ou le MAPE. D'autres mesures existe aussi dans un contexte de classement ordonné. Plus d'informations sont disponible à _**\textcolor{PdfGreen}{\hyperlink{handbook}{Ricci et al. (2015) p.285 [1]}}**_. 
+
+# Revue des ressources R 
+## Livres pratiques  
+Voici quelques livres pratiques sur l'implémentation des _**S.R.**_ en R et Python (Disponibles gratuitement à travers la bibliothèque de HEC - <link>[***\textcolor{darkpastelblue}{lien}***](https://www.hec.ca/biblio/banques-de-donnees/oreilly.html)) :  
+  
+  + Building a Recommendation System with R (<link>[***\textcolor{darkpastelblue}{by Suresh K. Gorakala, 2015}***](https://learning.oreilly.com/library/view/building-a-recommendation/9781783554492/))  
+  + Hands-On Recommendation Systems with Python (<link>[***\textcolor{darkpastelblue}{by Rounak Banik, 2018}***](https://learning.oreilly.com/library/view/hands-on-recommendation-systems/9781788993753/))  
+  + Practical Recommender Systems (<link>[***\textcolor{darkpastelblue}{by Kim Falk, 2019}***](https://learning.oreilly.com/library/view/practical-recommender-systems/9781617292705/))  
+
+## Bases de données  
+Il y a plusieurs données libres d'accès disponibles sur internet qui sont utilisées pour les _**S.R.**_. Voici deux liens où vous pourrez trouver plusieurs datasets :  
+  
+* *9 Must-Have Datasets for Investigating Recommender Systems*. (<link>[***\textcolor{darkpastelblue}{lien - website}***](https://www.kdnuggets.com/2016/02/nine-datasets-investigating-recommender-systems.html))
+* *Public Datasets For Recommender Systems*. (<link>[***\textcolor{darkpastelblue}{lien - github}***](https://github.com/caserec/Datasets-for-Recommender-Systems))
+  
+  
+Plusieurs de ces datasets sont accessibles à travers divers librairies dédiées aux _**S.R.**_, comme on le verra dans les prochaines sections.  
+
+## Librairies 
+Il existe quatres principales [^3] librairies sur R afin de créer des _**S.R.**_, que nous présentons brièvement dans cette section. On détaillera par la suite les fonctionnalité d'une de ces quatres librairies à travers un exemple concrêt.  
+
+[^3]:https://gist.github.com/talegari/77c90db326b4848368287e53b1a18e8d
+
+### Package : `rrecsys`  
+Voici la description officielle [^4] de la librairie \textcolor{debianred}{rrecsys}:  
+  
+[^4]:https://github.com/ludovikcoba/rrecsys
+
+***  
+> _\textcolor{charcoal}{A package for R that provides implementations of several state-of-the-art recommendation systems}_.  
+> _\textcolor{charcoal}{Currently on `rrecsys` are developed the following non-personalized recommender systems (RS) algorithms:}_  
+
+>\setlist[itemize]{label=\textbullet}
+\begin{itemize}[label=\textcolor{charcoal}{\textbullet}]  
+\item \emph{\textcolor{charcoal}{Global Average}}
+\item \emph{\textcolor{charcoal}{Item Average}}
+\item \emph{\textcolor{charcoal}{User Average}}
+\item \emph{\textcolor{charcoal}{Most popular}}
+\item \emph{\textcolor{charcoal}{Collaborative filtering:}}
+  \begin{itemize}[label=\textcolor{charcoal}{\textbullet}]  
+  \item \emph{\textcolor{charcoal}{Item Based K-nearest neighbors}}
+  \item \emph{\textcolor{charcoal}{Simon Funk's SVD}}
+  \item \emph{\textcolor{charcoal}{Bayesian Personalized Ranking (BPR)}}
+  \item \emph{\textcolor{charcoal}{Weighted Alternated Least Squares (wALS)}}
+  \end{itemize}
+\end{itemize}
+
+  
+> _\textcolor{charcoal}{`rrecsys` can be used to predict and recommend(top-N list) using any of the above algorithms. Algorithms work on both Likert scale and binary ratings but BPR and wALS are One-Class CF(OCCF) typical algorithms for implicit feedback. The package offers as well an evaluation methodology with the following standard metrics for the specific task:}_
+
+>\begin{itemize}[label=\textcolor{charcoal}{\textbullet}]  
+  \item \emph{\textcolor{charcoal}{prediction: global or user based MAE and RMSE}}
+  \item \emph{\textcolor{charcoal}{recommendation: precision, recall, F1, NDCG, rank score and all the elements of the confusion matrix.}}
+\end{itemize}
+
+***  
+  
+Voici des ressources pour prendre en main la librairie :  
+  
+* Page `CRAN` oficielle de la librairie : (<link>[***\textcolor{darkpastelblue}{Lien}***](https://cran.r-project.org/web/packages/rrecsys/index.html))
+* Dépôt `Github` oficielle de la librairie : (<link>[***\textcolor{darkpastelblue}{Lien}***](https://github.com/ludovikcoba/rrecsys))
+* PDF de la documentation de la librairie (via `CRAN`): (<link>[***\textcolor{darkpastelblue}{Lien}***](https://cran.r-project.org/web/packages/rrecsys/rrecsys.pdf)) 
+  
+
+### Package : `recosystem` 
+Voici la description officielle [^5] de la librairie \textcolor{debianred}{recosystem}:  
+
+[^5]:https://github.com/yixuan/recosystem
+  
+***  
+> \begin{itemize}[label=\textcolor{charcoal}{\textbullet}]
+  \item \emph{\textcolor{charcoal}{About This Package}}
+  \end{itemize}
+> _\textcolor{charcoal}{`recosystem` is an R wrapper of the `LIBMF` library developed by Yu-Chin Juan, Wei-Sheng Chin, Yong Zhuang, Bo-Wen Yuan, Meng-Yuan Yang, and Chih-Jen Lin, an open source library for recommender system using parallel matrix factorization}_. __(<link>[***\textcolor{darkpastelblue}{LIBMF}***](http://www.csie.ntu.edu.tw/~cjlin/libmf/))__
+
+> \begin{itemize}[label=\textcolor{charcoal}{\textbullet}]
+  \item \emph{\textcolor{charcoal}{Highlights of `LIBMF` and `recosystem`}}
+  \end{itemize}
+> _\textcolor{charcoal}{`LIBMF` is a high-performance C++ library for large scale matrix factorization. LIBMF itself is a parallelized library, meaning that users can take advantage of multicore CPUs to speed up the computation. It also utilizes some advanced CPU features to further improve the performance}_.  
+
+> _\textcolor{charcoal}{`recosystem` is a wrapper of `LIBMF`, hence it inherits most of the features of `LIBMF`, and additionally provides a number of user-friendly R functions to simplify data processing and model building. Also, unlike most other R packages for statistical modeling that store the whole dataset and model object in memory, `LIBMF` (and hence `recosystem`) can significantly reduce memory use, for instance the constructed model that contains information for prediction can be stored in the hard disk, and output result can also be directly written into a file rather than be kept in memory}_.  
+
+***  
+  
+Voici des ressources pour prendre en main la librairie :  
+  
+* Page `CRAN` oficielle de la librairie : (<link>[***\textcolor{darkpastelblue}{Lien}***](https://cran.r-project.org/web/packages/recosystem/index.html))
+* Dépôt `Github` oficielle de la librairie : (<link>[***\textcolor{darkpastelblue}{Lien}***](https://github.com/yixuan/recosystem))
+* PDF de la documentation de la librairie (via `CRAN`): (<link>[***\textcolor{darkpastelblue}{Lien}***](https://cran.r-project.org/web/packages/recosystem/recosystem.pdf)) 
+* Site web de la librairie `LIBMF` sur laquelle est basée la librairie `recosystem`: (<link>[***\textcolor{darkpastelblue}{Lien}***](https://www.csie.ntu.edu.tw/~cjlin/libmf/)) 
+* Dépôt `Github` oficielle de la librairie `LIBMF`: (<link>[***\textcolor{darkpastelblue}{Lien}***](https://github.com/cjlin1/libmf))
+
+
+### Package : `rectools`
+Voici la description officielle tirée du dépôt `Github` [^6] de la librairie \textcolor{debianred}{rectools}:  
+  
+[^6]:https://github.com/yixuan/recosystem
+
+***  
+> \emph{\textcolor{charcoal}{FEATURES:}}  
+\emph{\textcolor{charcoal}{Incorporate user and item covariate information, including item category preferences.}}  
+  
+>\setlist[itemize]{label=\textbullet}
+\begin{itemize}[label=\textcolor{charcoal}{\textbullet}]  
+\item \emph{\textcolor{charcoal}{Parallel computation}}
+\item \emph{\textcolor{charcoal}{Novel variations on common models, e.g. a hybrid of NMF and k-Nearest Neighbor}}
+\item \emph{\textcolor{charcoal}{Plotting}}
+\item \emph{\textcolor{charcoal}{Focus group finder}}
+\item \emph{\textcolor{charcoal}{NMF, ANOVA, cosine models all in one package}}
+\item \emph{\textcolor{charcoal}{Some functions new, others enhancements of existing libraries}}
+\end{itemize}
+
+***  
+  
+Voici des ressources pour prendre en main la librairie :  
+  
+* Dépôt `Github` oficielle de la librairie : (<link>[***\textcolor{darkpastelblue}{Lien}***](https://github.com/Pooja-Rajkumar/rectools))
+* Présentation de la librairie (format __Powerpoint__): (<link>[***\textcolor{darkpastelblue}{Lien}***](http://heather.cs.ucdavis.edu/BARUG.pdf)) 
+
+***Note***  
+Ce package n'est pas disponible sur `CRAN`. D'après le document de présentation des auteurs, qui date du `'2016-12-13'`, il est indiqué à propos du package: __"soon to be submitted to CRAN"__.  
+
+
+### Package : `recommenderlab`
+Voici la description officielle [^7] de la librairie \textcolor{debianred}{recommenderlab}:  
+
+[^7]:https://github.com/mhahsler/recommenderlab
+  
+***  
+> _\textcolor{charcoal}{This R package provides an infrastructure to test and develop recommender algorithms. The package supports rating (e.g., 1-5 stars) and unary (0-1) data sets. Supported algorithms are:}_  
+
+> \begin{itemize}[label=\textcolor{charcoal}{\textbullet}]
+  \item \emph{\textcolor{charcoal}{User-based collborative filtering (UBCF)}}
+  \item \emph{\textcolor{charcoal}{Item-based collborative filtering (IBCF)}}
+  \item \emph{\textcolor{charcoal}{SVD with column-mean imputation (SVD)}}
+  \item \emph{\textcolor{charcoal}{Funk SVD (SVDF)}}
+  \item \emph{\textcolor{charcoal}{Alternating Least Squares (ALS)}}
+  \item \emph{\textcolor{charcoal}{MAtrix factorization with LIBMF (LIBMF)}}
+  \item \emph{\textcolor{charcoal}{Association rule-based recommender (AR)}}
+  \item \emph{\textcolor{charcoal}{Popular items (POPULAR)}}
+  \item \emph{\textcolor{charcoal}{Randomly chosen items for comparison (RANDOM)}}
+  \item \emph{\textcolor{charcoal}{Re-recommend liked items (RERECOMMEND)}}
+  \item \emph{\textcolor{charcoal}{Hybrid recommendations (HybridRecommender)}}
+  \end{itemize}
+
+> _\textcolor{charcoal}{For evaluation, the framework supports given-n and all-but-x protocols with:}_  
+
+> \begin{itemize}[label=\textcolor{charcoal}{\textbullet}]
+  \item \emph{\textcolor{charcoal}{Train/test split}}
+  \item \emph{\textcolor{charcoal}{Cross-validation}}
+  \item \emph{\textcolor{charcoal}{Repeated bootstrap sampling}}
+  \end{itemize}
+
+> _\textcolor{charcoal}{Evaluation measures are:}_  
+> \begin{itemize}[label=\textcolor{charcoal}{\textbullet}]
+  \item \emph{\textcolor{charcoal}{Rating errors: MSE, RMSE, MAE}}
+  \item \emph{\textcolor{charcoal}{Top-N recommendations: TPR/FPR (ROC), precision and recall}}
+  \end{itemize}
+
+***  
+  
+Voici des ressources pour prendre en main la librairie :  
+  
+* Page `CRAN` oficielle de la librairie : (<link>[***\textcolor{darkpastelblue}{Lien}***](https://cran.r-project.org/))
+* Dépôt `Github` oficielle de la librairie : (<link>[***\textcolor{darkpastelblue}{Lien}***](https://github.com/mhahsler/recommenderlab))
+* PDF de la documentation de la librairie (via `CRAN`): (<link>[***\textcolor{darkpastelblue}{Lien}***](https://cran.r-project.org/web/packages/recommenderlab/recommenderlab.pdf)) 
+* Document de présentation officiel des fonctionnalités du package (via `CRAN`): (<link>[***\textcolor{darkpastelblue}{Lien}***](https://cran.r-project.org/web/packages/recommenderlab/vignettes/recommenderlab.pdf)) 
+* Guide pratique (présenté plus haut) sur les _**S.R.**_ se basant sur cette librairie:  
+Building a Recommendation System with R (<link>[***\textcolor{darkpastelblue}{by Suresh K. Gorakala, 2015}***](https://learning.oreilly.com/library/view/building-a-recommendation/9781783554492/))
+
+# Application pratique  
+Dans cette section, on va explorer le package \textcolor{debianred}{recommenderlab} à travers la mise en place d'un _**S.R.**_ sur des données disponibles dans le package.  
+  
+À noter qu'on s'est inspiré de la documentation du package, de ressources en ligne et des exemples fournis dans le guide pratique suivant: _Building a Recommendation System with R - <link>[***\textcolor{darkpastelblue}{\emph{by Suresh K. Gorakala, 2015}}***](https://learning.oreilly.com/library/view/building-a-recommendation/9781783554492/))_
+
+
+***Librairies utilisées***
+```{r}
+# Pour la reproductibilité de l'exemple :
+set.seed(2020)
+## Installer packages si ce n'est pas déjà fait :
+# install.packages("recommenderlab")
+# install.packages("ggplot2")
+library("recommenderlab")
+library("ggplot2")
+## On peut appeler la documentation du package aussi :
+??recommenderlab
+```
+  
+## Données disponibles dans `recommenderlab`
+
+Il y a plusieurs jeux de données disponibles dans la librairie.  
+Voici comment on peut chercher ces données.
+
+```{r}
+data_package <- data(package = "recommenderlab")
+available.data <- data_package$results[, c("Title","Item")]
+# On peut les voir sous forme de tableau avec knit::kable (Rmarkdown)
+knitr::kable(available.data, caption = "Available data in recommenderlab")
+# On peut faire appel à la documentation pour chaque jeux de données
+?MovieLense
+```
+\   
+Le jeux de données qu'on va utiliser est celui de \textcolor{darkpastelblue}{MovieLense}.  
+Voici la description disponible sur le jeux de données dans la documentation :
+
+***
+
+> _\textcolor{charcoal}{The 100k MovieLense ratings data set. The data was collected through the MovieLens web site (movielens.umn.edu) during the seven-month period from September 19th, 1997 through April 22nd, 1998. The data set contains about 100,000 ratings (1-5) from 943 users on 1664 movies. Movie metadata is also provided in MovieLenseMeta.}_  
+
+*** 
+
+## Quelques fonctions du package `recommenderlab`
+Nous allons explorer les données, tout en utilisant les fonctions disponibles dans le package \textcolor{debianred}{recommenderlab}.  
+  
+La fonction \textcolor{coolblack}{data()} permet d'importer le jeux de données.  
+```{r}
+data(MovieLense)
+```
+
+*** 
+
+On peut voir que notre matrice contient 943 utilisateurs et 1664 films.
+```{r}
+MovieLense
+```
+
+*** 
+\   
+On peut voir la classe de l'objet MovieLense
+```{r}
+class(MovieLense)
+```
+\   
+On peut voir dans la documentation quel type d'objet est `"realRatingMatrix"` avec le code  \textcolor{coolblack}{?realRatingMatrix}.  
+  
+Voici la description des objets `"realRatingMatrix"` disponible dans la documentation :  
+
+*** 
+
+> _\textcolor{charcoal}{A matrix containing ratings (typically 1-5 stars, etc.).  
+Objects can be created by calls of the form new("realRatingMatrix", data = m), where m is sparse matrix of class dgCMatrix in package Matrix or by coercion from a regular matrix, a data.frame containing user/item/rating triplets as rows, or a sparse matrix in triplet form (dgTMatrix in package Matrix).  
+Object of class "dgCMatrix", a sparse matrix defined in package Matrix. Note that this matrix drops NAs instead of zeroes. Operations on "dgCMatrix" potentially will delete zeroes.}_  
+
+*** 
+\   
+On peut voir l'utilité de cet encodage par rapport à une matrice normale qui prendrait 9 fois plus d'espace.
+```{r}
+object.size(MovieLense)
+object.size(as(MovieLense, "matrix"))
+as.numeric(round(object.size(as(MovieLense, "matrix")) / 
+                   object.size(MovieLense),2))
+```
+
+***
+
+On peut également voir les méthodes qu'on peut appliquer sur cet objet.  
+```{r}
+methods(class = class(MovieLense))
+# On peut utiliser la fonction d'aide pour chaque 
+# élément afin d'avoir sa documentation. Par ex:
+# ?binarize
+```
+
+***
+\   
+\textcolor{coolblack}{dimnames()} nous permet d'avoir le nom des utilisateurs (*dimension [1]*) et le nom des différents films (*dimension [2]*) dans le jeu de donnée.   
+```{r}
+dimnames(MovieLense[1:5,1:5])
+```
+
+***
+\   
+\textcolor{coolblack}{getRatings()} permet d'avoir les évaluations (ratings) sous la forme d'un vecteur numérique.
+```{r}
+getRatings(MovieLense)[1:5]
+```
+
+***
+\   
+\textcolor{coolblack}{getRatingMatrix()} permet d'avoir les données sous forme matricielle.
+```{r}
+getRatingMatrix(MovieLense)[1:3,1:3]
+```
+
+***
+\   
+On peut aussi passer par la fonction \textcolor{coolblack}{as(x,"Class")} pour convertir les données dans un autre format.
+```{r}
+as(MovieLense, "data.frame")[1:3,1:3]
+as(MovieLense, "list")[[1]][1:3]
+```
+
+***
+\   
+Il est égaelement possible de convertir différents objets en `"realRatingMatrix"`.
+```{r}
+MovieLenseDF=as(MovieLense, "data.frame")
+as(MovieLenseDF, "realRatingMatrix")
+```
+
+***
+\   
+Les fonctions \textcolor{coolblack}{colCounts()}, \textcolor{coolblack}{rowCounts()}, \textcolor{coolblack}{colSums()}, \textcolor{coolblack}{rowSums()}, \textcolor{coolblack}{colMeans()}, \textcolor{coolblack}{rowMeans()} permettent des calculs agrégés comme leurs noms l'indique.  
+Leur spécificité est qu'ils sont applicables à des objets `"realRatingMatrix"`, contrairement aux méthodes normales.
+```{r}
+# ratings moyens reçus par les 3 premiers films
+colMeans(MovieLense[,1:3]) 
+# ratings moyens donnés par les 3 premiers utilisateurs
+rowMeans(MovieLense[1:3,]) 
+```
+
+
+## Exploration des données `MovieLense`
+
+Afin d'analyser les données, nous préférons utiliser un dataframe.  
+On commence par analyser la structure des `ratings`.
+```{r}
+table(MovieLenseDF$rating, dnn = c("Fréquence des ratings"))
+```
+
+***
+\   
+On peut visualiser la matrice aussi avec la fonction \textcolor{coolblack}{image()} du package.  
+On peut avoir une plus belle visualisation que celle proposée, en utilisant le package \textcolor{debianred}{ggplot2}.
+```{r eval=FALSE, purl=FALSE}
+## Fonction du package
+image(MovieLense[1:100,1:100])
+# Utilisation de ggplot2
+df=as(MovieLense[1:100,1:100], "data.frame")
+
+ggplot(df, aes(item,user, fill=rating)) + 
+    geom_tile() +
+  theme(axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())+
+  labs(x="Movies",y="Users", title = "GGplot2")
+```
+
+
+:::::: {.columns}
+::: {.column width="49%"}
+```{r echo=FALSE, out.width='80%', fig.width=8,fig.height=8}
+## Fonction du package
+image(MovieLense[1:100,1:100])
+```
+:::
+
+::: {.column width="2%"}
+\ 
+<!-- an empty Div (with a whitespace), serving as
+a column separator -->
+:::
+
+::: {.column width="49%"}
+```{r echo=FALSE, out.width='100%'}
+# Utilisation de ggplot2
+df=as(MovieLense[1:100,1:100], "data.frame")
+
+ggplot(df, aes(item,user, fill=rating)) + 
+    geom_tile() +
+  theme(axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())+
+  labs(x="Movies",y="Users", title = "GGplot2")
+```
+:::
+::::::
+
+***
+
+On peut visualiser la distribution des `ratings` moyens, autant au niveau des utilisateurs que des films.
+```{r eval=FALSE, echo=TRUE, purl=FALSE}
+# Voici le code pour sortir le premier histogramme, à titre d'exemple :
+# Hist. pour la distribution des évaluations moyennes des utilisateur
+qplot(rowMeans(MovieLense), colour = I("#3B444B"),
+      fill=I("#5D8AA8"), alpha=I(.2)) +
+  labs(x="Rating",y="Count", 
+       title="Distribution des évaluations moyennes des utilisateur")+
+  geom_vline(
+    aes(xintercept = mean(rowMeans(MovieLense))),col='#3B444B',size=0.5)+
+  geom_text(
+    aes(label=paste("Évaluation moyenne\ndes utilisateur =",
+                    round(mean(rowMeans(MovieLense)),2)),
+    y=110,x=mean(rowMeans(MovieLense))-0.5))+
+  theme_classic()
+```
+
+:::::: {.columns}
+::: {.column width="49%"}
+```{r echo=FALSE, out.width='100%'}
+qplot(rowMeans(MovieLense), colour = I("#3B444B"),fill=I("#5D8AA8"), alpha=I(.2)) +
+  labs(x="Rating",y="Count", title="Distribution des évaluations moyennes des utilisateur")+
+  geom_vline(aes(xintercept = mean(rowMeans(MovieLense))),col='#3B444B',size=0.5)+
+  geom_text(aes(label=paste("Évaluation moyenne\ndes utilisateur =",round(mean(rowMeans(MovieLense)),2)),
+    y=110,x=mean(rowMeans(MovieLense))-0.5))+
+  theme_classic()
+```
+:::
+
+::: {.column width="2%"}
+\ 
+<!-- an empty Div (with a whitespace), serving as
+a column separator -->
+:::
+
+::: {.column width="49%"}
+```{r echo=FALSE, out.width='100%'}
+qplot(colMeans(MovieLense), colour = I("#3B444B"),fill=I("#5D8AA8"), alpha=I(.2)) +
+  labs(x="Rating",y="Count", title="Distribution des évaluations moyennes des film")+
+  geom_vline(aes(xintercept = mean(colMeans(MovieLense))),col='#3B444B',size=0.5)+
+  geom_text(aes(label=paste("Évaluation moyenne\ndes film =",round(mean(colMeans(MovieLense)),2)),
+    y=140,x=mean(colMeans(MovieLense))-0.7))+
+  theme_classic()
+```
+:::
+::::::
+
+On peut aussi voir la distribution du nombre de `ratings`.
+
+:::::: {.columns}
+::: {.column width="49%"}
+```{r echo=FALSE, out.width='100%'}
+qplot(rowCounts(MovieLense), colour = I("#3B444B"),fill=I("#5D8AA8"), alpha=I(.2)) +
+  labs(x="Rating",y="Count", title="Distribution du nombre d'évaluations par utilisateur")+
+  geom_vline(aes(xintercept = mean(rowCounts(MovieLense))),col='#3B444B',size=0.5)+
+  geom_text(aes(label=paste("Nombre moyen\nd'évaluation =",round(mean(rowCounts(MovieLense)),2)),
+    y=230,x=mean(rowCounts(MovieLense))+120))+
+  theme_classic()
+```
+:::
+
+::: {.column width="2%"}
+\ 
+<!-- an empty Div (with a whitespace), serving as
+a column separator -->
+:::
+
+::: {.column width="49%"}
+```{r echo=FALSE, out.width='100%'}
+qplot(colCounts(MovieLense), colour = I("#3B444B"),fill=I("#5D8AA8"), alpha=I(.2)) +
+  labs(x="Rating",y="Count", title="Distribution du nombre d'évaluations par film")+
+  geom_vline(aes(xintercept = mean(colCounts(MovieLense))),col='#3B444B',size=0.5)+
+  geom_text(aes(label=paste("Nombre moyen\nd'évaluation =",round(mean(colCounts(MovieLense)),2)),
+    y=450,x=mean(colCounts(MovieLense))+100))+
+  theme_classic()
+```
+:::
+::::::
+
+***
+  
+On peut chercher les films ayant la  plus haute et la plus basse moyenne d'évaluations.  
+On peut voir que ces films ont reçus très peu d'évaluations.
+```{r}
+eval_moy_par_film = colMeans(MovieLense)
+# top 5 plus haut rating moyen
+top5 = head(eval_moy_par_film[order(eval_moy_par_film, 
+                                    decreasing = TRUE)], 5) 
+top5 = cbind(top5,colCounts(MovieLense)[names(top5)])
+colnames(top5)=c("Rating moyen", "Nombre de rating")
+top5
+# top 5 plus bas rating moyen
+last5 = tail(eval_moy_par_film[order(eval_moy_par_film, 
+                                     decreasing = TRUE)], 5)
+last5 = cbind(last5,colCounts(MovieLense)[names(last5)])
+colnames(last5)=c("Rating moyen", "Nombre de rating")
+last5
+```
+
+***
+
+Dans la section suivante, on passe en revue quelques étapes intéressantes de la préparation des données nécessaires pour leur utilisation dans les _**S.R.**_.
+
+## Traitement des données
+
+Une fois l'exploration des données faites, il faut traiter les données. D'abord, on a observé peu d'évaluations faites pour certains films et utilisateurs. Ainsi, on détermine un seuil minimale d'évaluations pour les différents films et utilisateurs.  
+Afin d'optimiser le modèle, il sera possible de revenir changer ces "paramètres". 
+```{r, echo=TRUE}
+data_for_system <- MovieLense[rowCounts(MovieLense) > 50, 
+                              colCounts(MovieLense) >75]
+data_for_system 
+
+min_utilisateur = min(rowCounts(data_for_system))
+max_utilisateur = max(rowCounts(data_for_system))
+min_film = min(colCounts(data_for_system))
+max_film = max(colCounts(data_for_system))
+utilisateur <- cbind(min_utilisateur,max_utilisateur)
+film <- cbind(min_film,max_film)
+eval_min_max <- rbind(utilisateur,film)
+colnames(eval_min_max) <- c('Min','Max')
+rownames(eval_min_max) <-c('Évaluation par utilisateur',
+                'Évaluation par film')
+eval_min_max
+```
+***
+\   
+On peut aussi utiliser la fonction image afin d'avoir une visualisation pour les utilisateurs ayant fait le plus d'évaluations et les films ayant reçu le plus d'évaluations.
+```{r out.width='60%'}
+
+image(data_for_system[rowCounts(data_for_system) > 
+                        quantile(rowCounts(data_for_system),0.95), 
+                      colCounts(data_for_system) > 
+                        quantile(colCounts(data_for_system),0.95)])
+```
+
+On remarque, à la colonne 2 par exemple, que les évaluations pour un film sont très différentes selon les utilisateurs. Afin de prendre en considération le fait qu'un utilisateur peut donner en moyenne des évaluations plus basse ou plus élevé, on peut standardisé les données.  
+La fonction \textcolor{coolblack}{normalise()} de la librairie va nous aider.  
+Par défaut, la normalisation se fait sur chaque rangée. Il est possible de changer le paramètre row à \textcolor{coolblack}{`FALSE`} afin de normaliser sur les colonnes, si nécessaires.  
+Aussi, la fonction utilise la méthode centrer. "Z-score" peut aussi être utilisé.
+```{r out.width='60%'}
+data_for_system_norm <- normalize(data_for_system) 
+data_for_system_norm_z <- normalize(data_for_system, 
+                                    method = "Z-score") 
+##Utilise Z-score Lorsque les données sont normalisées, 
+# la heatmap résultante se colorie.
+# Nous n'avons pas trouvé de paramètres pour contrôler 
+# la couleur de la fonction. Les paramètres par default 
+# se chargent selon les cas..
+image(data_for_system_norm[rowCounts(data_for_system_norm) > 
+                             quantile(rowCounts(data_for_system_norm),0.95), 
+                      colCounts(data_for_system_norm) > 
+                        quantile(colCounts(data_for_system_norm),0.95)])
+```
+***
+
+Si les besoins sont nécessaires, il est aussi possible de "dénormaliser" les données. La fonction denormalize() permet cela. 
+```{r}
+data_for_system_norm_denorm <- denormalize(data_for_system_norm)
+getRatingMatrix(data_for_system_norm_denorm)[1:4,1:4]
+```
+
+## Calcul de la similarité
+L'utilisation d'une mesure de similarité prend une grande place dans les _**S.R.**_ à fitrage collaboratifs. Dans cette section, on va faire la démonstration de ces méthodes en utilisant le package \textcolor{debianred}{recommenderlab}.  
+  
+\textcolor{debianred}{recommenderlab} offre la fonction \textcolor{coolblack}{similarity()}.
+```{r}
+# En utilisant la documentation :
+?similarity
+```
+Voici ce qu'on peut lire dans la documentation de la fonction :  
+
+***
+
+> _\textcolor{charcoal}{Calculate dissimilarities/similarities between ratings by users and for items.}_  
+
+> _\textcolor{charcoal}{similarity(x, y = NULL, method = NULL, args = NULL, ...)}_  
+
+> _\textcolor{charcoal}{S4 method for signature 'ratingMatrix'}_  
+
+> _\textcolor{charcoal}{similarity(x, y = NULL, method = NULL, args = NULL, which="users")}_  
+
+Les arguments importants sont les suivants :  
+
+> _\textcolor{charcoal}{\underline{method} : (dis)similarity measure to use. Available measures are typically "cosine", "pearson", "jaccard", etc. See dissimilarity for class itemMatrix in arules for details about measures for binaryRatingMatrix and dist in proxy for realRatingMatrix.}_  
+  
+> _\textcolor{charcoal}{\underline{which} : a character string indicating if the (dis)similarity should be calculated between "users" (rows) or "items" (columns).}_  
+
+***
+\  
+On peut calculer la similarité des 3 premiers films et explorer le résultat.  
+```{r}
+similarity_movies <- similarity(MovieLense[,1:3], 
+                               method = "cosine", which = "items")
+as.matrix(similarity_movies)
+class(similarity_movies)
+```
+On peut voir que l'objet résultant est de type `"dist"`. On note que cet objet peut également servir dans les méthodes de regroupement hierarchiques, entre autre, puisqu'il contient des distances entre observations.  
+
+***
+\   
+On peut aussi visualiser la similarité sous forme d'une `"heatmap"` pour les 100 premiers films, avec la fonction \textcolor{coolblack}{image()}.
+```{r out.width='70%'}
+image(as.matrix(similarity(MovieLense[,1:100], 
+                               method = "cosine", which = "items")),
+      main = "Movies similarity")
+```
+
+
+
+## Construire un système de recommendation
+Dans cette partie, nous allons continuer avec la construction d'un _**S.R.**_ "Item-Based Collaborative filtering". Pour ce faire, la fonction \textcolor{coolblack}{evaluationScheme()} va grandement nous aider.  
+Cette fonction nous permet de séparer l'échantillon. Trois méthodes sont proposés, soit _\textcolor{coolblack}{"split"}_, _\textcolor{coolblack}{"cross-validation"}_ et _\textcolor{coolblack}{"bootstrap"}_. Il faudra fournir la proportion de données utilisé pour entraîner le modèle. Le paramètre _\textcolor{coolblack}{"given = "}_ représente le nombre de films qui seront gardés de façon aléatoire dans l'échantillon test.  
+Il est important de bien choisir ce paramètre pour la phase d'évaluation. Il doit être plus petit que le nombre minimum d'évaluations faites par un utilisateur, qui est 27 dans notre cas. Nous choisirons 15. Cela veut dire que 15 films seront conservés dans les données connus pour le test.  
+L'utilité du paramètre _\textcolor{coolblack}{"goodRating"}_ est expliqué lors de l'évaluation du modèle.
+```{r}
+set.seed(5) 
+schema_eval_split <- evaluationScheme(data = data_for_system, 
+                                      method = "split", 
+                                      goodRating = 4, train = 0.8, 
+                                      k = 1, given = 15) 
+print(schema_eval_split)
+```
+***
+\   
+Une fois notre schéma finalisé, on peut débuter avec la création du _**S.R.**_. Afin de savoir les différents algorithmes disponibles, il est possible de consulter le registre des méthodes. Dans notre cas, nous utilisons une realRatingMatrix. Nous allons donc consuler ce registre. Il est aussi possible d'accéder au registre des méthodes pour les binaryRatingMatrix en remplacant _\textcolor{coolblack}{"datatype"}_.  
+Il est aussi possible d'accéder à la méthode en question afin de connaître les paramètres modifiables.
+```{r result='markup', out.width='60%', eval=FALSE}
+reg_modele <- recommenderRegistry$get_entries(dataType = "realRatingMatrix")  
+#print(reg_modele[1:3]) # On ne sort que 3 méthodes, mais il y en a davantage.
+#reg_modele$IBCF_realRatingMatrix # C'est la méthode qui nous intéresse
+```
+***
+\   
+Voulant créer un _**S.R.**_ "Item-based collaborative filtering", on va utiliser la fonction \textcolor{coolblack}{Recommender()}. Pour l'exemple, il n'est pas nécessaire de changer les paramètres, mais nous allons changer le _\textcolor{coolblack}{"k"}_ afin d'illustrer comment faire, ce paramètre détermine le nombre _\textcolor{coolblack}{"k"}_ des films les plus similaires à un film donné.
+
+```{r}
+# Modèle item-based
+itembased_model <- Recommender(data = getData(schema_eval_split,"train"), 
+                               method = "IBCF", parameter = list(k = 20))
+
+# On crée aussi un modèle user-based afin de comparer leurs performances
+# Le paramètre "nn" détermine le nombre d'utilisateurs les plus similaires
+# à utiliser
+userbased_model <- Recommender (data = getData(schema_eval_split,"train"), 
+                               method = "UBCF", parameter = list(nn = 20))
+
+```
+***
+\   
+La librairie inclue aussi la fonction \textcolor{coolblack}{getModel()} afin d'accéder au modèle créé par \textcolor{coolblack}{Recommender()}. Il est aussi possible d'accéder à des éléments précis qui sont sauvegardés dans l'objet. Par exemple, la ligne de code suivante permet d'accéder à la matrice de similarité qui est conservé dans l'objet. 
+
+```{r}
+# Le code n'est pas lancé puisque ça prend trop de place.
+# getModel(itembased_model) 
+# getModel(itembased_model)$sim
+
+
+```
+***
+\   
+Il est possible de déterminer quels films ont le plus de films similaires selon notre modèle. Par exemple, il est possible de voir que le film suivant aurait 40 films similaires. 
+```{r}
+##101 Dalmatiens
+colSums(getModel(itembased_model)$sim > 0)["101 Dalmatians (1996)"] 
+
+# Chaque rangée possède 20 films. 
+table(rowSums(getModel(itembased_model)$sim > 0)) 
+# Cela est dû au fait que la méthode conserve 
+# les 20 films les plus similaire suite au choix 
+# de notre paramètre k = 20 
+```
+***
+\   
+Aussi, il est possible d'accéder aux films ayant le plus de films similaires. Un histogramme nous permet de voir s'il y a peu de films similaires ou non. 
+```{r out.width='65%'}
+top_sim <- rownames(getModel(itembased_model)$sim)[order(colSums
+                   (getModel(itembased_model)$sim > 0),
+                   decreasing = TRUE)[1:5]]
+colSums(getModel(itembased_model)$sim > 0)[top_sim] 
+
+
+# On peut constater que peu de films sont 
+# similaires en raison de la queue a droite.
+qplot(colSums(getModel(itembased_model)$sim > 0),
+      colour = I("#3B444B"),fill=I("#5D8AA8"), alpha=I(.2))+
+  labs(x="Nombre de films similaires",y="Nombre de films", 
+       title="Distribution du nombre de similarité par film")+
+  theme_classic()
+
+```
+***
+\   
+On peut utiliser le modèle pour faire des prédictions sur l'échantillon de test _\textcolor{coolblack}{"known"}_. Le modèle va utiliser la matrice de similiraité et les évaluations connues afin de prédire des évaluations pour les films qui n'ont pas été regardé par un utilisateur.  
+Si on souhaite prédire _\textcolor{coolblack}{"k"}_ films pour un utilisateur, on utilisera les _\textcolor{coolblack}{"k"}_ plus grandes évaluations.  
+La fonction \textcolor{coolblack}{predict()} nous permet de faire les prédictions.  
+Le paramètre _\textcolor{coolblack}{"n"}_ de la fonction est le nombre de _\textcolor{coolblack}{"k"}_ films à recommander.
+
+```{r}
+pred_sys <- predict(itembased_model, newdata = getData(schema_eval_split,
+                                                       "known"), n = 5)
+pred_sys 
+
+##On peut aussi consulter les films prédits pour un utilisateur
+##Dans ce cas-ci, c'est les 5 films pour l'utilisateur 
+pred_sys@itemLabels[pred_sys@items[[1]]]
+```
+***
+\   
+Afin d'évaluer le _**S.R.**_, il faut utiliser la fonction \textcolor{coolblack}{predict()} avec le _\textcolor{coolblack}{type = "ratings"}_. Cela va nous permettre de créer une `realRatingMatrix` avec les évaluations estimées.  
+On peut ensuite utiliser la fonction \textcolor{coolblack}{calcPredictionAccuracy()}.  
+Cette fonction de la librairie nous permet de calculer différentes mesures de performances, soit par utilisateurs ou pour le modèle en général.
+```{r out.width='65%'}
+pred_itembased <- predict(itembased_model, 
+                    newdata = getData(schema_eval_split,
+                                      "known"), type = "ratings")
+
+##On prédit aussi pour le modèle user-based
+pred_userbased <- predict(userbased_model, 
+                    newdata = getData(schema_eval_split,
+                                      "known"), type = "ratings")
+
+##On calcule les métriques pour chaque utilisateur pour le item-based
+perfo_mod_user <- calcPredictionAccuracy(x = pred_itembased, 
+                                    data = getData(schema_eval_split,
+                                    "unknown"),byUser = TRUE)
+
+print(perfo_mod_user[1:10,]) #Mesures pour les 10 premiers utilisateurs
+##On constate qu'on a plusieurs évaluations avec un MAE > 1
+qplot(perfo_mod_user[,"MAE"],
+      colour = I("#3B444B"),fill=I("#5D8AA8"), alpha=I(.2))+
+  labs(x="MAE",y="Nombre d'e films'utilisateurs", 
+       title="Distribution du MAE par utilisateurs")+
+  theme_classic()
+
+perfo_modele_item <- calcPredictionAccuracy(x = pred_itembased, 
+                                    data = getData(schema_eval_split, 
+                                     "unknown"),byUser = FALSE)
+perfo_modele_user <- calcPredictionAccuracy(x = pred_userbased, 
+                                    data = getData(schema_eval_split, 
+                                     "unknown"),byUser = FALSE)
+
+
+##On obtient les métriques de performance pour nos modèles afin de les comparer
+print(rbind(perfo_modele_item,perfo_modele_user))
+
+##Petit exemple avec evaluate()
+perfo_ratings <- evaluate(schema_eval_split, method = "IBCF", type = "ratings",
+                          parameter = c(k =20))
+##On constate qu'on arrive au même résultats que plus haut.
+print(perfo_ratings@results)
+
+##On peut aussi utiliser "Top-N" list afin d'évaluer le modèle.
+##Pour ce faire, il faut spécifier le paramètre goodRating qui a déja été
+##choisi dans notre schéma.
+#perfo_topN <- evaluate(schema_eval_split, method = "IBCF", type = "topNList",
+#                       parameter = c(k =20), n=5)
+#print(perfo_topN@results)
+```
+***
+\   
+Afin de mieux comprendre l'utilité du paramètre _\textcolor{coolblack}{"goodRating"}_, voici une explication claire trouvé sur <link>[***\textcolor{darkpastelblue}{github}***](https://github.com/mhahsler/recommenderlab/issues/33).
+
+> _\textcolor{charcoal}{"If the ratings are a "topNList" and the observed data is a "realRatingMatrix" then goodRating is used to determine what rating in data is considered a good rating for calculating binary classification measures. This means that an item in the topNList is considered a true positive if it has a rating of goodRating or better in the observed data."}_  
+
+***
+\   
+Enfin, on peut noter que le modèle "user-based" prédit mieux les évaluations que le modèle "item-based". Il est évident que les paramètres n'ont pas été optimisés et qu'il est possible d'améliorer la performance.  
+  
+Aussi, il est recommandé de lancer plusieurs modèle avec des `seeds` différents afin de voir si la performance du modèle est stable. Il est aussi possible d'utiliser la fonction \textcolor{coolblack}{evaluate()} afin d'évaluer plusieurs types de _**S.R.**_ en même temps.  
+Il est possible d'évaluer les _**S.R.**_ selon la prédictions de leurs évaluations ou les "Top-N" films à recommander tel que vu brièvement dans l'exemple.  
+  
+Dû à un manque d'espace, le lecteur est invité à consulter la documentation très claire de la librairie, ainsi que les différentes ressources documentées dans ce rapport.
+
+
+
+
+```{r eval=FALSE, echo=FALSE}
+# À utiliser manuellement pour extraire le code R des chuncks
+knitr::purl("Rapport_Session.Rmd", 
+            output = "RecommenderSysCode.R", documentation = 0)
+```
+
+
+
+
+
+
+
+\pagebreak  
+\clearpage 
+
+# Bibliographie  
+[1] \hypertarget{handbook}{Ricci, Francesco \& Shapira, Bracha \& Rokach, Lior. (2015)
+Recommender systems handbook, Second edition. 10.1007/978-1-4899-7637-6.}  
+  
+[2] \hypertarget{Mansur et al. 2017}{Mansur, Farhin \& Patel, Vibha \& Patel, Mihir. (2017). A review on recommender systems. 1-6. 10.1109/ICIIECS.2017.8276182.}  
+  
+[3] \hypertarget{Seyednezhad et al. 2018}{Seyednezhad, s. M. Mahdi \& Cozart, Kailey \& Bowllan, John \& Smith, Anthony. (2018). A Review on Recommendation Systems: Context-aware to Social-based.}  
+  
+[4] \hypertarget{R. Chen et al. 2018}{R. Chen, Q. Hua, Y. Chang, B. Wang, L. Zhang and X. Kong, "A Survey of Collaborative Filtering-Based Recommender Systems: From Traditional Methods to Hybrid Methods Based on Social Networks," in IEEE Access, vol. 6, pp. 64301-64320, 2018.}  
+  
+[5] \hypertarget{Lops, P. et al. 2019}{Lops, P., Jannach, D., Musto, C. et al. Trends in content-based recommendation. User Model User-Adap Inter 29, 239–249 (2019). https://doi.org/10.1007/s11257-019-09231-w}  
+  
+[6] \hypertarget{cano, E. et al. 2019}{Çano, Erion and Morisio, Maurizio. ‘Hybrid Recommender Systems: A Systematic Literature Review’. 1 Jan. 2017 : 1487 – 1524.}  
+  
+[7] \hypertarget{Batmaz, Z. et al. 2019}{Batmaz, Z., Yurekli, A., Bilge, A. et al. A review on deep learning for recommender systems: challenges and remedies. Artif Intell Rev 52, 1–37 (2019). https://doi.org/10.1007/s10462-018-9654-y}  
+  
+[8] \hypertarget{ZHANG, S.et al. 2018}{Zhang, Shuai et al. “Deep Learning Based Recommender System.” ACM Computing Surveys 52.1 (2019): 1–38. Cros\_SR\_ef. Web.}  
+  
+[9] \hypertarget{Portugal, I. et al. 2016}{Ivens Portugal and Paulo Alencar and Donald Cowan “The Use of Machine Learning Algorithms in Recommender Systems: A Systematic Review” (2015): arXiv https://arxiv.org/abs/1511.05263}  
+    
+[10] \hypertarget{Burke, R. 2006}{Burke, Robin and Robin,. (2007). Hybrid Web Recommender Systems. LNCS. 4321. 10.1007/978-3-540-72079-9\_12.}  
+  
+[11] \hypertarget{Ramzan, B. et AL 2019}{Bushra Ramzan, Imran Sarwar Bajwa, Noreen Jamil, Riaz Ul Amin, Shabana Ramzan, Farhan Mirza, and Nadeem Sarwar.
+"An Intelligent Data Analysis for Recommendation Systems Using Machine Learning" https://doi.org/10.1155/2019/5941096}   
+  
+[12] \hypertarget{N. Lathia, et al. 2008}{N. Lathia, S. Hailes, and L. Capra. The effect of correlation coefficients on communities of recommenders. In SAC ’08: Proceedings of the 2008 ACM symposium on Applied computing, pages 2000–2005, New York, NY, USA, 2008. ACM.}   
+  
+[13] \hypertarget{Haibo He, \& Garcia, E. A. (2009) (p.229-230)}{Haibo He, \& Garcia, E. A. (2009). Learning from Imbalanced Data. IEEE Transactions on Knowledge and Data Engineering, 21(9), 1263–1284. doi:10.1109/tkde.2008.239}
+
+[14] \hypertarget{Batista, G et al. (2004)}{Batista, G. E. A. P. A., Prati, R. C., \& Monard, M. C. (2004). A study of the behavior of several methods for balancing machine learning training data. ACM SIGKDD Explorations Newsletter, 6(1), 20. doi:10.1145/1007730.100773}
+
+[15] \hypertarget{James et al. (2013)}{Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani. An Introduction to Statistical Learning : with Applications in R. New York :Springer, 2013.}
+
+[16] \hypertarget{Ester et al. (1996)}{Ester et al. A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise. Munich :KDD-96, 1996.}
+
+[17] \hypertarget{Weiyang Lin et al. (2002)}{Weiyang Lin et al. Efficient Adaptive-Support Association Rule Mining for Recommender Systems. Data Mining and Knowledge Discovery volume 6, p. 83–105, 2002.}
+
+[18] \hypertarget{Agrawal, R. and Srikant, R. (1994) [18]}{Agrawal, R. and Srikant, R. (1994) Fast Algorithms for Mining Association Rules in Large Databases. Proceedings of the 20th International Conference on Very Large Data Bases, Santiago de Chile, 12-15 September 1994, 487-499.}
+
+[19] \hypertarget{Mobasher, B. et al. (1994)}{B. Mobasher, H. Dai, T. Luo, and M. Nakagawa. Effective personalization based on association rule discovery from web usage data. In Workshop On Web Information And Data Management, WIDM ’01, 2001.}
+
+[20] \hypertarget{Smyth, B. et al. (2005)}{B. Smyth, K. McCarthy, J. Reilly, D. O‘Sullivan, L. McGinty, and D. Wilson. Case studies in association rule mining for recommender systems. In Proc. of International Conference on Artificial Intelligence (ICAI ’05), 2005.}
+
+[21] \hypertarget{Smetsers, Rick. et al. (2013)}{SMETSERS, Rick. Association rule mining for recommender systems. Master Thesis, Tilburg University. 2013.}
+
+[22] \hypertarget{Adomavicius, G. \& Tuzhilin, A. (2005)}{G. Adomavicius and A. Tuzhilin. Toward the next generation of recommender systems: A survey of the state-of-the-art and possible extensions. IEEE Transactions on Knowledge and Data Engineering, 17(6):734–749, 2005.}
+
+[23] \hypertarget{Demšar, J. (2006)}{Demšar, J.: Statistical comparisons of classifiers over multiple data sets. J. Mach. Learn. Res.7, 1–30, 2006.}
+
+[24] \hypertarget{Wall, ME et al. (2003)}{Wall, Michael E., Andreas Rechtsteiner, and Luis M. Rocha. "Singular value decomposition and principal component analysis." In A practical approach to microarray data analysis, pp. 91-109. Springer, Boston, MA, 2003.}
+
+
+
+
+
+

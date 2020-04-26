@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jonh Doe on Data science for students</title>
+    <link>/authors/jonh-doe/</link>
+    <description>Recent content in Jonh Doe on Data science for students</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/authors/jonh-doe/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Author testing</title>
+      <link>/2020/04/23/new-test/</link>
+      <pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/23/new-test/</guid>
+      <description>yesHi this is me
+HiHi</description>
+    </item>
+    
+  </channel>
+</rss>

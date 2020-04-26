@@ -1,0 +1,252 @@
+<div id="main">
+<!DOCTYPE html>
+<html lang="en-us" color-mode="light">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+<title>R Notebook - Data science for students</title>
+<meta property="og:title" content="R Notebook - Data science for students">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+  <meta property="description" content="This is a test to see what Rnotebook is rendered.">
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  
+  <body class="scrollbar">
+
+   <button class="colorBtn light--hidden"
+   aria-label="Toggle light mode">
+     <i class="material-icons">brightness_6</i>
+   </button>
+   
+    <button class="colorBtn dark--hidden"
+    aria-label="Toggle dark mode">
+    <i class="material-icons">brightness_6</i>
+   </button>
+
+  <script>
+
+  var toggleColorMode = function toggleColorMode(e) {
+    
+    if (e.currentTarget.classList.contains("light--hidden")) {
+      
+      document.documentElement.setAttribute("color-mode", "light"); 
+
+      localStorage.setItem("color-mode", "light");
+      return;
+    }
+    
+
+    document.documentElement.setAttribute("color-mode", "dark"); 
+
+    localStorage.setItem("color-mode", "dark");
+  }; 
+
+  var toggleColorButtons = document.querySelectorAll(".colorBtn"); 
+
+  toggleColorButtons.forEach(function(btn) {
+    btn.addEventListener("click", toggleColorMode);
+  });
+  
+   
+
+const currentTheme = localStorage.getItem('color-mode') ? localStorage.getItem('color-mode') : null;
+
+if (currentTheme) {
+    document.documentElement.setAttribute('color-mode', currentTheme);
+    
+};
+
+
+    
+  </script>
+ 
+</body>
+
+        <button onclick="topFunction()" id="upBtn" title="Go to top">Top</button>
+ 
+<div class="wrapper">
+<header class="header">
+  <nav class="nav">
+  <ul class="nav-links">
+    
+    <li id="menulist"><a href="/">Home</a></li>
+    
+    <li id="menulist"><a href="/articles/">Articles</a></li>
+    
+    <li id="menulist"><a href="/r/">R</a></li>
+    
+    <li id="menulist"><a href="/python/">Python</a></li>
+    
+    <li id="menulist"><a href="/msc/">M.Sc. Data Science</a></li>
+    
+
+  </ul>
+</nav>
+</header>
+
+<main class="content" role="main">
+     <div  id="openBtn" onclick="openNav()"><span>&#9776; <span id="openBtnlabel">Table of Content</span></span></div>
+     <span id="closebtn" onclick="closeNav()">&times;</span>
+        <aside class="toc"id="mySidenav">
+          <a href="javascript:void(0)" id="closebutnresponsive" onclick="closeNav()">&times;</a>
+           
+
+
+
+
+
+          <a href="javascript:void(0)" style="padding-top:120px;"></a>
+        </aside>
+
+    
+  <article class="article">
+    <div class="article-header-container">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">R Notebook</h1>
+
+    
+    <span class="article-date">2020-04-23</span>
+    
+    
+    <span class="article-author">Zyad Benameur</span>
+    
+    
+    </div>
+    <div class="article-content">
+      
+
+<div id="TOC">
+true
+</div>
+
+<p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
+<p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>.</p>
+<pre class="r"><code>plot(cars)</code></pre>
+<p><img src="/post/Rnotebook_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
+<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Ctrl+Shift+K</em> to preview the HTML file).</p>
+<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
+
+    </div>
+  </article>
+  
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>All rights reserved - 2020</li>
+
+
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+    
+    <script>
+
+var mybutton = document.getElementById("upBtn");
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450) {
+    mybutton.style.display = "block";
+    mybutton.style.opacity = '1';
+  } else {
+    mybutton.style.display = "none";
+    mybutton.style.opacity = '0';
+  }
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+<script>
+
+function closeNav() {
+  document.getElementById("mySidenav").classList.add('open');
+  document.getElementById("mySidenav").style.overflow = "hidden";  
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("main").style.transition= "0.3s ease";
+  document.getElementById("openBtn").style.opacity = "1";  
+  document.getElementById("closebtn").style.opacity = "0";  
+}
+
+function openNav() {
+  document.getElementById("mySidenav").classList.remove('open');
+  document.getElementById("mySidenav").style.overflow = "auto"; 
+  document.getElementById("mySidenav").style.left = "0"; 
+  document.getElementById("main").style.transition= "0.3s ease";
+  document.getElementById("main").style.marginLeft = "320px";
+  document.getElementById("openBtn").style.opacity = "0"; 
+  document.getElementById("closebtn").style.opacity = "1"; 
+  
+}
+
+</script>
+
+
+
+
+  </body>
+</html>
+
+
+</div>

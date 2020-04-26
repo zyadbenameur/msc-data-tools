@@ -1,0 +1,1255 @@
+
+<!DOCTYPE html>
+<html lang="en-us" color-mode="light">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://use.fontawesome.com/537098519d.js"></script>
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+<title>Markdown Syntax - Data science for students</title>
+<meta property="og:title" content="Markdown Syntax - Data science for students">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+  <meta property="description" content="This is a test to set toc correclty.">
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  
+  <body class="scrollbar">
+    <div id="header">
+      
+      
+      <div class="navbarResp"></div>
+      
+      <div  id="openBtnMenu" onclick="openMen()"><span><span>Menu</span> &#9776; </span></div>
+
+      <div class="buttonThemeFull">
+        <button class="colorBtn light--hidden" aria-label="Toggle light mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+        <button class="colorBtn dark--hidden" aria-label="Toggle dark mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+     </div>
+    
+     
+     
+      <button onclick="topFunction()" id="upBtn" title="Go to top">Top</button>
+
+
+    <script>
+
+        var toggleColorMode = function toggleColorMode(e) {
+        
+        if (e.currentTarget.classList.contains("light--hidden")) {
+          
+          document.documentElement.setAttribute("color-mode", "light"); 
+          localStorage.setItem("color-mode", "light");
+          return;
+        }
+        
+
+        document.documentElement.setAttribute("color-mode", "dark"); 
+        localStorage.setItem("color-mode", "dark");
+         }; 
+    
+         var toggleColorButtons = document.querySelectorAll(".colorBtn"); 
+    
+        toggleColorButtons.forEach(function(btn) {
+        btn.addEventListener("click", toggleColorMode);
+        });
+      
+         
+    
+        const currentTheme = localStorage.getItem('color-mode') ? localStorage.getItem('color-mode') : null;
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('color-mode', currentTheme);
+            
+        };
+    
+    </script>
+
+<header> 
+    <div class="wrapper">
+    
+      <nav class="nav" id="nav">
+    <ul class="nav-links">
+    
+    <li id="menulist"><a href="/">Home</a></li>
+    
+    <li id="menulist"><a href="/authors/">Authors</a></li>
+    
+    <li id="menulist"><a href="/tags/">Tags</a></li>
+    
+    <li id="menulist"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulist"><a href="/about/">About</a></li>
+    
+    </ul>
+
+    
+    <ul class="nav-linksResp">
+    <span id="closebtnMenu" onclick="closeMen()">&times;</span>
+    
+       <div class="buttonThemeResp">
+        <button class="colorBtn light--hidden" aria-label="Toggle light mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+        <button class="colorBtn dark--hidden" aria-label="Toggle dark mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+       </div>    
+    
+    <li id="menulistresp"><a href="/">Home</a></li>
+    
+    <li id="menulistresp"><a href="/authors/">Authors</a></li>
+    
+    <li id="menulistresp"><a href="/tags/">Tags</a></li>
+    
+    <li id="menulistresp"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulistresp"><a href="/about/">About</a></li>
+    
+
+    </ul>
+</nav>
+    </div>
+    <div id="wrapperResp">
+      <nav class="nav" id="nav">
+    <ul class="nav-links">
+    
+    <li id="menulist"><a href="/">Home</a></li>
+    
+    <li id="menulist"><a href="/authors/">Authors</a></li>
+    
+    <li id="menulist"><a href="/tags/">Tags</a></li>
+    
+    <li id="menulist"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulist"><a href="/about/">About</a></li>
+    
+    </ul>
+
+    
+    <ul class="nav-linksResp">
+    <span id="closebtnMenu" onclick="closeMen()">&times;</span>
+    
+       <div class="buttonThemeResp">
+        <button class="colorBtn light--hidden" aria-label="Toggle light mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+        <button class="colorBtn dark--hidden" aria-label="Toggle dark mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+       </div>    
+    
+    <li id="menulistresp"><a href="/">Home</a></li>
+    
+    <li id="menulistresp"><a href="/authors/">Authors</a></li>
+    
+    <li id="menulistresp"><a href="/tags/">Tags</a></li>
+    
+    <li id="menulistresp"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulistresp"><a href="/about/">About</a></li>
+    
+
+    </ul>
+</nav>
+    </div>
+  
+
+
+</header>
+</div>
+</body>
+<div id="main">
+<main class="content" role="main">
+    
+        
+      <div  id="openBtn" onclick="openNav()"><span>&#9776; <span id="openBtnlabel">Table of Content</span></span></div>
+      <span id="closebtn" onclick="closeNav()">&times;</span>
+      
+        <aside class="toc"id="mySidenav">
+          <a href="javascript:void(0)" id="closebutnresponsive" onclick="closeNav()">&times;</a>
+           
+
+
+
+
+
+<div>
+    
+    <h4 class="text-muted">Table of Contents</h4>
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#headings">
+                    Headings
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#h2">
+                    H2
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#h3">
+                    H3
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#h4">
+                    H4
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                    <ul class="toc-h5">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#h5">
+                    H5
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                    <ul class="toc-h5">
+                
+                    <ul class="toc-h6">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#h6">
+                    H6
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#paragraph">
+                    Paragraph
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#blockquotes">
+                    Blockquotes
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#blockquote-without-attribution">
+                    Blockquote without attribution
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#blockquote-with-attribution">
+                    Blockquote with attribution
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#tables">
+                    Tables
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#inline-markdown-within-tables">
+                    Inline Markdown within tables
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#code-blocks">
+                    Code Blocks
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#code-block-with-backticks">
+                    Code block with backticks
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#code-block-indented-with-four-spaces">
+                    Code block indented with four spaces
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#code-block-with-hugos-internal-highlight-shortcode">
+                    Code block with Hugo’s internal highlight shortcode
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#list-types">
+                    List Types
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#ordered-list">
+                    Ordered List
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#unordered-list">
+                    Unordered List
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                    <ul class="toc-h3">
+                
+                    <ul class="toc-h4">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#nested-list">
+                    Nested list
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+        
+        
+            
+                
+                
+                
+                    <ul class="toc-h1">
+                
+                    <ul class="toc-h2">
+                
+                
+                
+                
+                <li>
+                  <a href="/2020/04/20/rmd-r/#other-elements--abbr-sub-sup-kbd-mark">
+                    Other Elements — abbr, sub, sup, kbd, mark
+                  </a>
+                </li>
+                
+                
+                    </ul>
+                
+                    </ul>
+                
+            
+        
+    
+</div>
+
+          <a href="javascript:void(0)" style="padding-top:120px;"></a>
+        </aside>
+
+    
+  <article class="article">
+    <div class="article-header-container">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Markdown Syntax</h1>
+
+    
+    <span class="article-date">2020-04-20</span>
+    
+    
+    <span class="article-author">
+    </span>
+    
+    
+
+    </div>
+    <div class="article-content">
+      
+
+<div id="TOC">
+true
+</div>
+
+<p>Hello this is me.</p>
+<div id="headings" class="section level2">
+<h2>Headings</h2>
+<p>The following HTML <code>&lt;h1&gt;</code>—<code>&lt;h6&gt;</code> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level while <code>&lt;h6&gt;</code> is the lowest.</p>
+</div>
+<div id="h1" class="section level1">
+<h1>H1</h1>
+<div id="h2" class="section level2">
+<h2>H2</h2>
+<div id="h3" class="section level3">
+<h3>H3</h3>
+<div id="h4" class="section level4">
+<h4>H4</h4>
+<div id="h5" class="section level5">
+<h5>H5</h5>
+<div id="h6" class="section level6">
+<h6>H6</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="paragraph" class="section level2">
+<h2>Paragraph</h2>
+<p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.</p>
+<p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.</p>
+</div>
+<div id="blockquotes" class="section level2">
+<h2>Blockquotes</h2>
+<p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally with in-line changes such as annotations and abbreviations.</p>
+<div id="blockquote-without-attribution" class="section level4">
+<h4>Blockquote without attribution</h4>
+<blockquote>
+<p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+<strong>Note</strong> that you can use <em>Markdown syntax</em> within a blockquote.</p>
+</blockquote>
+</div>
+<div id="blockquote-with-attribution" class="section level4">
+<h4>Blockquote with attribution</h4>
+<blockquote>
+Don’t communicate by sharing memory, share memory by communicating.
+</p>
+<p>— <cite>Rob Pike<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></cite></p>
+</blockquote>
+</div>
+</div>
+<div id="tables" class="section level2">
+<h2>Tables</h2>
+<p>Tables aren’t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bob</td>
+<td>27</td>
+</tr>
+<tr class="even">
+<td>Alice</td>
+<td>23</td>
+</tr>
+</tbody>
+</table>
+<div id="inline-markdown-within-tables" class="section level4">
+<h4>Inline Markdown within tables</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Inline   </th>
+<th>Markdown   </th>
+<th>In   </th>
+<th>Table</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>italics</em></td>
+<td><strong>bold</strong></td>
+<td><del>strikethrough</del>   </td>
+<td><code>code</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="code-blocks" class="section level2">
+<h2>Code Blocks</h2>
+<div id="code-block-with-backticks" class="section level4">
+<h4>Code block with backticks</h4>
+<pre><code>html
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Example HTML5 Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Test&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<div id="code-block-indented-with-four-spaces" class="section level4">
+<h4>Code block indented with four spaces</h4>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Example HTML5 Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Test&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<div id="code-block-with-hugos-internal-highlight-shortcode" class="section level4">
+<h4>Code block with Hugo’s internal highlight shortcode</h4>
+{{&lt; highlight html &gt;}}
+&lt;!DOCTYPE html&gt;
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>
+Example HTML5 Document
+</title>
+</head>
+<body>
+<p>
+Test
+</p>
+</body>
+</html>
+<p>{{&lt; /highlight &gt;}}</p>
+</div>
+</div>
+<div id="list-types" class="section level2">
+<h2>List Types</h2>
+<div id="ordered-list" class="section level4">
+<h4>Ordered List</h4>
+<ol style="list-style-type: decimal">
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ol>
+</div>
+<div id="unordered-list" class="section level4">
+<h4>Unordered List</h4>
+<ul>
+<li>List item</li>
+<li>Another item</li>
+<li>And another item</li>
+</ul>
+</div>
+<div id="nested-list" class="section level4">
+<h4>Nested list</h4>
+<ul>
+<li>Item
+<ol style="list-style-type: decimal">
+<li>First Sub-item</li>
+<li>Second Sub-item</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="other-elements-abbr-sub-sup-kbd-mark" class="section level2">
+<h2>Other Elements — abbr, sub, sup, kbd, mark</h2>
+<p><abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.</p>
+<p>H<sub>2</sub>O</p>
+<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
+<p>Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.</p>
+<p>Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>The above quote is excerpted from Rob Pike’s <a href="https://www.youtube.com/watch?v=PAAkCSZUG1c">talk</a> during Gopherfest, November 18, 2015.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+
+    </div>
+  </article>
+  
+
+  
+
+
+</main>
+
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>All rights reserved - 2020</li>
+
+
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+    
+    
+     <script>
+  
+    window.onscroll = function() {
+    
+    }
+    
+var prevScrollpos = window.pageYOffset;
+
+var mybutton = document.getElementById("upBtn");
+
+
+window.onscroll = function() {scrollFunction();
+  var currentScrollPos = window.pageYOffset;
+
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0";
+      } else {
+        document.getElementById("header").style.top = "-200px";
+      }
+
+      prevScrollpos = currentScrollPos;
+};
+
+function scrollFunction() {
+
+    if (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450) {
+      mybutton.style.display = "block";
+      mybutton.style.opacity = '1';
+    } else {
+      mybutton.style.display = "none";
+      mybutton.style.opacity = '0';
+    }
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+<script>
+
+function openNav() {
+    var a = window.innerWidth;
+  if (a < 340) {
+    document.getElementById("mySidenav").style.width = "100%"; 
+  }
+  document.getElementById("mySidenav").style.transform = "translateX(0)"; 
+  document.getElementById("mySidenav").style.overflow = "auto"; 
+  document.getElementById("mySidenav").style.left = "0"; 
+  document.getElementById("main").style.transition= "0.3s ease";
+  document.getElementById("nav").style.transition= "0.3s ease";
+  document.getElementById("main").style.marginLeft = "320px";
+  document.getElementById("nav").style.marginLeft = "320px";
+  document.getElementById("openBtn").style.opacity = "0"; 
+  document.getElementById("closebtn").style.opacity = "1"; 
+  
+}
+
+function closeNav() {
+
+  document.getElementById("mySidenav").style.transform = "translateX(-2500px)"; 
+  document.getElementById("mySidenav").style.overflow = "hidden";  
+  document.getElementById("main").style.transition= "0.3s ease";
+  document.getElementById("nav").style.transition= "0.3s ease";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("nav").style.marginLeft = "0";
+  document.getElementById("openBtn").style.opacity = "1";  
+  document.getElementById("closebtn").style.opacity = "0";  
+}
+  
+</script>
+
+
+
+
+
+<script>
+
+function closeMen() {
+  document.getElementById("wrapperResp").style.width = "0";
+  document.getElementById("wrapperResp").classList.remove("borderMenu");
+  document.getElementById("openBtnMenu").style.opacity = "1";
+  document.getElementById("openBtn").style.opacity = "1";
+}
+
+function openMen() {
+  var w = window.innerWidth;
+  if (w > 300) {
+      document.getElementById("wrapperResp").style.width = "300px";
+      document.getElementById("wrapperResp").classList.add("borderMenu");
+  } else {
+      document.getElementById("wrapperResp").style.width = "100%";
+  }
+
+  document.getElementById("openBtnMenu").style.opacity = "0";
+  document.getElementById("openBtn").style.opacity = "0";
+
+
+}
+
+</script>
+  
+  </body>
+</html>
+
+
+</div>

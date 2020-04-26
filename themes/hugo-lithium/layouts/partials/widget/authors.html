@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+
+
+{{ $baseurl := .Site.BaseURL }}
+
+<div class="panel-body">
+    <div class="authors-list">
+        {{ range $name, $items := .Site.Params.authors }}
+            {{ range $key, $val := $items }}
+                {{ if eq $key "name" }}
+                <p><a href="{{ $baseurl }}authors/{{ $val | urlize | lower }}"><i class="fa fa-tags"></i> {{ $val }}</a>
+                </p>
+                <div>
+                    {{ range .Pages }}
+    {{ .Render "li" }}
+{{ end }}
+                </div>
+                {{ end }}
+            {{ end }}
+
+        {{ end }}
+    </div>
+    
+</div>

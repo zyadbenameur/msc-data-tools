@@ -1,0 +1,22 @@
+---
+title: toc test
+authors: 
+  - Zyad Benameur
+date: '2020-04-06'
+slug: toc-test
+categories:
+  - R
+tags:
+  - toc
+toc: true
+description: This is a test to set toc correclty. 
+---
+
+Hello this is me.
+
+
+# Hi
+
+## Hi 2
+
+### Hi 3

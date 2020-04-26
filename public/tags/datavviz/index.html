@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-us" color-mode="light">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://use.fontawesome.com/537098519d.js"></script>
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+<title>DatavViz - Data science for students</title>
+<meta property="og:title" content="DatavViz - Data science for students">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+<link href="/tags/datavviz/index.xml" rel="alternate" type="application/rss+xml" title="Data science for students" />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  
+  <body class="scrollbar">
+    <div id="header">
+      
+      
+      <div class="navbarResp"></div>
+      
+      <div  id="openBtnMenu" onclick="openMen()"><span><span>Menu</span> &#9776; </span></div>
+
+      <div class="buttonThemeFull">
+        <button class="colorBtn light--hidden" aria-label="Toggle light mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+        <button class="colorBtn dark--hidden" aria-label="Toggle dark mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+     </div>
+    
+     
+     
+      <button onclick="topFunction()" id="upBtn" title="Go to top">Top</button>
+
+
+    <script>
+
+        var toggleColorMode = function toggleColorMode(e) {
+        
+        if (e.currentTarget.classList.contains("light--hidden")) {
+          
+          document.documentElement.setAttribute("color-mode", "light"); 
+          localStorage.setItem("color-mode", "light");
+          return;
+        }
+        
+
+        document.documentElement.setAttribute("color-mode", "dark"); 
+        localStorage.setItem("color-mode", "dark");
+         }; 
+    
+         var toggleColorButtons = document.querySelectorAll(".colorBtn"); 
+    
+        toggleColorButtons.forEach(function(btn) {
+        btn.addEventListener("click", toggleColorMode);
+        });
+      
+         
+    
+        const currentTheme = localStorage.getItem('color-mode') ? localStorage.getItem('color-mode') : null;
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('color-mode', currentTheme);
+            
+        };
+    
+    </script>
+
+<header> 
+    <div class="wrapper">
+    
+      <nav class="nav" id="nav">
+    <ul class="nav-links">
+    
+    <li id="menulist"><a href="/">Home</a></li>
+    
+    <li id="menulist"><a href="/authors/">Authors</a></li>
+    
+    <li id="menulist"><a href="/tags/">Tags</a></li>
+    
+    <li id="menulist"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulist"><a href="/about/">About</a></li>
+    
+    </ul>
+
+    
+    <ul class="nav-linksResp">
+    <span id="closebtnMenu" onclick="closeMen()">&times;</span>
+    
+       <div class="buttonThemeResp">
+        <button class="colorBtn light--hidden" aria-label="Toggle light mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+        <button class="colorBtn dark--hidden" aria-label="Toggle dark mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+       </div>    
+    
+    <li id="menulistresp"><a href="/">Home</a></li>
+    
+    <li id="menulistresp"><a href="/authors/">Authors</a></li>
+    
+    <li id="menulistresp"><a href="/tags/">Tags</a></li>
+    
+    <li id="menulistresp"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulistresp"><a href="/about/">About</a></li>
+    
+
+    </ul>
+</nav>
+    </div>
+    <div id="wrapperResp">
+      <nav class="nav" id="nav">
+    <ul class="nav-links">
+    
+    <li id="menulist"><a href="/">Home</a></li>
+    
+    <li id="menulist"><a href="/authors/">Authors</a></li>
+    
+    <li id="menulist"><a href="/tags/">Tags</a></li>
+    
+    <li id="menulist"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulist"><a href="/about/">About</a></li>
+    
+    </ul>
+
+    
+    <ul class="nav-linksResp">
+    <span id="closebtnMenu" onclick="closeMen()">&times;</span>
+    
+       <div class="buttonThemeResp">
+        <button class="colorBtn light--hidden" aria-label="Toggle light mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+        <button class="colorBtn dark--hidden" aria-label="Toggle dark mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+       </div>    
+    
+    <li id="menulistresp"><a href="/">Home</a></li>
+    
+    <li id="menulistresp"><a href="/authors/">Authors</a></li>
+    
+    <li id="menulistresp"><a href="/tags/">Tags</a></li>
+    
+    <li id="menulistresp"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulistresp"><a href="/about/">About</a></li>
+    
+
+    </ul>
+</nav>
+    </div>
+  
+
+
+</header>
+</div>
+</body>
+
+<main class="contentlist" role="main">
+
+    
+    
+    
+    <h2 class="archive-year-title" style="padding-top:100px;">2020</h2>
+    
+
+    <article class="archive-container">
+      
+      <a href="/2020/04/26/new-test/" class="archive-item-link">New Test</a>
+        
+      <div class="archive-info-cont">
+        <div class="archive-date">Apr 26, 2020<span class="archive-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg></span></div>
+      
+        <div class="archive-readtime">1 min read<span class="archive-svg"><svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg></span></div>
+      
+      
+        <div><a href="/authors/zyad-benameur">
+        Zyad Benameur<span class="archive-svg"><svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16"><path fill="currentColor" d="M 16 5 C 12.144531 5 9 8.144531 9 12 C 9 14.410156 10.230469 16.550781 12.09375 17.8125 C 8.527344 19.34375 6 22.882813 6 27 L 8 27 C 8 22.570313 11.570313 19 16 19 C 20.429688 19 24 22.570313 24 27 L 26 27 C 26 22.882813 23.472656 19.34375 19.90625 17.8125 C 21.769531 16.550781 23 14.410156 23 12 C 23 8.144531 19.855469 5 16 5 Z M 16 7 C 18.773438 7 21 9.226563 21 12 C 21 14.773438 18.773438 17 16 17 C 13.226563 17 11 14.773438 11 12 C 11 9.226563 13.226563 7 16 7 Z"/></svg></span></a></div> 
+
+      
+      </div>      
+
+      <div class="archive-description">
+        
+
+     
+      
+        A test for final adjustments
+      
+     
+      </div>
+      <div class="archive-tags-cont"> 
+    
+      <a href="/tags/datavviz"  class="archive-tags">
+        DatavViz
+      </a>  
+    
+      <a href="/tags/r"  class="archive-tags">
+        R
+      </a>  
+    
+      <a href="/tags/ggplot2"  class="archive-tags">
+        ggplot2
+      </a>  
+    
+      <a href="/tags/plot"  class="archive-tags">
+        plot
+      </a>  
+    
+      </div>
+    </article>
+    
+
+    <article class="archive-container">
+      
+      <a href="/2020/04/19/graphics/" class="archive-item-link">This is a test</a>
+        
+      <div class="archive-info-cont">
+        <div class="archive-date">Apr 19, 2020<span class="archive-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg></span></div>
+      
+        <div class="archive-readtime">2 min read<span class="archive-svg"><svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg></span></div>
+      
+      
+      </div>      
+
+      <div class="archive-description">
+        
+
+     
+      
+        This is a test to set toc correclty.
+      
+     
+      </div>
+      <div class="archive-tags-cont"> 
+    
+      <a href="/tags/ggplot2"  class="archive-tags">
+        ggplot2
+      </a>  
+    
+      <a href="/tags/r"  class="archive-tags">
+        R
+      </a>  
+    
+      <a href="/tags/datavviz"  class="archive-tags">
+        DatavViz
+      </a>  
+    
+      </div>
+    </article>
+    
+    
+
+
+</main>
+
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>All rights reserved - 2020</li>
+
+
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+    
+    
+     <script>
+  
+    window.onscroll = function() {
+    
+    }
+    
+var prevScrollpos = window.pageYOffset;
+
+var mybutton = document.getElementById("upBtn");
+
+
+window.onscroll = function() {scrollFunction();
+  var currentScrollPos = window.pageYOffset;
+
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0";
+      } else {
+        document.getElementById("header").style.top = "-200px";
+      }
+
+      prevScrollpos = currentScrollPos;
+};
+
+function scrollFunction() {
+
+    if (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450) {
+      mybutton.style.display = "block";
+      mybutton.style.opacity = '1';
+    } else {
+      mybutton.style.display = "none";
+      mybutton.style.opacity = '0';
+    }
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+<script>
+
+function openNav() {
+    var a = window.innerWidth;
+  if (a < 340) {
+    document.getElementById("mySidenav").style.width = "100%"; 
+  }
+  document.getElementById("mySidenav").style.transform = "translateX(0)"; 
+  document.getElementById("mySidenav").style.overflow = "auto"; 
+  document.getElementById("mySidenav").style.left = "0"; 
+  document.getElementById("main").style.transition= "0.3s ease";
+  document.getElementById("nav").style.transition= "0.3s ease";
+  document.getElementById("main").style.marginLeft = "320px";
+  document.getElementById("nav").style.marginLeft = "320px";
+  document.getElementById("openBtn").style.opacity = "0"; 
+  document.getElementById("closebtn").style.opacity = "1"; 
+  
+}
+
+function closeNav() {
+
+  document.getElementById("mySidenav").style.transform = "translateX(-2500px)"; 
+  document.getElementById("mySidenav").style.overflow = "hidden";  
+  document.getElementById("main").style.transition= "0.3s ease";
+  document.getElementById("nav").style.transition= "0.3s ease";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("nav").style.marginLeft = "0";
+  document.getElementById("openBtn").style.opacity = "1";  
+  document.getElementById("closebtn").style.opacity = "0";  
+}
+  
+</script>
+
+
+
+
+
+<script>
+
+function closeMen() {
+  document.getElementById("wrapperResp").style.width = "0";
+  document.getElementById("wrapperResp").classList.remove("borderMenu");
+  document.getElementById("openBtnMenu").style.opacity = "1";
+  document.getElementById("openBtn").style.opacity = "1";
+}
+
+function openMen() {
+  var w = window.innerWidth;
+  if (w > 300) {
+      document.getElementById("wrapperResp").style.width = "300px";
+      document.getElementById("wrapperResp").classList.add("borderMenu");
+  } else {
+      document.getElementById("wrapperResp").style.width = "100%";
+  }
+
+  document.getElementById("openBtnMenu").style.opacity = "0";
+  document.getElementById("openBtn").style.opacity = "0";
+
+
+}
+
+</script>
+  
+  </body>
+</html>
+
+
+
+

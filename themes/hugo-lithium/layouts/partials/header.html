@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" color-mode="light">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  
+  <body class="scrollbar">
+    <div id="header">
+      
+      <!--Menubar fixed <700px-->
+      <div class="navbarResp"></div>
+      
+      <div  id="openBtnMenu" onclick="openMen()"><span><span>Menu</span> &#9776; </span></div>
+
+      <div class="buttonThemeFull">
+        <button class="colorBtn light--hidden" aria-label="Toggle light mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+        
+        <button class="colorBtn dark--hidden" aria-label="Toggle dark mode">
+          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+        </button>
+     </div>
+    
+     
+     
+      <button onclick="topFunction()" id="upBtn" title="Go to top">Top</button>
+
+
+    <script>
+
+        var toggleColorMode = function toggleColorMode(e) {
+        // Switch to Light Mode
+        if (e.currentTarget.classList.contains("light--hidden")) {
+          // Sets the custom html attribute
+          document.documentElement.setAttribute("color-mode", "light"); // Sets the user's preference in local storage
+          localStorage.setItem("color-mode", "light");
+          return;
+        }
+        /* Switch to Dark Mode
+        Sets the custom html attribute */
+        document.documentElement.setAttribute("color-mode", "dark"); // Sets the user's preference in local storage
+        localStorage.setItem("color-mode", "dark");
+         }; // Get the buttons in the DOM
+    
+         var toggleColorButtons = document.querySelectorAll(".colorBtn"); // Set up event listeners
+    
+        toggleColorButtons.forEach(function(btn) {
+        btn.addEventListener("click", toggleColorMode);
+        });
+      
+        /* Check user history for preferences*/
+    
+        const currentTheme = localStorage.getItem('color-mode') ? localStorage.getItem('color-mode') : null;
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('color-mode', currentTheme);
+            
+        };
+    
+    </script>
+
+<header> 
+    <div class="wrapper">
+    
+      {{ partial "nav.html" . }}
+    </div>
+    <div id="wrapperResp">
+      {{ partial "nav.html" . }}
+    </div>
+  
+
+
+</header>
+</div>
+</body>
