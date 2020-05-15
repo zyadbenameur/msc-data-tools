@@ -65,9 +65,6 @@
 
 .colorBtn:hover {
   background-color: var(--colorBtn-color-hover);
-  -ms-transform: scale(1.03); /* IE 9 */
-  -webkit-transform: scale(1.03); /* Safari 3-8 */
-  transform: scale(1.03);
 }
 
 
@@ -199,6 +196,11 @@ img {
   cursor:pointer;
   transition: 0.3s ease-in;
   opacity:1;
+}
+
+
+#openBtnlabel {
+    padding-left:5px;
 }
 
 #openBtn:hover,
@@ -614,7 +616,7 @@ ul {
   background-color: var(--upbtn-bg);
   color: var(--upbtn-fontcolor);
   cursor: pointer;
-  padding: 8px;
+  padding: 5px 6px;
   border-radius: 4px;
 }
 
@@ -720,12 +722,10 @@ ul {
 }
 
     @media (max-width: 1200px) {
-      
-#openBtn {
-    font-size:;
-}
+
 
 #openBtnlabel {
+    padding-left:5px;
     display: none;
 }
 
@@ -866,7 +866,7 @@ ul {
   position: fixed;
   top:13px;
   right:20px;
-  z-index:5;
+  z-index:20;
   cursor:pointer;
   transition: 0.3s ease-in;
     
@@ -887,6 +887,7 @@ ul {
   display:block;
   position: absolute;
   top: 0;
+  z-index: 30;
   left: 5px;
   font-size: 36px;
   margin-left: 0;

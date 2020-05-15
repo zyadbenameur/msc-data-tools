@@ -31,7 +31,7 @@
       
       {{range .Params.Authors }}
         <div><a href="{{ "authors/" | relLangURL }}{{ . | urlize }}">
-        {{ . }}<span class="archive-svg">{{ partial "avatar.svg" (dict "width" 16 "height" 16) }}</span></a></div> 
+        {{ . }}</a><span class="archive-svg">{{ partial "avatar.svg" (dict "width" 16 "height" 16) }}</span></div> 
 
       {{ end }}
       </div>      

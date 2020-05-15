@@ -59,7 +59,7 @@ function topFunction() {
 
 function openNav() {
     var a = window.innerWidth;
-  if (a < 340) {
+  if (a < 400) {
     document.getElementById("mySidenav").style.width = "100%"; 
   }
   document.getElementById("mySidenav").style.transform = "translateX(0)"; 
@@ -98,12 +98,12 @@ function closeMen() {
   document.getElementById("wrapperResp").style.width = "0";
   document.getElementById("wrapperResp").classList.remove("borderMenu");
   document.getElementById("openBtnMenu").style.opacity = "1";
-  document.getElementById("openBtn").style.opacity = "1";
+  document.getElementById("openBtn").style.display = "block";
 }
 
 function openMen() {
   var w = window.innerWidth;
-  if (w > 300) {
+  if (w > 400) {
       document.getElementById("wrapperResp").style.width = "300px";
       document.getElementById("wrapperResp").classList.add("borderMenu");
   } else {
@@ -111,7 +111,7 @@ function openMen() {
   }
 
   document.getElementById("openBtnMenu").style.opacity = "0";
-  document.getElementById("openBtn").style.opacity = "0";
+  document.getElementById("openBtn").style.display = "none";
 
 
 }
