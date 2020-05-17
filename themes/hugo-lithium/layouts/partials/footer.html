@@ -1,7 +1,15 @@
 
       <footer class="footer">
+        
         <ul class="footer-links">
-          <li>All rights reserved - 2020</li>
+          <li><i class="far fa-copyright"></i> Zyad Benameur, 2020 · Made with the <a href="https://cran.r-project.org/"><img src="/images/Rlogo.png" alt="R logo" style="width:12px;height:12px;" target="_blank"></a> <a href="https://github.com/rstudio/blogdown" target="_blank">Blogdown</a> package, using <a href="https://gohugo.io/" target="_blank">Hugo</a>.</li>
+          <li>Initially based on <a href="https://github.com/yihui/hugo-lithium" target="_blank">@yihui/hugo-lithium</a> theme and modified by <a href="/authors/zyad-benameur/">Zyad Benameur</a></li>
+          <li><a href="/licence/">LICENSE: CC-BY-SA</a>
+          <a href="/licence/">
+          <i class="fa fa-creative-commons" aria-hidden="true"></i>
+          <i class="fab fa-creative-commons-by"></i>
+          <i class="fab fa-creative-commons-sa"></i>
+          </a></li>
 
 
         </ul>
@@ -59,7 +67,7 @@ function topFunction() {
 
 function openNav() {
     var a = window.innerWidth;
-  if (a < 400) {
+  if (a < 450) {
     document.getElementById("mySidenav").style.width = "100%"; 
   }
   document.getElementById("mySidenav").style.transform = "translateX(0)"; 
@@ -103,7 +111,7 @@ function closeMen() {
 
 function openMen() {
   var w = window.innerWidth;
-  if (w > 400) {
+  if (w > 450) {
       document.getElementById("wrapperResp").style.width = "300px";
       document.getElementById("wrapperResp").classList.add("borderMenu");
   } else {

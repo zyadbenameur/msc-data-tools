@@ -2,12 +2,28 @@
 
 <main class="contentlist" role="main">
 
+  <div class="theme-title">
+    <h3>Posts in theme : {{ .Title }} ({{ $pageCount := len .Pages }}
+                    {{ $pageCount }})</h3></div>
+
+
+  {{ if .Content }}
+  <article class="article">
+    {{ if .Title }}
+    <h1 class="article-title" id="hometitle">{{ .Title }}</h1>
+    {{ end }}
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+  </article>
+  {{ end }}
+  
     {{ $pages := .Pages }}
     {{ if .IsHome }}
     {{ $pages = .Site.RegularPages }}
     {{ end }}
     {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
-    <h2 class="archive-year-title" style="padding-top:100px;">{{ .Key }}</h2>
+    <h3 class="archive-year-title">{{ .Key }}</h3>
     {{ range .Pages }}
 
     <article class="archive-container">
@@ -15,13 +31,14 @@
       <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
         
       <div class="archive-info-cont">
-        <div class="archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg">{{ partial "calendar.svg" (dict "width" 16 "height" 16) }}</span></div>
+        
+        <div class="archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>
       
-        <div class="archive-readtime">{{ .ReadingTime }} {{ i18n "reading-time" }}<span class="archive-svg">{{ partial "time.svg" (dict "width" 16 "height" 16) }}</span></div>
+        <div class="archive-readtime">{{ .ReadingTime }} {{ i18n "reading-time" }}<span class="archive-svg"><i class="far fa-clock"></i></span></div>
       
       {{range .Params.Authors }}
         <div><a href="{{ "authors/" | relLangURL }}{{ . | urlize }}">
-        {{ . }}<span class="archive-svg">{{ partial "avatar.svg" (dict "width" 16 "height" 16) }}</span></a></div> 
+        {{ . }}</a><i class="archive-svg fas fa-user-circle" aria-hidden="true"></i></div> 
 
       {{ end }}
       </div>      

@@ -3,7 +3,7 @@
 <div id="main">
 <main class="content" role="main">
     
-        
+      {{ if .Params.toc }}
       <div  id="openBtn" onclick="openNav()"><span><i class="fa fa-list-ul" aria-hidden="true"></i><span id="openBtnlabel">Table of Content</span></span></div>
       <span id="closebtn" onclick="closeNav()">&times;</span>
       
@@ -12,7 +12,7 @@
           {{ partial "table_of_contents.html" . }}
           <a href="javascript:void(0)" style="padding-top:120px;"></a>
         </aside>
-
+      {{ end }}
     
   <article class="article">
     <div class="article-header-container">

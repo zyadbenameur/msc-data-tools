@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script src="https://use.fontawesome.com/537098519d.js"></script>
+<script src="https://kit.fontawesome.com/46df15460e.js" crossorigin="anonymous"></script>
 <meta name="generator" content="Hugo 0.68.3" />
 
 
@@ -13,7 +13,7 @@
 <meta property="og:title" content="Author testing - Data science for students">
 
 
-  <link href='/logo.ico' rel='icon' type='image/x-icon'/>
+  <link href='/favicon.png' rel='icon' type='image/x-icon'/>
 
 
 
@@ -29,6 +29,9 @@
 
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/author.css" media="all">
+<link rel="stylesheet" href="/css/author-main.css" media="all">
+<link rel="stylesheet" href="/css/themes.css" media="all">
 
 
 
@@ -45,15 +48,15 @@
 
       <div class="buttonThemeFull">
         <button class="colorBtn light--hidden" aria-label="Toggle light mode">
-          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+          <i class="fas fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
         </button>
         
         <button class="colorBtn dark--hidden" aria-label="Toggle dark mode">
-          <i class="fa fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
+          <i class="fas fa-adjust fa-2x fa-fw" aria-hidden="true"></i>
         </button>
      </div>
     
-     
+ 
      
       <button onclick="topFunction()" id="upBtn" title="Go to top">
         <i class="fa fa-arrow-up" aria-hidden="true"></i></button>
@@ -93,18 +96,21 @@
     </script>
 
 <header> 
+
     <div class="wrapper">
-    
       <nav class="nav" id="nav">
+    
     <ul class="nav-links">
     
     <li id="menulist"><a href="/">Home</a></li>
     
     <li id="menulist"><a href="/authors/">Authors</a></li>
     
+    <li id="menulist"><a href="/categories/">Themes</a></li>
+    
     <li id="menulist"><a href="/tags/">Tags</a></li>
     
-    <li id="menulist"><a href="/categories/">Categories</a></li>
+    <li id="menulist"><a href="/about/">About</a></li>
     
     </ul>
 
@@ -127,25 +133,31 @@
     
     <li id="menulistresp"><a href="/authors/">Authors</a></li>
     
+    <li id="menulistresp"><a href="/categories/">Themes</a></li>
+    
     <li id="menulistresp"><a href="/tags/">Tags</a></li>
     
-    <li id="menulistresp"><a href="/categories/">Categories</a></li>
+    <li id="menulistresp"><a href="/about/">About</a></li>
     
 
     </ul>
 </nav>
     </div>
     <div id="wrapperResp">
+
       <nav class="nav" id="nav">
+    
     <ul class="nav-links">
     
     <li id="menulist"><a href="/">Home</a></li>
     
     <li id="menulist"><a href="/authors/">Authors</a></li>
     
+    <li id="menulist"><a href="/categories/">Themes</a></li>
+    
     <li id="menulist"><a href="/tags/">Tags</a></li>
     
-    <li id="menulist"><a href="/categories/">Categories</a></li>
+    <li id="menulist"><a href="/about/">About</a></li>
     
     </ul>
 
@@ -168,9 +180,11 @@
     
     <li id="menulistresp"><a href="/authors/">Authors</a></li>
     
+    <li id="menulistresp"><a href="/categories/">Themes</a></li>
+    
     <li id="menulistresp"><a href="/tags/">Tags</a></li>
     
-    <li id="menulistresp"><a href="/categories/">Categories</a></li>
+    <li id="menulistresp"><a href="/about/">About</a></li>
     
 
     </ul>
@@ -185,7 +199,7 @@
 <div id="main">
 <main class="content" role="main">
     
-        
+      
       <div  id="openBtn" onclick="openNav()"><span><i class="fa fa-list-ul" aria-hidden="true"></i><span id="openBtnlabel">Table of Content</span></span></div>
       <span id="closebtn" onclick="closeNav()">&times;</span>
       
@@ -232,7 +246,7 @@
 
           <a href="javascript:void(0)" style="padding-top:120px;"></a>
         </aside>
-
+      
     
   <article class="article">
     <div class="article-header-container">
@@ -248,7 +262,7 @@
     
     <span class="article-author">
     <ul style="list-style-type:none;padding-left: 15px;">
-      <li><a href="/authors/jonh-doe">Jonh Doe</li></a>
+      <li><a href="/authors/john-doe">John Doe</li></a>
     </ul>
     
     <ul style="list-style-type:none;padding-left: 15px;">
@@ -286,8 +300,16 @@ yes
 
 
       <footer class="footer">
+        
         <ul class="footer-links">
-          <li>All rights reserved - 2020</li>
+          <li><i class="far fa-copyright"></i> Zyad Benameur, 2020 · Made with the <a href="https://cran.r-project.org/"><img src="/images/Rlogo.png" alt="R logo" style="width:12px;height:12px;" target="_blank"></a> <a href="https://github.com/rstudio/blogdown" target="_blank">Blogdown</a> package, using <a href="https://gohugo.io/" target="_blank">Hugo</a>.</li>
+          <li>Initially based on <a href="https://github.com/yihui/hugo-lithium" target="_blank">@yihui/hugo-lithium</a> theme and modified by <a href="/authors/zyad-benameur/">Zyad Benameur</a></li>
+          <li><a href="/licence/">LICENSE: CC-BY-SA</a>
+          <a href="/licence/">
+          <i class="fa fa-creative-commons" aria-hidden="true"></i>
+          <i class="fab fa-creative-commons-by"></i>
+          <i class="fab fa-creative-commons-sa"></i>
+          </a></li>
 
 
         </ul>
@@ -347,7 +369,7 @@ function topFunction() {
 
 function openNav() {
     var a = window.innerWidth;
-  if (a < 400) {
+  if (a < 450) {
     document.getElementById("mySidenav").style.width = "100%"; 
   }
   document.getElementById("mySidenav").style.transform = "translateX(0)"; 
@@ -391,7 +413,7 @@ function closeMen() {
 
 function openMen() {
   var w = window.innerWidth;
-  if (w > 400) {
+  if (w > 450) {
       document.getElementById("wrapperResp").style.width = "300px";
       document.getElementById("wrapperResp").classList.add("borderMenu");
   } else {

@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script src="https://use.fontawesome.com/537098519d.js"></script>
+<script src="https://kit.fontawesome.com/46df15460e.js" crossorigin="anonymous"></script>
 {{ hugo.Generator }}
 
 {{ if eq .RelPermalink "/" }}
@@ -34,6 +34,9 @@
 {{ partial "head_highlightjs" . }}
 <link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}" media="all">
 <link rel="stylesheet" href="{{ "css/main.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "css/author.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "css/author-main.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "css/themes.css" | relURL }}" media="all">
 {{ range .Site.Params.customCSS }}
 <link rel="stylesheet" href="{{ . | relURL }}">
 {{ end }}

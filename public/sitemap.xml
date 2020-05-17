@@ -3,18 +3,68 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/authors/zyad-benameur/</loc>
-    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
+    <loc>/authors/patrik-carvalho-carreira/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/article-reviews/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/projects/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-libraries/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/recommander-system/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/05/16/recommander-systems/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tutorial/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/zyad-benameur/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -24,6 +74,11 @@
   
   <url>
     <loc>/tags/ggplot2/</loc>
+    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/m.sc./</loc>
     <lastmod>2020-04-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -38,58 +93,8 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/patrik-carvalho-carreira/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/article-reviews/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-libraries/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/recommander-system/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2020/04/24/recommander-systems/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tutorial/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/tutorial/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+    <loc>/authors/john-doe/</loc>
+    <lastmod>2020-04-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -98,8 +103,8 @@
   </url>
   
   <url>
-    <loc>/authors/jonh-doe/</loc>
-    <lastmod>2020-04-23T00:00:00+00:00</lastmod>
+    <loc>/2020/04/20/linkedin/</loc>
+    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -113,27 +118,27 @@
   </url>
   
   <url>
-    <loc>/2020/04/20/rmd-external/</loc>
-    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/ggplot2/</loc>
-    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/graph/</loc>
-    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2020/04/19/notoc/</loc>
+    <loc>/about/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/interview/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/licence/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/04/19/notoc/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -153,42 +158,7 @@
   </url>
   
   <url>
-    <loc>/tags/css/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/html/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/markdown/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2019/03/11/markdown-syntax-guide/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/syntax/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/themes/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/themes/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/john-doe/</loc>
+    <loc>/authors/captain-canada/</loc>
   </url>
   
 </urlset>

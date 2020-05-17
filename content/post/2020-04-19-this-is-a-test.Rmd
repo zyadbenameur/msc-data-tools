@@ -4,9 +4,7 @@ author: "Zyad Benameur"
 date: '2020-04-19'
 slug: graphics
 categories:
-  - R
-  - ggplot2
-  - graph
+  - Interview
 tags:
   - ggplot2
   - R

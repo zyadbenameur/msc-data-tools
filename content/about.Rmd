@@ -1,11 +1,11 @@
 ---
-title: This is a test
-author: Zyad Benameur
+title: About
 date: '2020-04-19'
-slug: homepage
+slug: about
+toc: false
+description: This is an about page where the author and blog creator are credited, as well as explaining the purpose of the blog. 
 ---
 
 This is a blog for students in Data Science at HEC Montreal made with [**blogdown**](https://github.com/rstudio/blogdown) package. The theme was forked from [@jrutheiser/hugo-lithium-theme](https://github.com/jrutheiser/hugo-lithium-theme) and modified by [Yihui Xie](https://github.com/yihui/hugo-lithium), and Adapted by _**Zyad Benameur**_.
 
-
-***
+This is an about page

@@ -4,7 +4,7 @@ author: Zyad Benameur
 date: '2020-04-20'
 slug: Rmd-R
 categories:
-  - R
+  - Projects
 tags:
   - R Markdown
 description: This is a test to set toc correclty. 

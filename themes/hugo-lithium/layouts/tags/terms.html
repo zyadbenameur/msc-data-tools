@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+
+<div class="tags-container">
+    {{ range .Data.Terms.ByCount }}
+    <div class="column">
+
+
+                    <a class="" href="{{ .Page.Permalink }}"><i class="fas fa-tag"></i>{{ .Page.Title }}</a>
+                    {{ $pageCount := len .Pages }}
+                    <p>{{ $pageCount }} post{{ if ne $pageCount 1 }}s{{ end }} </p>
+                </div>
+            
+
+    {{ end }}
+</div>
+{{ partial "footer.html" . }}
+
+

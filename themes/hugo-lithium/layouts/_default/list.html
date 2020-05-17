@@ -12,6 +12,8 @@
     </div>
   </article>
   {{ end }}
+  
+  <h2 class="archive-title">Archives</h2>
     {{ $pages := .Pages }}
     {{ if .IsHome }}
     {{ $pages = .Site.RegularPages }}
@@ -25,13 +27,14 @@
       <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
         
       <div class="archive-info-cont">
-        <div class="archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg">{{ partial "calendar.svg" (dict "width" 16 "height" 16) }}</span></div>
+        
+        <div class="archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>
       
-        <div class="archive-readtime">{{ .ReadingTime }} {{ i18n "reading-time" }}<span class="archive-svg">{{ partial "time.svg" (dict "width" 16 "height" 16) }}</span></div>
+        <div class="archive-readtime">{{ .ReadingTime }} {{ i18n "reading-time" }}<span class="archive-svg"><i class="far fa-clock"></i></span></div>
       
       {{range .Params.Authors }}
         <div><a href="{{ "authors/" | relLangURL }}{{ . | urlize }}">
-        {{ . }}</a><span class="archive-svg">{{ partial "avatar.svg" (dict "width" 16 "height" 16) }}</span></div> 
+        {{ . }}</a><i class="archive-svg fas fa-user-circle" aria-hidden="true"></i></div> 
 
       {{ end }}
       </div>      

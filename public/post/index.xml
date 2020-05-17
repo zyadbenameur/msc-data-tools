@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Data science for students</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Systèmes de recommandation en R</title>
+      <link>/2020/05/16/recommander-systems/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/05/16/recommander-systems/</guid>
+      <description>trueRecommender systemsAu cours des dernières années, certaines grandes entreprises ont connu un essor phénoménal grâce aux données de leurs utilisateurs. La collecte de ses données leurs permette de prendre de meilleures décisions et invite l’utilisateur a utilisé davantage leurs plateformes. Cette fidélisation et satisfaction de la clientèle est au coeur des systèmes de recommandations.
+Selon , les systèmes de recommandation (S.R.), dans leur forme la plus simple, peuvent être vu comme un système de classification.</description>
+    </item>
     
     <item>
       <title>New Test</title>
@@ -19,16 +29,6 @@
       <guid>/2020/04/26/new-test/</guid>
       <description>yesR MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
-    </item>
-    
-    <item>
-      <title>Systèmes de recommandation en R</title>
-      <link>/2020/04/24/recommander-systems/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/24/recommander-systems/</guid>
-      <description>trueRecommender systemsAu cours des dernières années, certaines grandes entreprises ont connu un essor phénoménal grâce aux données de leurs utilisateurs. La collecte de ses données leurs permette de prendre de meilleures décisions et invite l’utilisateur a utilisé davantage leurs plateformes. Cette fidélisation et satisfaction de la clientèle est au coeur des systèmes de recommandations.
-Selon , les systèmes de recommandation (S.R.), dans leur forme la plus simple, peuvent être vu comme un système de classification.</description>
     </item>
     
     <item>
@@ -42,6 +42,16 @@ HiHi</description>
     </item>
     
     <item>
+      <title>Linkedin test</title>
+      <link>/2020/04/20/linkedin/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/20/linkedin/</guid>
+      <description>trueR MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
+    </item>
+    
+    <item>
       <title>Markdown Syntax</title>
       <link>/2020/04/20/rmd-r/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
@@ -50,16 +60,6 @@ HiHi</description>
       <description>trueHello this is me.
 HeadingsThe following HTML &amp;lt;h1&amp;gt;—&amp;lt;h6&amp;gt; elements represent six levels of section headings. &amp;lt;h1&amp;gt; is the highest section level while &amp;lt;h6&amp;gt; is the lowest.
 H1H2H3H4H5H6ParagraphXerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur?</description>
-    </item>
-    
-    <item>
-      <title>Title of my Rmd</title>
-      <link>/2020/04/20/rmd-external/</link>
-      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/20/rmd-external/</guid>
-      <description>trueR MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
     </item>
     
     <item>
@@ -89,15 +89,6 @@ Hi, this is my tochi again</description>
       <guid>/2020/04/06/toc-test/</guid>
       <description>trueHello this is me.
 HiHi 2Hi 3</description>
-    </item>
-    
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>/2019/03/11/markdown-syntax-guide/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/03/11/markdown-syntax-guide/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     
   </channel>

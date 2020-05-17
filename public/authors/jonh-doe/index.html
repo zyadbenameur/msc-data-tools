@@ -12,7 +12,7 @@
 <meta property="og:title" content="Jonh Doe - Data science for students">
 
 
-  <link href='/logo.ico' rel='icon' type='image/x-icon'/>
+  <link href='/favicon.png' rel='icon' type='image/x-icon'/>
 
 
 
@@ -28,6 +28,7 @@
 
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/author.css" media="all">
 
 
 
@@ -52,7 +53,7 @@
         </button>
      </div>
     
-     
+ 
      
       <button onclick="topFunction()" id="upBtn" title="Go to top">
         <i class="fa fa-arrow-up" aria-hidden="true"></i></button>
@@ -92,9 +93,10 @@
     </script>
 
 <header> 
+
     <div class="wrapper">
-    
       <nav class="nav" id="nav">
+    
     <ul class="nav-links">
     
     <li id="menulist"><a href="/">Home</a></li>
@@ -104,6 +106,8 @@
     <li id="menulist"><a href="/tags/">Tags</a></li>
     
     <li id="menulist"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulist"><a href="/about/">About</a></li>
     
     </ul>
 
@@ -129,13 +133,17 @@
     <li id="menulistresp"><a href="/tags/">Tags</a></li>
     
     <li id="menulistresp"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulistresp"><a href="/about/">About</a></li>
     
 
     </ul>
 </nav>
     </div>
     <div id="wrapperResp">
+
       <nav class="nav" id="nav">
+    
     <ul class="nav-links">
     
     <li id="menulist"><a href="/">Home</a></li>
@@ -145,6 +153,8 @@
     <li id="menulist"><a href="/tags/">Tags</a></li>
     
     <li id="menulist"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulist"><a href="/about/">About</a></li>
     
     </ul>
 
@@ -170,6 +180,8 @@
     <li id="menulistresp"><a href="/tags/">Tags</a></li>
     
     <li id="menulistresp"><a href="/categories/">Categories</a></li>
+    
+    <li id="menulistresp"><a href="/about/">About</a></li>
     
 
     </ul>
@@ -183,20 +195,47 @@
 </body>
 
 
+<div class="author-container">
+  
+  <div class="author-photo">  
+    
+  </div>
 
-<h1></h1>
-<img src="" alt=""/>
+  <div class="author-name">
+    <h1></h1>
+  </div>
+  
+  <div class="author-contact">
+    <h2>Contact info</h2>
+    <ul>
+    
+    
+    
+    </ul>
+  </div>
+  
+  <div class="author-bio">
+    <h2>Bio</h2>
+    
+  </div>
 
-<h2>Bio</h2>
-
-
-
-<h2>Articles</h2>
-<ul>
-
-    <li><a href="/2020/04/23/new-test/">Author testing</a></li>
-
-</ul>
+  
+  <div class="author-articles">
+    <h2>Posts (
+                    1)</h2>
+    
+    <div class="author-article-container">
+        <a href="/2020/04/23/new-test/"><span class="author-articles-title">Author testing</span></a>
+        <div class="author-articles-descr">
+        
+          Hi
+        </div>
+        <div class="author-archive-date">Apr 23, 2020<span class="archive-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg></span></div>
+    </div>  
+    
+    
+  </div>
+</div>
 
 
       <footer class="footer">
@@ -261,7 +300,7 @@ function topFunction() {
 
 function openNav() {
     var a = window.innerWidth;
-  if (a < 400) {
+  if (a < 450) {
     document.getElementById("mySidenav").style.width = "100%"; 
   }
   document.getElementById("mySidenav").style.transform = "translateX(0)"; 
@@ -305,7 +344,7 @@ function closeMen() {
 
 function openMen() {
   var w = window.innerWidth;
-  if (w > 400) {
+  if (w > 450) {
       document.getElementById("wrapperResp").style.width = "300px";
       document.getElementById("wrapperResp").classList.add("borderMenu");
   } else {

@@ -1,19 +1,64 @@
 {{ partial "header.html" . }}
 
 
+<div class="author-container">
+  
+  <div class="author-photo">  
+    {{ if .Params.photo }}
+    <img class="author-photo-frame" src="{{ .Params.photo }}">
+    {{ end }}
+  </div>
 
-<h1>{{ .Params.name }}</h1>
-<img src="{{ .Params.photo }}" alt=""/>
-
-<h2>Bio</h2>
-{{ .Content }}
-
-
-<h2>Articles</h2>
-<ul>
-{{ range .Data.Pages }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-{{ end }}
-</ul>
+  <div class="author-name">
+    <h1>{{ .Params.name }}</h1>
+  </div>
+  
+  <div class="author-contact">
+    <h2>Contact info</h2>
+    <ul>
+    {{ if .Params.email }}
+      <li>Email : {{ .Params.email }}</li>
+    {{ end }}
+    {{ if .Params.linkedin }}
+      <li>Linkedin : <a href="{{ .Params.Linkedin }}" target="_blank">{{ .Params.Linkedin }}</a><a href="{{ .Params.Linkedin }}" target="_blank"><img class="logo-links" src="/images/LInkedin.png"></a></li>
+    {{ end }}
+    {{ if .Params.github }}
+      <li>Github : <a href="{{ .Params.github }}" target="_blank">{{ .Params.github }}</a><a href="{{ .Params.github }}" target="_blank"><img class="logo-links dark--hidden" src="/images/github-light.png"><img class="logo-links light--hidden" src="/images/github-dark.png"></a></li>
+    {{ end }}
+    {{ if .Params.website }}
+      <li>{{ .Params.website }}</li>
+    {{ end }}
+    </ul>
+  </div>
+  
+  <div class="author-bio">
+    <h2>Bio</h2>
+    {{ .Content }}
+    <hr>
+  </div>
+ 
+  {{ if .Data.Pages }}
+  <div class="author-articles">
+    {{ $pageCount := len .Pages }}
+    <h2>Post{{ if ne $pageCount 1 }}s{{ end }} ({{ $pageCount := len .Pages }}
+                    {{ $pageCount }})</h2>
+    {{ range .Data.Pages }}
+    <div class="author-article-container">
+     
+        <a href="{{ .Permalink }}"><span class="author-articles-title">{{ .Title }}</span></a>
+        <div class="author-articles-descr">{{ $params := .Params }}
+        {{ with $params.Description }}
+          {{ . }}
+        {{ else }}
+          {{ .Summary }}
+        {{ end }}</div>
+        <div class="author-archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>
+    </div>  
+    <hr>
+    {{ end }}
+    
+    {{ end }}
+  </div>
+</div>
 
 {{ partial "footer.html" . }}

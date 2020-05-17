@@ -21,65 +21,5 @@
 When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
     </item>
     
-    <item>
-      <title>Author testing</title>
-      <link>/2020/04/23/new-test/</link>
-      <pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/23/new-test/</guid>
-      <description>yesHi this is me
-HiHi</description>
-    </item>
-    
-    <item>
-      <title>Markdown Syntax</title>
-      <link>/2020/04/20/rmd-r/</link>
-      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/20/rmd-r/</guid>
-      <description>trueHello this is me.
-HeadingsThe following HTML &amp;lt;h1&amp;gt;—&amp;lt;h6&amp;gt; elements represent six levels of section headings. &amp;lt;h1&amp;gt; is the highest section level while &amp;lt;h6&amp;gt; is the lowest.
-H1H2H3H4H5H6ParagraphXerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur?</description>
-    </item>
-    
-    <item>
-      <title>Title of my Rmd</title>
-      <link>/2020/04/20/rmd-external/</link>
-      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/20/rmd-external/</guid>
-      <description>trueR MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
-    </item>
-    
-    <item>
-      <title>notoc</title>
-      <link>/2020/04/19/notoc/</link>
-      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/19/notoc/</guid>
-      <description>noThis is an abstract.
-Hi, this is my tochi again</description>
-    </item>
-    
-    <item>
-      <title>This is a test</title>
-      <link>/2020/04/19/graphics/</link>
-      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/19/graphics/</guid>
-      <description>trueHi !Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>toc test</title>
-      <link>/2020/04/06/toc-test/</link>
-      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/06/toc-test/</guid>
-      <description>trueHello this is me.
-HiHi 2Hi 3</description>
-    </item>
-    
   </channel>
 </rss>

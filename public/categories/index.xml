@@ -6,62 +6,35 @@
     <description>Recent content in Categories on Data science for students</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>R</title>
-      <link>/categories/r/</link>
+      <title>Projects</title>
+      <link>/categories/projects/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>M.Sc.</title>
+      <link>/categories/m.sc./</link>
       <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/categories/r/</guid>
+      <guid>/categories/m.sc./</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Tutorial</title>
-      <link>/categories/tutorial/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ggplot2</title>
-      <link>/categories/ggplot2/</link>
+      <title>Interview</title>
+      <link>/categories/interview/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/categories/ggplot2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>graph</title>
-      <link>/categories/graph/</link>
-      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/graph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>syntax</title>
-      <link>/categories/syntax/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/syntax/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>themes</title>
-      <link>/categories/themes/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/themes/</guid>
+      <guid>/categories/interview/</guid>
       <description></description>
     </item>
     
