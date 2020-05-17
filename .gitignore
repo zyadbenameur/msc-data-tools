@@ -2,6 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+lithium.Rproj
 .Rproj
+.gitignore
 public
 
