@@ -1,95 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Data science for students</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Data science for students</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Systèmes de recommandation en R</title>
-      <link>/2020/05/16/recommander-systems/</link>
-      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/05/16/recommander-systems/</guid>
-      <description>trueRecommender systemsAu cours des dernières années, certaines grandes entreprises ont connu un essor phénoménal grâce aux données de leurs utilisateurs. La collecte de ses données leurs permette de prendre de meilleures décisions et invite l’utilisateur a utilisé davantage leurs plateformes. Cette fidélisation et satisfaction de la clientèle est au coeur des systèmes de recommandations.
-Selon , les systèmes de recommandation (S.R.), dans leur forme la plus simple, peuvent être vu comme un système de classification.</description>
-    </item>
-    
-    <item>
-      <title>New Test</title>
-      <link>/2020/04/26/new-test/</link>
-      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/26/new-test/</guid>
-      <description>yesR MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
-    </item>
-    
-    <item>
-      <title>Author testing</title>
-      <link>/2020/04/23/new-test/</link>
-      <pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/23/new-test/</guid>
-      <description>yesHi this is me
-HiHi</description>
-    </item>
-    
-    <item>
-      <title>Linkedin test</title>
-      <link>/2020/04/20/linkedin/</link>
-      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/20/linkedin/</guid>
-      <description>trueR MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
-    </item>
-    
-    <item>
-      <title>Markdown Syntax</title>
-      <link>/2020/04/20/rmd-r/</link>
-      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/20/rmd-r/</guid>
-      <description>trueHello this is me.
-HeadingsThe following HTML &amp;lt;h1&amp;gt;—&amp;lt;h6&amp;gt; elements represent six levels of section headings. &amp;lt;h1&amp;gt; is the highest section level while &amp;lt;h6&amp;gt; is the lowest.
-H1H2H3H4H5H6ParagraphXerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur?</description>
-    </item>
-    
-    <item>
-      <title>notoc</title>
-      <link>/2020/04/19/notoc/</link>
-      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/19/notoc/</guid>
-      <description>noThis is an abstract.
-Hi, this is my tochi again</description>
-    </item>
-    
-    <item>
-      <title>This is a test</title>
-      <link>/2020/04/19/graphics/</link>
-      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/19/graphics/</guid>
-      <description>trueHi !Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>toc test</title>
-      <link>/2020/04/06/toc-test/</link>
-      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/06/toc-test/</guid>
-      <description>trueHello this is me.
-HiHi 2Hi 3</description>
-    </item>
-    
-  </channel>
-</rss>

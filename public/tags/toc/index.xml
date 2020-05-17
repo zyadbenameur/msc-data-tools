@@ -1,25 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>toc on Data science for students</title>
-    <link>/tags/toc/</link>
-    <description>Recent content in toc on Data science for students</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 06 Apr 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/toc/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>toc test</title>
-      <link>/2020/04/06/toc-test/</link>
-      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/06/toc-test/</guid>
-      <description>trueHello this is me.
-HiHi 2Hi 3</description>
-    </item>
-    
-  </channel>
-</rss>

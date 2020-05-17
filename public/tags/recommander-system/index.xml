@@ -1,25 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Recommander system on Data science for students</title>
-    <link>/tags/recommander-system/</link>
-    <description>Recent content in Recommander system on Data science for students</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/recommander-system/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Systèmes de recommandation en R</title>
-      <link>/2020/05/16/recommander-systems/</link>
-      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/05/16/recommander-systems/</guid>
-      <description>trueRecommender systemsAu cours des dernières années, certaines grandes entreprises ont connu un essor phénoménal grâce aux données de leurs utilisateurs. La collecte de ses données leurs permette de prendre de meilleures décisions et invite l’utilisateur a utilisé davantage leurs plateformes. Cette fidélisation et satisfaction de la clientèle est au coeur des systèmes de recommandations.
-Selon , les systèmes de recommandation (S.R.), dans leur forme la plus simple, peuvent être vu comme un système de classification.</description>
-    </item>
-    
-  </channel>
-</rss>
