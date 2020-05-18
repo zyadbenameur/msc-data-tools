@@ -37,7 +37,13 @@
         {{ . }}</a><i class="archive-svg fas fa-user-circle" aria-hidden="true"></i></div> 
 
       {{ end }}
+      <div>{{ range (.GetTerms "categories") }}
+          <i>{{ (i18n "theme") }} :</i>
+          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder archive-svg"></i>
+          {{ end }}</div>
+          
       </div>      
+      
 
       <div class="archive-description">
         {{ $params := .Params }}
