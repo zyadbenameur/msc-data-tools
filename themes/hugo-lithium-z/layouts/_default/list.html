@@ -13,15 +13,14 @@
   </article>
   {{ end }}
   
-  <h2 class="archive-title">Archives</h2>
+  
     {{ $pages := .Pages }}
     {{ if .IsHome }}
     {{ $pages = .Site.RegularPages }}
+    <h2 class="archive-title">Latest Posts :</h2>
     {{ end }}
-    {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
-    <h2 class="archive-year-title">{{ .Key }}</h2>
-    {{ range .Pages }}
 
+{{ range .Paginator.Pages }}
     <article class="archive-container">
       
       <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
@@ -39,7 +38,7 @@
       {{ end }}
       <div>{{ range (.GetTerms "categories") }}
           <i>{{ (i18n "theme") }} :</i>
-          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder archive-svg"></i>
+          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder-open archive-svg"></i>
           {{ end }}</div>
           
       </div>      
@@ -64,8 +63,13 @@
     {{ end }}
       </div>
     </article>
-    {{ end }}
-    {{ end }}
+    
+
+      
+ 
+{{ end }}
+
+{{ partial "paginator.html" . }}
 
 
 </main>

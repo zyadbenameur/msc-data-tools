@@ -49,7 +49,7 @@
         <div class="author-articles-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>
         <div>{{ range (.GetTerms "categories") }}
           <i>{{ (i18n "theme") }} :</i>
-          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder archive-svg"></i>
+          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder-open archive-svg"></i>
           {{ end }}</div>
         <div class="author-articles-descr">{{ $params := .Params }}
         {{ with $params.Description }}

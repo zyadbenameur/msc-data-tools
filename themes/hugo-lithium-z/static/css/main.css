@@ -12,7 +12,7 @@
     --scroll-color2:#CBF8DF;
     --scroll-color3:#418A76;
     --scroll-color4:#418A76;
-    --colorBtn-color:#CBF8DF;
+    --colorBtn-color:#292922;
     --colorBtn-color-hover:#B6DEC8;
 }
 
@@ -30,8 +30,8 @@
     --scroll-color2:#455985;
     --scroll-color3:#7192D9;
     --scroll-color4:#ABB7D1;
-    --colorBtn-color:#C1CBE8;
-    --colorBtn-color-hover:#A3ABC4;
+    --colorBtn-color:#e1e1ff;
+    --colorBtn-color-hover:#8C3534;
 }
 
 :root[color-mode="light"] .light--hidden {
@@ -52,12 +52,13 @@
   top:15px;
   right:25px;
   z-index:5;
-  background-color: var(--colorBtn-color);
+  background-color: var(--bg-color);
+  color:var(--colorBtn-color);
   padding:0;
   border:none;
   outline:none;
   width:35px;
-  height:29px;
+  height:33px;
   border-radius:20px;
   cursor:pointer;
   transition: 200ms ease;
@@ -357,10 +358,11 @@ ul {
   display:flex;
   text-align:center;
   flex-direction:column;
-  font-size: 35px;
+  font-size: 37px;
   color: var(--heading-color);
   line-height: 1.3;
   margin:45px 0 50px 0;
+  text-decoration: underline;
 }
 
 .article-date {
@@ -469,9 +471,10 @@ ul {
 }
 
 .archive-title{
-  font-size: 45px;
+  font-size: 37px;
   text-align: center;
-  margin:0;
+  padding-bottom:15px;
+  text-decoration: underline;
 }
 
 .archive-year-title {
@@ -486,7 +489,6 @@ ul {
   padding:0;
   column-gap:50px;
   row-gap:15px;
-  padding-bottom: 35px;
   grid-template-areas: 
   "title title"
   "descArchive info"
@@ -698,6 +700,40 @@ ul {
 /*end scroll display for sideToc*/
 
 
+/*Pagination*/
+
+.pagination {
+  display:flex;
+  flex-direction:row;
+  list-style-type: none;
+  font-size:1.2em;
+  justify-content: center;
+  display:none;
+}
+
+.pagination a {
+  color: var(--font-color);
+  float: left;
+  padding: 4px 8px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.pagination a.active {
+  background-color: var(--highlight-color);
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: var(--highlight-color);
+  border-radius: 5px;
+  
+}
+
+/*end pagination*/
+
+
     @media (max-width: 1295px) {
 
   .nav-links {
@@ -715,14 +751,6 @@ ul {
   margin: 40px 0;
   font-size: 14px;
   }
-  
-  .archive-title{
-  font-size: 37px;
-}
-  .archive-year-title {
-  font-size: 37px;
-  text-align: left;
-  }
 
   .archive-item-link {
   font-size: 26px;
@@ -730,7 +758,7 @@ ul {
   }
 
   .article-title {
-  font-size: 30px;
+  font-size: 34px;
   line-height: 1.3;
   margin:45px 0 50px 0;
   }
@@ -782,12 +810,11 @@ ul {
 
 
   .article-title {
-  font-size: 29px;
+  font-size: 34px;
   }
   
   #hometitle {
   font-size: 34px;
-  text-decoration: underline;
   }
   
     .archive-title{
@@ -823,7 +850,7 @@ ul {
   font-size: 26px;
   }
 
-  .archive-year-title {
+  .archive-title {
   font-size: 30px;
   text-align: center;
   }
@@ -958,7 +985,6 @@ ul {
     
   }
 
-  
   .colorBtn {
   position: fixed;
   top:10px;
@@ -969,11 +995,6 @@ ul {
   .colorBtn:hover {
   background-color: var(--colorBtn-color-hover);
 }
-  
- .article-title {
-   font-size:25px;
-  }
-  
 
   .nav-links {
   font-size: 15px;
@@ -1033,7 +1054,7 @@ pre {
     .archive-title{
   font-size: 25px;
 }
-  .archive-year-title {
+  .archive-title {
   font-size: 25px;
   text-align: center;
   }
@@ -1043,7 +1064,6 @@ pre {
   padding:0;
   grid-template-columns:auto auto 175px;
   grid-gap:20px;
-  padding-bottom: 35px;
   grid-template-areas: 
     "title title title"
     "descArchive descArchive info"
@@ -1097,7 +1117,7 @@ pre {
     align-items:center;
     transition:0.3s transform;
   }
-  
+
   .archive-tags:hover {
     color: var(--highlight-tags);
     border-bottom: none;

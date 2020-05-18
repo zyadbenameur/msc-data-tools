@@ -3,7 +3,6 @@
   justify-content:center;
   align-self:center;
   padding-top:100px;
-  flex-direction:column;
   margin:10px;
 
 }
@@ -21,8 +20,8 @@
   color: var(--highlight-tags);
 }
 
-.author-description{
-  padding:-10px;
+.authors-description{
+  padding:0 0 3px 10px;
 }
 
 .authors-list a:hover {

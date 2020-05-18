@@ -1,7 +1,7 @@
 .author-container {
   display: grid;
   padding-top:100px;
-  grid-column-gap: 80px;
+  grid-column-gap: 20px;
   max-width:800px;
   margin:15px auto;
   grid-template-columns: 24% auto;
