@@ -1,5 +1,0 @@
----
-title: ''
-date: ''
-toc: true
----

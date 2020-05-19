@@ -3,7 +3,6 @@
         
         <ul class="footer-links">
           <li><i class="far fa-copyright"></i> Zyad Benameur, 2020 · Made with the <a href="https://cran.r-project.org/"><img src="/images/Rlogo.png" alt="R logo" style="width:12px;height:12px;" target="_blank"></a> <a href="https://github.com/rstudio/blogdown" target="_blank">Blogdown</a> package, using <a href="https://gohugo.io/" target="_blank">Hugo</a>.</li>
-          <li>Initially based on <a href="https://github.com/yihui/hugo-lithium" target="_blank">@yihui/hugo-lithium</a> theme and modified by <a href="/authors/zyad-benameur/">Zyad Benameur</a></li>
           <li><a href="/licence/">LICENSE: CC-BY-SA</a>
           <a href="/licence/">
           <i class="fa fa-creative-commons" aria-hidden="true"></i>
@@ -75,8 +74,8 @@ function openNav() {
   document.getElementById("mySidenav").style.left = "0"; 
   document.getElementById("main").style.transition= "0.3s ease";
   document.getElementById("nav").style.transition= "0.3s ease";
-  document.getElementById("main").style.marginLeft = "320px";
-  document.getElementById("nav").style.marginLeft = "320px";
+  document.getElementById("main").style.paddingLeft = "320px";
+  document.getElementById("nav").style.paddingLeft = "320px";
   document.getElementById("openBtn").style.opacity = "0"; 
   document.getElementById("closebtn").style.opacity = "1"; 
   
@@ -88,8 +87,8 @@ function closeNav() {
   document.getElementById("mySidenav").style.overflow = "hidden";  
   document.getElementById("main").style.transition= "0.3s ease";
   document.getElementById("nav").style.transition= "0.3s ease";
-  document.getElementById("main").style.marginLeft= "0";
-  document.getElementById("nav").style.marginLeft = "0";
+  document.getElementById("main").style.paddingLeft= "0";
+  document.getElementById("nav").style.paddingLeft = "0";
   document.getElementById("openBtn").style.opacity = "1";  
   document.getElementById("closebtn").style.opacity = "0";  
 }

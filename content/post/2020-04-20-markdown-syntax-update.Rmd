@@ -1,13 +1,14 @@
 ---
-title: Markdown Syntax
-author: Zyad Benameur
+title: "Markdown Syntax"
+authors:
+  - "Zyad Benameur"
 date: '2020-04-20'
-slug: Rmd-R
+slug: "Rmd-R"
 categories:
-  - Projects
+  - "Projects"
 tags:
-  - R Markdown
-description: This is a test to set toc correclty. 
+  - "R Markdown"
+description: "This is a test to set toc correclty. "
 toc: true
 ---
 

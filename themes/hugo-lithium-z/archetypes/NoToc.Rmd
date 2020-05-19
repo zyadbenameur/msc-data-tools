@@ -1,0 +1,14 @@
+---
+title: ""
+author: 
+  - ""
+linkedin: ""
+date: ""
+slug: ""
+categories:
+  - ""
+tags:
+  - ""
+description: "" 
+toc: false
+---

@@ -2,12 +2,12 @@
 
 
 <div class="author-container">
-  
-  <div class="author-photo">  
-    {{ if .Params.photo }}
+  {{ if .Params.photo }}
+  <div class="author-photo">
     <img class="author-photo-frame" src="{{ .Params.photo }}">
-    {{ end }}
   </div>
+  {{ end }}
+  
 
   <div class="author-name">
     <h1>{{ .Params.name }}</h1>

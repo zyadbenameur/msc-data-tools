@@ -49,6 +49,8 @@
   justify-content:flex-start;
   align-items:flex-start;
   padding:0 15px 0 15px;
+  text-decoration: underline;
+  text-decoration-color: var(--heading-color);
 }
 
 .author-contact {

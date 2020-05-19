@@ -3,7 +3,7 @@
 <main class="contentlist" role="main">
 
   <div class="theme-title">
-    <h3>All {{ .Title }} ({{ $pageCount := len .Pages }}
+    <h3><i class="far fa-newspaper"></i> All {{ .Title }} ({{ $pageCount := len .Pages }}
                     {{ $pageCount }})</h3></div>
 
 
@@ -41,6 +41,10 @@
         {{ . }}</a><i class="archive-svg fas fa-user-circle" aria-hidden="true"></i></div> 
 
       {{ end }}
+      <div>{{ range (.GetTerms "categories") }}
+          <i>{{ (i18n "theme") }} :</i>
+          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder-open archive-svg"></i>
+          {{ end }}</div>
       </div>      
 
       <div class="archive-description">
