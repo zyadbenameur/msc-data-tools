@@ -68,7 +68,7 @@ function openNav() {
     var a = window.innerWidth;
   if (a < 450) {
     document.getElementById("mySidenav").style.width = "100%"; 
-  }
+  } else {
   document.getElementById("mySidenav").style.transform = "translateX(0)"; 
   document.getElementById("mySidenav").style.overflow = "auto"; 
   document.getElementById("mySidenav").style.left = "0"; 
@@ -77,7 +77,9 @@ function openNav() {
   document.getElementById("main").style.paddingLeft = "320px";
   document.getElementById("nav").style.paddingLeft = "320px";
   document.getElementById("openBtn").style.opacity = "0"; 
-  document.getElementById("closebtn").style.opacity = "1"; 
+  document.getElementById("closebtn").style.opacity = "1";
+  }
+ 
   
 }
 
