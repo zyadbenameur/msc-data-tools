@@ -10,8 +10,10 @@
   "photo name"
   "photo authDescr"
   "photo contact"
+  'titleBio titleBio'
   "bio bio"
-  "articleList articleList"
+  'titleContr titleContr'
+  "articleList articleList";
   
 }
 
@@ -93,6 +95,19 @@
   color: var(--primary-color);
   border-bottom-color: var(--primary-color);
   transition: 150ms ease;
+}
+
+.contributions-title {
+  grid-area: titleContr;
+  display:flex;
+  align-items:flex-start;
+  
+}
+.bio-title {
+  grid-area: titleBio;
+  display:flex;
+  align-items:flex-start;
+  
 }
 
 .author-bio {
@@ -185,19 +200,39 @@
   grid-template-areas:
   'name'
   'photo'
+  'authDescr'
   'contact'
+  'titleBio'
   'bio'
+  'titleContr'
   'articleList';
 }
 
 .author-photo {
+  display:flex;
+  align-items:center;
   justify-content:center;
 }
 
 .author-name {
+  display:flex;
   justify-content:center;
   align-items:center;
 }
+
+.contributions-title {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+}
+.bio-title {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+}
+
 
 }
 
@@ -214,8 +249,11 @@
   grid-template-areas:
   'name'
   'photo'
+  'authDescr'
   'contact'
+  'titleBio'
   'bio'
+  'titleContr'
   'articleList';
 }
 
@@ -234,13 +272,15 @@
 }
 
 .author-bio {
-  justify-content:center;
-  align-items:center;
+  grid-area:bio;
+  display:flex;
+  justify-content:flex-start;
+  align-items:flex-start;
 }
 
 .author-articles {
-  justify-content:center;
-  align-items:center;
+  justify-content:flex-start;
+  align-items:flex-start;
   word-wrap: break-word;
 }
 
@@ -249,6 +289,8 @@
   flex-wrap:wrap;
   flex-direction:column;
   border-radius: none;
+  justify-content:flex-start;
+  align-items:flex-start;
   border: none;
   box-shadow: none;
   padding: 0;
@@ -258,6 +300,26 @@
 .author-articles-title {
   font-size: 14px;
 }
+
+
+.bio-title {
+  grid-area:titleBio;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.contributions-title {
+  grid-area:titleContr;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+}
+  
+
+
+
 }
 
 @media (max-width: 300px) { 
@@ -286,4 +348,18 @@
 .author-articles-title {
   font-size: 13px;
 }
+
+.contributions-title {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+}
+.bio-title {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+}
+
 }

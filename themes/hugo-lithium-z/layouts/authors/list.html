@@ -37,15 +37,15 @@
     </ul>
   </div>
   
+  <h1 class="bio-title">Bio</h1>
   <div class="author-bio">
-    <h1>Bio</h1>
     {{ .Content }}
     <hr>
   </div>
  
   {{ if .Data.Pages }}
+    <h1 class="contributions-title">Contributions :</h1>
   <div class="author-articles">
-    <h1>Contributions :</h1>
     {{ $pageCount := len .Pages }}
     <h2>Post{{ if ne $pageCount 1 }}s{{ end }} ({{ $pageCount := len .Pages }}
                     {{ $pageCount }})</h2>

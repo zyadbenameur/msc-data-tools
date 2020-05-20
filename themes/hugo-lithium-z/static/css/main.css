@@ -1247,6 +1247,9 @@ pre {
 
 }
 
+.signup-notice {
+  font-size:11px;
+}
 
 }
 
@@ -1298,6 +1301,10 @@ pre {
   font-size:30px;
   padding-right:15px;
 	padding:5px;
+}
+
+.signup-notice {
+  font-size:10px;
 }
  
  code {
