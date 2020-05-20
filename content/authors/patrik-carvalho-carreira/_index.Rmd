@@ -1,6 +1,6 @@
 ---
+title: "Author Page"
 name: "Patrik Carvalho-Carreira"
-title: "Patrik Carvalho-Carreira Personnal Page"
 linkedin: "https://www.linkedin.com/in/zben/"
 github: "https://github.com/zyadbenameur"
 description: "Currently an M.sc student in Data science at HEC Montreal"

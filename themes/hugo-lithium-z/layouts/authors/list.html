@@ -2,9 +2,14 @@
 
 
 <div class="author-container">
+  
   {{ if .Params.photo }}
   <div class="author-photo">
     <img class="author-photo-frame" src="{{ .Params.photo }}">
+  </div>
+  {{ else }}
+  <div class="author-photo">
+    <img class="author-photo-frame" src="/images/authors/default-image.png">
   </div>
   {{ end }}
   
@@ -13,32 +18,34 @@
     <h1>{{ .Params.name }}</h1>
   </div>
   
+  <div class="single-author-description"><p> {{ .Params.description }}</p></div>
+  
   <div class="author-contact">
-    <h2>Contact info</h2>
     <ul>
     {{ if .Params.email }}
-      <li>Email : {{ .Params.email }}</li>
+      <li><a href="mailto:{{ .Params.email }}"><i class="fas fa-envelope logo-links"></i></a> Email : {{ .Params.email }}</li>
     {{ end }}
     {{ if .Params.linkedin }}
-      <li>Linkedin : <a href="{{ .Params.Linkedin }}" target="_blank">{{ .Params.Linkedin }}</a><a href="{{ .Params.Linkedin }}" target="_blank"><img class="logo-links" src="/images/LInkedin.png"></a></li>
+      <li><a href="{{ .Params.Linkedin }}" target="_blank"><img class="logo-links" src="/images/LInkedin.png"></a> Linkedin : <a href="{{ .Params.Linkedin }}" target="_blank">{{ .Params.Linkedin }}</a></li>
     {{ end }}
     {{ if .Params.github }}
-      <li>Github : <a href="{{ .Params.github }}" target="_blank">{{ .Params.github }}</a><a href="{{ .Params.github }}" target="_blank"><img class="logo-links dark--hidden" src="/images/github-light.png"><img class="logo-links light--hidden" src="/images/github-dark.png"></a></li>
+      <li><a href="{{ .Params.github }}" target="_blank"><img class="logo-links dark--hidden" src="/images/github-light.png"><img class="logo-links light--hidden" src="/images/github-dark.png"></a> Github : <a href="{{ .Params.github }}" target="_blank">{{ .Params.github }}</a></li>
     {{ end }}
     {{ if .Params.website }}
-      <li>{{ .Params.website }}</li>
+      <li><a href="{{ .Params.website }}" target="_blank"><i class="fab fa-chrome logo-links"></i></a> Website : <a href="{{ .Params.website }}" target="_blank">{{ .Params.website }}</a></li>
     {{ end }}
     </ul>
   </div>
   
   <div class="author-bio">
-    <h2>Bio</h2>
+    <h1>Bio</h1>
     {{ .Content }}
     <hr>
   </div>
  
   {{ if .Data.Pages }}
   <div class="author-articles">
+    <h1>Contributions :</h1>
     {{ $pageCount := len .Pages }}
     <h2>Post{{ if ne $pageCount 1 }}s{{ end }} ({{ $pageCount := len .Pages }}
                     {{ $pageCount }})</h2>

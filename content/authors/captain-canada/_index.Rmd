@@ -1,6 +1,6 @@
 ---
+title: "Author Page"
 name: "Captain Canada"
-photo: "/images/authors/test.jpg"
 email: Zyad.benameur@hec.ca
 linkedin: https://www.linkedin.com/in/zben/
 description: Currently an M.sc student in Data science at HEC Montreal

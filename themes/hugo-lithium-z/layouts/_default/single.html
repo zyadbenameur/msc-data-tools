@@ -41,9 +41,15 @@
       {{ .Content }}
     </div>
   </article>
-  
 
-  {{ partial "disqus.html" .}}
+<div class="article-comments dark--hidden">
+{{ partial "utterances-light.html" . }}
+</div>
+
+<div class="article-comments light--hidden">
+{{ partial "utterances-dark.html" . }}
+</div>
+
 
 </main>
 
