@@ -31,12 +31,13 @@
 {{ with .OutputFormats.Get "RSS" }}
 <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
 {{ end }}
+
 {{ partial "head_highlightjs" . }}
 <link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}" media="all">
 <link rel="stylesheet" href="{{ "css/main.css" | relURL }}" media="all">
 <link rel="stylesheet" href="{{ "css/author.css" | relURL }}" media="all">
 <link rel="stylesheet" href="{{ "css/author-main.css" | relURL }}" media="all">
-<link rel="stylesheet" href="{{ "css/themes.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "css/categories-tags.css" | relURL }}" media="all">
 {{ range .Site.Params.customCSS }}
 <link rel="stylesheet" href="{{ . | relURL }}">
 {{ end }}

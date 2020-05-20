@@ -1,5 +1,7 @@
 {{ partial "header.html" . }}
 
+<link rel="alternate" type="application/rss+xml" href="https://example.com/index.xml" title="Site Title">
+
 <main class="contentlist" role="main">
 
   {{ if .Content }}
@@ -14,10 +16,11 @@
   {{ end }}
   
   
+  
+  
     {{ $pages := .Pages }}
     {{ if .IsHome }}
-    {{ $pages = .Site.RegularPages }}
-    <h2 class="archive-title">Latest Posts :</h2>
+      <h2 class="archive-title">Latest Posts :</h2>
     {{ end }}
 
 {{ range .Paginator.Pages }}
@@ -63,13 +66,31 @@
     {{ end }}
       </div>
     </article>
-    
-
-      
  
 {{ end }}
 
 {{ partial "paginator.html" . }}
+
+  <hr>
+
+{{ if .IsHome }}
+
+<div class="newsletter-container">
+                <h4 class="newsletter-title">Subscribe</h4>
+                <!-- <p class="newsletter-text"></p> -->
+                <form style="border:1px solid #ccc;padding:3px;text-align:center;" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=FeaturedTodayOnDataScienceForStudents', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"><p>Enter your email address:</p><p><input type="text" style="width:140px" name="email"/></p><input type="hidden" value="FeaturedTodayOnDataScienceForStudents" name="uri"/><input type="hidden" name="loc" value="en_US"/><input type="submit" value="Subscribe" /><p>Delivered by <a href="https://feedburner.google.com" target="_blank">FeedBurner</a></p></form>
+  </div>
+  
+  
+      <h1 class="tags-title"><i class="fas fa-tags"></i>Tags :</h1>
+      <div class="tags-container">
+      {{ range .Site.Taxonomies.tags }}
+        <div class="tag-box">
+          <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a><span class="class-count">({{ .Count }})</span>
+        </div>
+      {{ end }}
+      </div>
+    {{ end }}
 
 
 </main>

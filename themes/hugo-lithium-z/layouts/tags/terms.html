@@ -1,16 +1,16 @@
 {{ partial "header.html" . }}
 
+
+<h1 class="tags-title" style="padding-top:100px;margin-block-start: 0.67em;
+    margin-block-end: 0.67em;"><i class="fas fa-tags"></i> All Tags :</h1>
+
 <div class="tags-container">
     {{ range .Data.Terms.ByCount }}
-    <div class="column">
-
-
-                    <a class="" href="{{ .Page.Permalink }}"><i class="fas fa-tag"></i>{{ .Page.Title }}</a>
-                    {{ $pageCount := len .Pages }}
-                    <p>{{ $pageCount }} post{{ if ne $pageCount 1 }}s{{ end }} </p>
-                </div>
-            
-
+    <div class="tag-box">
+      <a class="" href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+      {{ $pageCount := len .Pages }}
+      <p>: {{ $pageCount }} post{{ if ne $pageCount 1 }}s{{ end }} </p>
+    </div>
     {{ end }}
 </div>
 {{ partial "footer.html" . }}

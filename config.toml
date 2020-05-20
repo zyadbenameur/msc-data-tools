@@ -5,7 +5,12 @@ theme = "hugo-lithium-z"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
-paginate= 4
+copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+
+paginate= 2
+
+
+
 [permalinks]
     post = "/:year/:month/:day/:slug/"
     
@@ -20,21 +25,17 @@ paginate= 4
     url = "/post/"
     weight = 2
 [[menu.main]]
-    name = "Authors"
-    url = "/authors/"
-    weight = 3
-[[menu.main]]
     name = "Themes"
     url = "/categories/"
-    weight = 4
+    weight = 3
 [[menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 5
+    name = "Authors"
+    url = "/authors/"
+    weight = 4
 [[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 6
+    weight = 5
 
 
 [params]
