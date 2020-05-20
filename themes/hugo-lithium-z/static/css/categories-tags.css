@@ -40,17 +40,40 @@
 }
 
 .theme-title {
-  padding-top:100px;
   font-size: 35px;
   text-align: center;
   margin:0;  
 }
 
-.tags-title {
-  font-size: 35px;
-  text-align: center;
-  margin-top:0;
+.theme-back {
+  padding-top:100px;
+  text-align: left;
+  margin:0;  
+}
+
+.theme-back a {
+  text-decoration:none;
+}
+
+.theme-back a:hover {
+  color: var(--heading-color);
   text-decoration:underline;
+  transition: 50ms ease;
+}
+
+.fa-arrow-left {
+  padding-right:5px;
+}
+
+#theme-title-posts {
+  
+  padding-top:0;
+}
+
+.tags-title {
+  padding-top:30px;
+  text-align: left;
+  margin-top:100px;
 }
 
 .theme-title p {

@@ -20,7 +20,7 @@
 <title>{{ .Title }}</title>
 <link>msc-data.tools{{ .Permalink }}</link>
 <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0400" | safeHTML }}</pubDate>
-      <author>{{ .Params.Authors }}</author>
+      <dc:creator>{{ .Params.Authors }}</dc:creator>
 <description>{{- .Params.Description | html -}}</description>
 </item>
     {{ end }}

@@ -2,7 +2,17 @@
 
 <main class="contentlist" role="main">
 
-  <div class="theme-title">
+  
+      <h2 class="tags-title"><i class="fas fa-tags"></i>Tags :</h2>
+      <div class="tags-container">
+      {{ range .Site.Taxonomies.tags }}
+        <div class="tag-box">
+          <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a><span class="class-count">({{ .Count }})</span>
+        </div>
+      {{ end }}
+      </div>
+      
+  <div class="theme-title" id="theme-title-posts">
     <h3><i class="far fa-newspaper"></i> All {{ .Title }} ({{ $pageCount := len .Pages }}
                     {{ $pageCount }})</h3></div>
 
@@ -59,6 +69,7 @@
      
       </div>
       <div class="archive-tags-cont"> 
+      <i class="fas fa-tags posts-tags-icon"></i>
     {{ range .Params.tags }}
       <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}"  class="archive-tags">
         {{ . }}
@@ -74,6 +85,3 @@
 
 {{ partial "footer.html" . }}
 
-
-
-<!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->

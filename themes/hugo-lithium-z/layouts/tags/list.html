@@ -1,10 +1,14 @@
 {{ partial "header.html" . }}
 
 <main class="contentlist" role="main">
-
+  
+  <div class="theme-back">
+    <a href="/post/"><h3><i class="fas fa-arrow-left"></i>Go back to All Posts</h3></a>
+  </div>  
   <div class="theme-title">
     <h3><i class="fas fa-tag"></i> Posts with tag : {{ .Title }} ({{ $pageCount := len .Pages }}
-                    {{ $pageCount }})</h3></div>
+                    {{ $pageCount }})</h3>
+  </div>
 
 
   {{ if .Content }}
@@ -59,6 +63,7 @@
      
       </div>
       <div class="archive-tags-cont"> 
+      <i class="fas fa-tags posts-tags-icon"></i>
     {{ range .Params.tags }}
       <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}"  class="archive-tags">
         {{ . }}
