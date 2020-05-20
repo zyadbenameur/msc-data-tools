@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "msc-data.tools"
 languageCode = "en-us"
 title = "Data science for students"
 theme = "hugo-lithium-z"
