@@ -3,7 +3,7 @@
     xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
-        <link>{{ .Permalink }}</link>
+        <link>msc-data.tools{{ .Permalink }}</link>
         <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
         <generator>Hugo -- gohugo.io</generator>{{ with .Site.LanguageCode }}
         <language>{{.}}</language>{{end}}{{ with .Site.Author.email }}
@@ -18,10 +18,9 @@
     
     <item>
 <title>{{ .Title }}</title>
-<link>{{ .Permalink }}</link>
-<pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-      <author>{{- .Params.Authors | html -}}</author>
-      <guid>{{ .Permalink }}</guid>
+<link>msc-data.tools{{ .Permalink }}</link>
+<pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0400" | safeHTML }}</pubDate>
+      <author>{{ .Params.Authors }}</author>
 <description>{{- .Params.Description | html -}}</description>
 </item>
     {{ end }}
