@@ -2,6 +2,7 @@
 title: "Author Page"
 name: "John Doe"
 status: "M.sc student in Data science at HEC Montreal. I am a at Videns."
+photo: "/images/authors/default-image4.png"
 email: Zyad.benameur@hec.ca
 linkedin: https://www.linkedin.com/in/zben/
 description: I am fake news

@@ -14,6 +14,11 @@
 .author-list-title {
   grid-area: title;
   text-align:center;
+  font-size: 35px;
+}
+
+.fa-chalkboard-teacher {
+  padding-right:10px;
 }
 
 .authors-title {
