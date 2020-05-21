@@ -2,7 +2,7 @@
 title: "Linkedin test"
 authors: 
   - "Zyad Benameur"
-linkedin: "https://www.linkedin.com/in/zben/"
+authorlink: "zyad-benameur"
 date: "2020-04-20"
 slug: "Linkedin"
 categories:

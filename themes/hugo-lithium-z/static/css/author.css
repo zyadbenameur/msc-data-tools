@@ -25,7 +25,6 @@
 .logo-links {
   padding:10px 5px 0 10px;
   width:25px;
-  transition:ease-out;
 }
 
 .logo-links:hover {
@@ -94,7 +93,7 @@
 .author-articles a:hover {
   color: var(--primary-color);
   border-bottom-color: var(--primary-color);
-  transition: 150ms ease;
+  transition: 150ms ease-out;
 }
 
 .contributions-title {
@@ -153,12 +152,12 @@
   text-overflow: ellipsis;
   overflow: hidden;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 24px;
   color: var(--font-color);
   border-bottom: 3px solid var(--highlight-color);
   box-shadow: inset 0 -4px 0 var(--highlight-color);
   background: transparent;
-  transition: background 150ms ease;
+  transition: background 150ms ease-out;
 }
 
 .author-articles-title:hover {
@@ -172,6 +171,89 @@
 
 .author-articles-date {
   padding:10px 0;
+}
+
+.Author-frame-article {
+  display:grid;
+  grid-column-gap: 20px;
+  justify-content:start;
+  grid-template-areas:
+  "photoFrameArticle authFrameText";
+}
+
+.Author-frame-article-photo {
+  grid-area: photoFrameArticle;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:flex-start;
+  padding:0 15px 0 15px;
+  
+}
+
+.Author-frame-article-text {
+  grid-area: authFrameText;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+  align-items:flex-start;
+  align-self:flex-start;
+  
+}
+
+.Author-frame-article-text h2 {
+  margin:0;
+  padding:0;
+}
+
+.Author-frame-article-name {
+  text-overflow: ellipsis;
+  color: var(--font-color);
+  overflow: hidden;
+  transition: background 150ms ease;
+  
+}
+
+.Author-frame-article-name a:hover {
+  background: var(--highlight-color);
+}
+
+.Author-frame-article-name a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 3px solid var(--highlight-color);
+  box-shadow: inset 0 -4px 0 var(--highlight-color);
+  background: transparent;
+  transition: background 150ms ease;
+}
+
+.Author-frame-article-desc {
+  display:flex;
+  flex-wrap: wrap;
+  
+}
+
+#Author-frame-article-contact {
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction:row;
+  justify-content:flex-start;
+  align-items:flex-start;
+  padding:0 15px 0 0;
+  
+}
+
+.logo-links2 {
+  padding-right:10px;
+  width:25px;
+  font-size:1.7em;
+}
+
+.logo-links2:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1);
 }
 
 @media (max-width: 900px) { 
@@ -198,7 +280,7 @@
 }
 
 .author-articles-title {
-  font-size: 18px;
+  font-size: 21px;
 }
 }
 
@@ -247,8 +329,44 @@
 }
 
 @media (max-width: 500px) { 
+  
+.Author-frame-article {
+  display:grid;
+  grid-column-gap: 20px;
+  justify-content:center;
+  grid-template-areas:
+  "photoFrameArticle"
+  "authFrameText";
+}  
+
+.Author-frame-article-photo {
+  padding:0 15px 0 15px;
+  margin:auto;
+  justify-content:center;
+  align-items:center;
+}
+
+.Author-frame-article-text {
+  grid-area: authFrameText;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  
+}
+
+  
 .logo-links {
   width:20px;
+}
+
+.fa-chrome{
+  font-size:1.4em;
+}
+
+.fa-envelope{
+  font-size:1.2em;
 }
 
 .author-container {
@@ -308,7 +426,7 @@
 }
 
 .author-articles-title {
-  font-size: 14px;
+  font-size: 17px;
 }
 
 

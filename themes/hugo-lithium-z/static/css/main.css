@@ -574,7 +574,7 @@ hr {
 .archive-tags {
   grid-area:tags;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
   font-weight:bold;
   font-weight: 600;
   color: var(--highlight-tags);
@@ -1008,7 +1008,9 @@ input {
 
 @media (max-width: 700px) {
 
-
+.archive-tags {
+  font-size: 12px;
+}
   
   .featured-div {
     display:flex;

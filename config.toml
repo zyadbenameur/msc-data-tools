@@ -39,8 +39,7 @@ paginate= 2
 
 
 [params]
-    
-
+  
     description = "A website built through Hugo and blogdown."
 
     # options for highlight.js (version, additional languages, and theme)
@@ -55,11 +54,11 @@ paginate= 2
     # path to the favicon, under "static"
     favicon = "favicon.png"
 
-    [params.logo]
-    url = "logo.png"
-    width = 50
-    height = 50
-    alt = "Logo"
+[params.logo]
+url = "logo.png"
+width = 50
+height = 50
+alt = "Logo"
     
 [taxonomies]
 author="authors" 

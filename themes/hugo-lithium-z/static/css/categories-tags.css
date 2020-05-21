@@ -58,6 +58,7 @@
   padding-top:100px;
   text-align: left;
   margin:0;  
+  font-size: 20px;
 }
 
 .theme-back a {
@@ -95,6 +96,9 @@
 .tags-title {
   text-align: center;
 }
-  
+
+.theme-back {
+  font-size: 18px;
+}
   
   }

@@ -59,6 +59,7 @@
      
       </div>
       <div class="archive-tags-cont"> 
+      <i class="fas fa-tags posts-tags-icon"></i>
     {{ range .Params.tags }}
       <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}"  class="archive-tags">
         {{ . }}

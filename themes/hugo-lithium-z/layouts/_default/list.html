@@ -72,14 +72,15 @@
  
 {{ end }}
 
-      <div class="all-posts-link-home">
-    <a href="/post/"><i class="far fa-newspaper"></i>See All Posts...</a>
-  </div> 
+      
 
 {{ partial "paginator.html" . }}
 
 {{ if .IsHome }}
-
+<div class="all-posts-link-home">
+    <a href="/post/"><i class="far fa-newspaper"></i>See All Posts...</a>
+  </div> 
+  
 <hr> 
 
         <!-- Begin Mailchimp Signup Form -->

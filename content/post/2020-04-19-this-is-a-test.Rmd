@@ -2,6 +2,7 @@
 title: "This is a test"
 authors:
   - "Zyad Benameur"
+authorlink: "zyad-benameur"
 date: '2020-04-19'
 slug: "graphics"
 categories:
