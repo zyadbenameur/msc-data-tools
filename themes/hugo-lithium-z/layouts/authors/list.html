@@ -40,11 +40,10 @@
   <h1 class="bio-title">Bio</h1>
   <div class="author-bio">
     {{ .Content }}
-    <hr>
   </div>
  
   {{ if .Data.Pages }}
-    <h1 class="contributions-title">Contributions :</h1>
+    <h1 class="contributions-title"><hr><br>Contributions :</h1>
   <div class="author-articles">
     {{ $pageCount := len .Pages }}
     <h2>Post{{ if ne $pageCount 1 }}s{{ end }} ({{ $pageCount := len .Pages }}
@@ -52,7 +51,7 @@
     {{ range .Data.Pages }}
     <div class="author-article-container">
      
-        <a href="{{ .Permalink }}"><span class="author-articles-title">{{ .Title }}</span></a>
+        <a href="{{ .Permalink }}" style="text-decoration:none;"><span class="author-articles-title">{{ .Title }}</span></a>
         <div class="author-articles-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>
         <div>{{ range (.GetTerms "categories") }}
           <i>{{ (i18n "theme") }} :</i>

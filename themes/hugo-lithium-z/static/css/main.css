@@ -299,10 +299,9 @@ ul {
 }
 
 .nav-links a:hover,
-.archive-item-link:hover,
 .toc a:hover,
 .article-author a:hover,
-.archive-info-cont a:hover{
+.archive-info-cont a:hover {
   color: var(--primary-color);
   border-bottom-color: var(--primary-color);
   transition: 150ms ease;
@@ -437,7 +436,7 @@ ul {
 
 hr {
   width: 150px;
-  margin: 50px auto;
+  margin: 30px auto;
   height: 1px;
   overflow: hidden;
   border: none;
@@ -507,7 +506,15 @@ hr {
   font-size: 30px;
   font-weight: bold;
   color: var(--font-color);
-  border-bottom: 1px solid var(--heading-color);
+  border-bottom: 3px solid var(--highlight-color);
+  box-shadow: inset 0 -4px 0 var(--highlight-color);
+  background: transparent;
+  transition: background 150ms ease;
+}
+
+
+.archive-item-link:hover {
+  color: var(--primary-color);
 }
 
 .archive-info-cont {
@@ -568,6 +575,7 @@ hr {
   grid-area:tags;
   text-decoration: none;
   font-size: 12px;
+  font-weight:bold;
   font-weight: 600;
   color: var(--highlight-tags);
   margin-right:10px;
@@ -584,6 +592,33 @@ hr {
   font-weight: 600;
   color: var(--highlight-tags);
   padding-right:5px;
+}
+
+.all-posts-link-home{
+  text-align:right;
+  padding-top:40px;
+}
+
+.all-posts-link-home a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 3px solid var(--highlight-color);
+  box-shadow: inset 0 -4px 0 var(--highlight-color);
+  background: transparent;
+  transition: background 150ms ease;
+  font-family: 'Lato', sans-serif;
+  font-size:22px;
+  font-weight:500px;
+
+}
+
+.all-posts-link-home a:hover {
+  background: var(--highlight-color);
+}
+
+.fa-newspaper {
+  padding-right:5px;  
+  color:var(--heading-color);
 }
 
 .footer {
@@ -972,6 +1007,9 @@ input {
 }
 
 @media (max-width: 700px) {
+
+
+  
   .featured-div {
     display:flex;
     flex-direction:column;
@@ -1183,7 +1221,8 @@ pre {
     white-space: wrap;
     text-align:center;
     overflow: hidden;
-  
+    border-bottom: 1px solid var(--highlight-color);
+    box-shadow: inset 0 -3px 0 var(--highlight-color);
 }
 
 .archive-info-cont {

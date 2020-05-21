@@ -3,12 +3,21 @@
 
 
 <div class="authors-list-cont">
-  <h1>Our Authors & Contributors :</h1>
+  <h1 class="author-list-title">Our Authors & Contributors :</h1>
   
       <div class="authors-list">
     {{ range .Data.Pages }}
       <div class="authors-list-indiv">
-      <h3 class="authors-title"><i class="archive-svg-author fas fa-user-circle" aria-hidden="true"></i><a href="{{ .Permalink }}">{{ .Params.name }}</a></h3>
+      {{ if .Params.photo }}
+        <div class="author-photo-list">
+          <a href="{{ .Permalink }}"><img class="author-photo-frame" src="{{ .Params.photo }}"></a>
+        </div>
+      {{ else }}
+        <div class="author-photo-list">
+          <a href="{{ .Permalink }}"><img class="author-photo-frame" src="/images/authors/default-image.png"></a>
+        </div>
+      {{ end }}
+      <h3 class="authors-title"><a href="{{ .Permalink }}">{{ .Params.name }}</a></h3>
       <p class="authors-description"> {{ .Params.description }}</p>
       </div>
     {{ end }}

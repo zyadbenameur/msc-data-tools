@@ -100,6 +100,7 @@
 .contributions-title {
   grid-area: titleContr;
   display:flex;
+  flex-direction:column;
   align-items:flex-start;
   
 }
@@ -153,6 +154,15 @@
   overflow: hidden;
   text-decoration: none;
   font-size: 20px;
+  color: var(--font-color);
+  border-bottom: 3px solid var(--highlight-color);
+  box-shadow: inset 0 -4px 0 var(--highlight-color);
+  background: transparent;
+  transition: background 150ms ease;
+}
+
+.author-articles-title:hover {
+  color: var(--primary-color);
 }
 
 .author-articles-descr {
