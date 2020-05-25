@@ -82,11 +82,11 @@
 
 
 .fa-chrome{
-  font-size:1.7em;
+  font-size:25px;
 }
 
 .fa-envelope{
-  font-size:1.5em;
+  font-size:23px;
 }
 
 .author-contact a:hover,
@@ -247,7 +247,7 @@
 .logo-links2 {
   padding-right:10px;
   width:25px;
-  font-size:1.7em;
+  font-size:25px;
 }
 
 .logo-links2:hover {
@@ -362,11 +362,15 @@
 }
 
 .fa-chrome{
-  font-size:1.4em;
+  font-size:19px;
 }
 
 .fa-envelope{
-  font-size:1.2em;
+  font-size:17px;
+}
+
+.logo-links2 {
+  font-size:23px;
 }
 
 .author-container {

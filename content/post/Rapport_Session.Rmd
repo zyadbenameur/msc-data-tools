@@ -4,6 +4,9 @@ authors:
   - "Patrik Carvalho-Carreira"
   - "Zyad Benameur"
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
+authorlink: 
+  - "patrik-carvalho-carreira"
+  - "zyad-benameur"
 toc: true
 description: "Tutoriel sur les méthodes de systèmes de recommandations, présentant les ressources disponibles sur `R`, une revue de litérature et un example d'implémentation."
 slug: "Recommander-systems"

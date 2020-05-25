@@ -658,6 +658,12 @@ hr {
   display: none;
 }
 
+.licence-icons {
+  margin:auto;
+  display:flex;
+  flex-wrap: wrap;
+  font-size:35px;
+}
 
 /*back to up button*/
 

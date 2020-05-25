@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<link rel="alternate" type="application/rss+xml" href="https://example.com/index.xml" title="Site Title">
+<link rel="alternate" type="application/rss+xml" href="https://msc-data.tools/index.xml" title="Msc Data blog">
 
 <main class="contentlist" role="main">
 
@@ -27,7 +27,6 @@
     <article class="archive-container">
       
       <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
-        
       <div class="archive-info-cont">
         
         <div class="archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>

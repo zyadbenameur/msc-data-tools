@@ -23,16 +23,17 @@
   <div class="author-contact">
     <ul>
     {{ if .Params.email }}
-      <li><a href="mailto:{{ .Params.email }}"><i class="fas fa-envelope logo-links"></i></a> Email : {{ .Params.email }}</li>
+      <li><a href="mailto:{{ .Params.email }}"><i class="fas fa-envelope logo-links"></i></a>
+      <a href="mailto:{{ .Params.email }}">Email</a> : {{ .Params.email }}</li>
     {{ end }}
     {{ if .Params.linkedin }}
-      <li><a href="{{ .Params.Linkedin }}" target="_blank"><img class="logo-links" src="/images/LInkedin.png"></a> Linkedin : <a href="{{ .Params.Linkedin }}" target="_blank">{{ .Params.Linkedin }}</a></li>
+      <li><a href="{{ .Params.Linkedin }}" target="_blank"><img class="logo-links" src="/images/LInkedin.png"></a><a href="{{ .Params.Linkedin }}" target="_blank">Linkedin</a></li>
     {{ end }}
     {{ if .Params.github }}
-      <li><a href="{{ .Params.github }}" target="_blank"><img class="logo-links dark--hidden" src="/images/github-light.png"><img class="logo-links light--hidden" src="/images/github-dark.png"></a> Github : <a href="{{ .Params.github }}" target="_blank">{{ .Params.github }}</a></li>
+      <li><a href="{{ .Params.github }}" target="_blank"><img class="logo-links dark--hidden" src="/images/github-light.png"><img class="logo-links light--hidden" src="/images/github-dark.png"></a><a href="{{ .Params.github }}" target="_blank">Github</a></li>
     {{ end }}
     {{ if .Params.website }}
-      <li><a href="{{ .Params.website }}" target="_blank"><i class="fab fa-chrome logo-links"></i></a> Website : <a href="{{ .Params.website }}" target="_blank">{{ .Params.website }}</a></li>
+      <li><a href="{{ .Params.website }}" target="_blank"><i class="fab fa-chrome logo-links"></i></a><a href="{{ .Params.website }}" target="_blank">Website</a></li>
     {{ end }}
     </ul>
   </div>

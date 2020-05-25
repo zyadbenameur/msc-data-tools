@@ -37,9 +37,8 @@
     {{ range .Pages }}
 
     <article class="archive-container">
-      
       <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
-        
+      
       <div class="archive-info-cont">
         
         <div class="archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>
