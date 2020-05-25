@@ -32,10 +32,30 @@
     {{ end }}
     </span>
     
+    <span class="article-linkedin">
+    {{$firstAuthor := index (.Params.authorlink) 0 }}
+    {{ $author := print "/authors/" $firstAuthor "_index.Rmd"}}
+    {{ with .GetPage $author }}
     {{ if .Params.Linkedin }}
-    <span class="article-linkedin"><a href="{{ .Params.Linkedin }}" target="_blank"><img class="linkedin-logo" src="/images/LInkedin.png"></a></span>
+    
+    <a href="{{ .Params.Linkedin }}" target="_blank"><img class="linkedin-logo" src="/images/LInkedin.png"></a>
     {{ end }}
+    {{ end }}
+    
+    {{$secondAuthor := index (.Params.authorlink) 1 }}
+    {{if $secondAuthor}}
+    {{ $author := print "/authors/" $secondAuthor "_index.Rmd"}}
+    {{ with .GetPage $author }}
+    {{ if .Params.Linkedin }}
+    <a href="{{ .Params.Linkedin }}" target="_blank"><img class="linkedin-logo" src="/images/LInkedin.png"></a>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+    </span>
 
+    
+
+    
     </div>
     <div class="article-content">
       {{ .Content }}
@@ -44,11 +64,69 @@
 
 <hr>
 
+
+<!--First author-->
 {{$firstAuthor := index (.Params.authorlink) 0 }}
 
 <h2>A Post by : </h2>
 <div class="Author-frame-article">
   {{ $author := print "/authors/" $firstAuthor "_index.Rmd"}}
+{{ with .GetPage $author }}
+
+        {{ if .Params.photo }}
+        <div class="Author-frame-article-photo">
+          <img class="author-photo-frame" src="{{ .Params.photo }}">
+        </div>
+        {{ else }}
+        <div class="Author-frame-article-photo">
+          <img class="author-photo-frame" src="/images/authors/default-image.png">
+        </div>
+        {{ end }}
+  
+      <div class="Author-frame-article-text">
+          <div class="Author-frame-article-name">
+            {{ if .Params.name }}
+            <h2><a href="{{ "authors/" | relLangURL }}{{ .Params.name | urlize }}">{{ .Params.name }}</a></h2>
+          </div>{{ end }}
+      
+          {{ if .Params.description }}
+          <div class="Author-frame-article-desc">
+            <p> {{ .Params.description }}</p>
+          </div>{{ end }}
+      
+          <div class="author-contact" id="Author-frame-article-contact">
+            {{ if .Params.linkedin }}
+            <div>
+                <a href="{{ .Params.Linkedin }}" target="_blank"><img class="logo-links2" src="/images/LInkedin.png"></a>
+            </div>{{ end }}
+              
+            {{ if .Params.github }}
+            <div>
+                <a href="{{ .Params.github }}" target="_blank">
+                  <img class="logo-links2 dark--hidden" src="/images/github-light.png">
+                  <img class="logo-links2 light--hidden" src="/images/github-dark.png"></a>
+            </div>{{ end }}
+            
+            {{ if .Params.website }}
+            <div>
+                <a href="{{ .Params.website }}" target="_blank"><i class="fab fa-chrome logo-links2"></i></a>
+            </div>{{ end }}
+              
+            {{ if .Params.email }}
+            <div>
+                <a href="mailto:{{ .Params.email }}"><i class="fas fa-envelope logo-links2"></i></a>
+            </div>{{ end }}
+          </div>
+  
+      {{end}}
+      </div>
+</div>
+
+<!--Second author-->
+{{$secondAuthor := index (.Params.authorlink) 1 }}
+{{if $secondAuthor}}
+<div class="Author-frame-article" style="padding-top:40px;">
+  {{ $author := print "/authors/" $secondAuthor "_index.Rmd"}}
 {{ with .GetPage $author }}
 
   {{ if .Params.photo }}
@@ -97,12 +175,123 @@
 {{end}}
   </div>
 </div>
+{{ end }}
 
-
-{{$secondAuthor := index (.Params.authorlink) 1 }}
-{{if $secondAuthor}}
+<!--Third author-->
+{{$thirdAuthor := index (.Params.authorlink) 2 }}
+{{if $thirdAuthor}}
 <div class="Author-frame-article" style="padding-top:40px;">
-  {{ $author := print "/authors/" $secondAuthor "_index.Rmd"}}
+  {{ $author := print "/authors/" $thirdAuthor "_index.Rmd"}}
+{{ with .GetPage $author }}
+
+  {{ if .Params.photo }}
+  <div class="Author-frame-article-photo">
+    <img class="author-photo-frame" src="{{ .Params.photo }}">
+  </div>
+  {{ else }}
+  <div class="Author-frame-article-photo">
+    <img class="author-photo-frame" src="/images/authors/default-image.png">
+  </div>
+  {{ end }}
+  
+  <div class="Author-frame-article-text">
+      <div class="Author-frame-article-name">
+        {{ if .Params.name }}
+        <h2><a href="{{ "authors/" | relLangURL }}{{ .Params.name | urlize }}">{{ .Params.name }}{{ end }}</a></h2>
+      </div>
+        {{ if .Params.description }}
+      <div class="Author-frame-article-desc">
+        <p> {{ .Params.description }}{{ end }}</p>
+      </div>
+      
+      <div class="author-contact" id="Author-frame-article-contact">
+        {{ if .Params.linkedin }}
+          <div>
+            <a href="{{ .Params.Linkedin }}" target="_blank"><img class="logo-links2" src="/images/LInkedin.png"></a>
+        </div>{{ end }}
+          
+        {{ if .Params.github }}
+          <div>
+            <a href="{{ .Params.github }}" target="_blank">
+              <img class="logo-links2 dark--hidden" src="/images/github-light.png">
+              <img class="logo-links2 light--hidden" src="/images/github-dark.png"></a>
+          </div>{{ end }}
+        
+        {{ if .Params.website }}
+          <div>
+            <a href="{{ .Params.website }}" target="_blank"><i class="fab fa-chrome logo-links2"></i></a>
+          </div>{{ end }}
+        {{ if .Params.email }}
+          <div>
+            <a href="mailto:{{ .Params.email }}"><i class="fas fa-envelope logo-links2"></i></a>
+          </div>{{ end }}
+      </div>
+  
+{{end}}
+  </div>
+</div>
+{{ end }}
+
+<!--Fourth author-->
+{{$fourthAuthor := index (.Params.authorlink) 3 }}
+{{if $fourthAuthor}}
+<div class="Author-frame-article" style="padding-top:40px;">
+  {{ $author := print "/authors/" $fourthAuthor "_index.Rmd"}}
+{{ with .GetPage $author }}
+
+  {{ if .Params.photo }}
+  <div class="Author-frame-article-photo">
+    <img class="author-photo-frame" src="{{ .Params.photo }}">
+  </div>
+  {{ else }}
+  <div class="Author-frame-article-photo">
+    <img class="author-photo-frame" src="/images/authors/default-image.png">
+  </div>
+  {{ end }}
+  
+  <div class="Author-frame-article-text">
+      <div class="Author-frame-article-name">
+        {{ if .Params.name }}
+        <h2><a href="{{ "authors/" | relLangURL }}{{ .Params.name | urlize }}">{{ .Params.name }}{{ end }}</a></h2>
+      </div>
+        {{ if .Params.description }}
+      <div class="Author-frame-article-desc">
+        <p> {{ .Params.description }}{{ end }}</p>
+      </div>
+      
+      <div class="author-contact" id="Author-frame-article-contact">
+        {{ if .Params.linkedin }}
+          <div>
+            <a href="{{ .Params.Linkedin }}" target="_blank"><img class="logo-links2" src="/images/LInkedin.png"></a>
+        </div>{{ end }}
+          
+        {{ if .Params.github }}
+          <div>
+            <a href="{{ .Params.github }}" target="_blank">
+              <img class="logo-links2 dark--hidden" src="/images/github-light.png">
+              <img class="logo-links2 light--hidden" src="/images/github-dark.png"></a>
+          </div>{{ end }}
+        
+        {{ if .Params.website }}
+          <div>
+            <a href="{{ .Params.website }}" target="_blank"><i class="fab fa-chrome logo-links2"></i></a>
+          </div>{{ end }}
+        {{ if .Params.email }}
+          <div>
+            <a href="mailto:{{ .Params.email }}"><i class="fas fa-envelope logo-links2"></i></a>
+          </div>{{ end }}
+      </div>
+  
+{{end}}
+  </div>
+</div>
+{{ end }}
+
+<!--Fifth author-->
+{{$fifthAuthor := index (.Params.authorlink) 4 }}
+{{if $fifthAuthor}}
+<div class="Author-frame-article" style="padding-top:40px;">
+  {{ $author := print "/authors/" $fifthAuthor "_index.Rmd"}}
 {{ with .GetPage $author }}
 
   {{ if .Params.photo }}
@@ -171,10 +360,6 @@
 
 </main>
 
-
-
-
- 
  
 {{ partial "footer.html" . }}
 

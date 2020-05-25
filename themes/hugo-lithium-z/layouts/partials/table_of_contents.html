@@ -1,5 +1,5 @@
  <!-- ignore empty links with + -->
-{{ $headers := findRE "<h[2-6].*?>(.|\n])+?</h[2-6]>" .Content }}
+{{ $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content }}
 <!-- at least one header to link to -->
 {{ $has_headers := ge (len $headers) 1 }}
 <!-- a post can explicitly disable Table of Contents with toc: false -->
@@ -9,8 +9,8 @@
     <h4 class="text-muted">Table of Contents</h4>
     {{ range $headers }}
         {{ $header := . }}
-        {{ range first 1 (findRE "<h[2-6]" $header 1) }}
-            {{ range findRE "[2-6]" . 1 }}
+        {{ range first 1 (findRE "<h[1-6]" $header 1) }}
+            {{ range findRE "[1-6]" . 1 }}
                 {{ $next_heading := (int .) }}
                 <!-- generate li array of the proper depth -->
                 {{ range seq $next_heading }}

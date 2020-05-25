@@ -1,8 +1,9 @@
 ---
 title: ""
-author: 
+authors: 
   - ""
-linkedin: ""
+authorlink: 
+  - ""
 date: ""
 slug: ""
 categories:

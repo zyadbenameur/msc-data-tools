@@ -391,13 +391,16 @@ ul {
 .article-linkedin {
   grid-area: linkedin;
   display:flex;
-  align-items:center;
+  flex-direction:column;
+  align-items:flex-start;
+  align-content:center;
   font-weight: bold;
   color: var(--font-color);
+  padding-top:4px;
 }
 
 .linkedin-logo {
-  width:30px;
+  width:24px;
   transition:200ms transform;
 }
 
@@ -755,7 +758,6 @@ hr {
   list-style-type: none;
   font-size:1.2em;
   justify-content: center;
-  display:none;
 }
 
 .pagination a {

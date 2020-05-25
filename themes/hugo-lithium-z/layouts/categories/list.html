@@ -6,30 +6,10 @@
     <h3><i class="far fa-folder-open"></i> Posts in theme : {{ .Title }} ({{ $pageCount := len .Pages }}
                     {{ $pageCount }})</h3></div>
 
-
-  {{ if .Content }}
-  <article class="article">
-    {{ if .Title }}
-    <h1 class="article-title" id="hometitle">{{ .Title }}</h1>
-    {{ end }}
-    <div class="article-content">
-      {{ .Content }}
-    </div>
-  </article>
-  {{ end }}
-  
-    {{ $pages := .Pages }}
-    {{ if .IsHome }}
-    {{ $pages = .Site.RegularPages }}
-    {{ end }}
-    {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
-    <h3 class="archive-year-title">{{ .Key }}</h3>
-    {{ range .Pages }}
-
-    <article class="archive-container">
+{{ range .Paginator.Pages }}
+<article class="archive-container">
       
       <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
-        
       <div class="archive-info-cont">
         
         <div class="archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>
@@ -45,7 +25,9 @@
           <i>{{ (i18n "theme") }} :</i>
           <a href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder-open archive-svg"></i>
           {{ end }}</div>
+          
       </div>      
+      
 
       <div class="archive-description">
         {{ $params := .Params }}
@@ -66,15 +48,11 @@
       </a>  
     {{ end }}
       </div>
+      
+ 
     </article>
-    {{ end }}
-    {{ end }}
+ 
+{{ end }}
 
-
-</main>
-
+{{ partial "paginator.html" . }}
 {{ partial "footer.html" . }}
-
-
-
-<!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
