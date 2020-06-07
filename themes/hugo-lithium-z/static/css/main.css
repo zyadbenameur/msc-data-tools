@@ -63,11 +63,11 @@
   height:33px;
   border-radius:20px;
   cursor:pointer;
-  transition: 200ms ease;
 }
 
 .colorBtn:hover {
   background-color: var(--colorBtn-color-hover);
+  transition: 200ms ease;
 }
 
 

@@ -1,6 +1,6 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "Data science for students"
+title = "M.Sc. Data blog"
 theme = "hugo-lithium-z"
 googleAnalytics = ""
 disqusShortname = ""
