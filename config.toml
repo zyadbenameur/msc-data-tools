@@ -25,7 +25,7 @@ PaginatePath = "/post/"
     url = "/post/"
     weight = 2
 [[menu.main]]
-    name = "Themes"
+    name = "Sections"
     url = "/categories/"
     weight = 3
 [[menu.main]]
