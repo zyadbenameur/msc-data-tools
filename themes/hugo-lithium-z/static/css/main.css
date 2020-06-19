@@ -116,6 +116,7 @@ img {
 .table {
   width:auto;
   height:auto;
+  margin:auto;
 }
 
 .featured-div {
@@ -312,8 +313,8 @@ ul {
   flex-direction:column;
   align-items:ex-start;
   justify-content:center;
-  padding-right: 20vw;
-  padding-left: 20vw;
+  padding-right: 24vw;
+  padding-left: 24vw;
   font-size: 16px;
   line-height: 1.8;
   color: var(--font-color);
@@ -478,22 +479,17 @@ hr {
   text-decoration:underline;
 }
 
-.archive-year-title {
-  font-size: 45px;
-  text-align: left;
-  margin:0;
-}
-
 .archive-container {
   display:grid;
   margin: 5px 0 15px;
-  padding:0;
+  padding:0 0 70px 0;
+  grid-template-columns: 2fr 1fr;
   column-gap:50px;
   row-gap:15px;
   grid-template-areas: 
   "title title"
-  "descArchive info"
-  "tags tags";
+  "descArchive image"
+  "info image";
 }
 
 .archive-item-link {
@@ -506,7 +502,7 @@ hr {
   text-overflow: ellipsis;
   overflow: hidden;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 37px;
   font-weight: bold;
   color: var(--font-color);
   border-bottom: 3px solid var(--highlight-color);
@@ -515,45 +511,68 @@ hr {
   transition: background 150ms ease;
 }
 
-
-.archive-item-link:hover {
+.archive-item-link:hover,
+.archive-theme:hover {
   color: var(--primary-color);
+}
+
+.archive-image {
+  grid-area:image;
+  
 }
 
 .archive-info-cont {
   grid-area:info;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items:flex-end;
-  height:auto;
-  text-align: right;
-  float: right;
+  padding-top:25px;
+  display: grid;
   font-size: 15px;
   color: var(--font-color);
+  grid-template-columns: 70px auto;
+  grid-template-areas: 
+  "authorPhoto authorName"
+  "authorPhoto articleDate"
+  "authorPhoto articleTime"
+  "archiveTags archiveTags"
+  "archiveTheme archiveTheme";
+}
+
+.Author-frame-archive-photo {
+  grid-area:authorPhoto; 
+  
+}
+
+.archive-photo-frame {
+  width:50px;
+  height:auto;
+  border-radius: 120px;
+  border: 1px solid #ddd;
+  padding:1px;
+  
+}
+
+.archive-photo-frame:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.05);
+  
+}
+
+.archive-author-name {
+  grid-area:authorName;
+  font-size:17px;
+  font-weight:600;  
 }
 
 .archive-date {
-  
-  margin-bottom:5px;
-  color: var(--font-color);
+  grid-area:articleDate;
+  padding:0;
   
 }
 
 .archive-readtime {
-  
-  margin-bottom:5px;
-  color: var(--font-color);
+  grid-area:articleTime;
+  padding:0;
 
-}
-
-.archive-author {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  text-align: right;
-  color: var(--font-color);
-  
 }
 
 .archive-svg {
@@ -574,17 +593,33 @@ hr {
   color: var(--font-color);
 }
 
-.archive-tags {
-  grid-area:tags;
+.theme-cont {
+  grid-area:archiveTheme;
+  padding-top:5px;
+}
+
+.archive-theme a:hover {
   text-decoration: none;
+  transition: 30ms;
+}
+
+.archive-tags-cont {
+  padding-top:20px;
+  grid-area:archiveTags;
   font-size: 14px;
   font-weight:bold;
   font-weight: 600;
-  color: var(--highlight-tags);
-  margin-right:10px;
 }
 
-.archive-tags:hover {
+.archive-tags-cont a {
+  text-decoration: none;
+  color: var(--highlight-tags);
+  margin-right:10px;
+  
+  
+}
+
+.archive-tags-cont a:hover {
   color: var(--highlight-tags);
   border-bottom: 2px solid var(--highlight-tags);
   transition: 50ms ease;
@@ -691,6 +726,10 @@ hr {
 /*back to up button end*/
 
 /*Strat of scroll display for page*/
+
+/*For firefox*/
+scrollbar-color: var(--scroll-color4) var(--scroll-color2);
+
 
 .scrollbar::-webkit-scrollbar-track
   {

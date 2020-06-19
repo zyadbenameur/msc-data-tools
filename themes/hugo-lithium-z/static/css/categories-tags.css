@@ -100,5 +100,14 @@
 .theme-back {
   font-size: 18px;
 }
+
+.tags-container{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  font-size: 18px;
+  justify-content: center;
+}
+
   
   }

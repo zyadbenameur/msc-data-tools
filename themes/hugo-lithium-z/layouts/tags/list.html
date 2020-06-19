@@ -14,25 +14,7 @@
 <article class="archive-container">
       
       <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
-      <div class="archive-info-cont">
-        
-        <div class="archive-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>
       
-        <div class="archive-readtime">{{ .ReadingTime }} {{ i18n "reading-time" }}<span class="archive-svg"><i class="far fa-clock"></i></span></div>
-      
-      {{range .Params.Authors }}
-        <div><a href="{{ "authors/" | relLangURL }}{{ . | urlize }}">
-        {{ . }}</a><i class="archive-svg fas fa-user-circle" aria-hidden="true"></i></div> 
-
-      {{ end }}
-      <div>{{ range (.GetTerms "categories") }}
-          <i>{{ (i18n "theme") }} :</i>
-          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder-open archive-svg"></i>
-          {{ end }}</div>
-          
-      </div>      
-      
-
       <div class="archive-description">
         {{ $params := .Params }}
 
@@ -44,6 +26,71 @@
      {{ end }}
      
       </div>
+      
+            <div class="archive-image">
+        {{ $image := findRE "<img.*?>" .Content }}
+        {{ $has_image := ge ($image) 0 }}
+        {{ if $has_image }}
+        {{ range first 1 $image }}
+            <i>{{ . | safeHTML }}</i>
+           {{ else }}
+            <img src="/images/identicon/default.png" alt="default image of computer">
+        {{ end }}
+        {{ end }}
+      </div>
+      
+      <div class="archive-info-cont">
+        
+        <div class="archive-date">
+          {{ .Date.Format (i18n "summary-dateformat") }} - 
+        <i class="archive-readtime">
+          {{ .ReadingTime }} {{ i18n "reading-time" }}
+          <span class="archive-svg">
+            <i class="far fa-clock"></i>
+            </span>
+        </i>
+          </div>
+
+      {{ $secondAuthor := index (.Params.Authors) 1 }}
+      
+      <!--First author-->
+      {{$firstAuthor := index (.Params.authorlink) 0 }}
+      {{ $author := print "/authors/" $firstAuthor "_index.Rmd"}}
+      {{ with .GetPage $author }}
+        <div class="archive-author-name">
+          {{ if .Params.name }}
+            <a href="{{ "authors/" | relLangURL }}{{ .Params.name | urlize }}">{{ .Params.name }}{{ end }}</a>
+            {{ if $secondAuthor }}
+            <i> & </i>
+            <a href="{{ "authors/" | relLangURL }}{{ $secondAuthor | urlize }}">{{ $secondAuthor }}{{ end }}</a>
+        </div>
+      
+        {{ $author := print "/authors/" $firstAuthor "_index.Rmd"}}
+          {{ with .GetPage $author }}
+
+        {{ if .Params.photo }}
+        <div class="Author-frame-archive-photo">
+          <a href="{{ "authors/" | relLangURL }}{{ .Params.name | urlize }}"><img class="archive-photo-frame" src="{{ .Params.photo }}"></a>
+        </div>
+        {{ else }}
+        <div class="Author-frame-archive-photo">
+          <a href="{{ "authors/" | relLangURL }}{{ .Params.name | urlize }}"><img class="archive-photo-frame" src="/images/authors/default-image.png"></a>
+        </div>
+        {{ end }}
+        {{ end }}
+
+        
+
+      {{ end }}
+      
+            
+      <div class="theme-cont">
+        {{ range (.GetTerms "categories") }}
+          <i>{{ (i18n "theme") }} :</i>
+          <a class="archive-theme" href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder-open archive-svg"></i>
+      {{ end }}
+      </div>
+      
       <div class="archive-tags-cont"> 
       <i class="fas fa-tags posts-tags-icon"></i>
     {{ range .Params.tags }}
@@ -52,6 +99,12 @@
       </a>  
     {{ end }}
       </div>
+      
+      
+      
+      
+      </div> 
+      
       
  
     </article>

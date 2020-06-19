@@ -73,7 +73,7 @@
   grid-area: contact;
   display:flex;
   flex-wrap: wrap;
-  flex-direction:column;
+  flex-direction:row;
   justify-content:flex-start;
   align-items:flex-start;
   padding:0 15px 0 15px;
@@ -250,7 +250,21 @@
   font-size:25px;
 }
 
-.logo-links2:hover {
+.logo-links2-linkedin {
+  padding-right:10px;
+  padding-top:1px;
+  width:27px;
+}
+
+.logo-links2-git {
+  padding-right:10px;
+  width:25px;
+  font-size:25px;
+}
+
+.logo-links2-linkedin:hover,
+.logo-links2:hover,
+.logo-links2-git:hover {
   -ms-transform: scale(1.1); /* IE 9 */
   -webkit-transform: scale(1.1); /* Safari 3-8 */
   transform: scale(1.1);
