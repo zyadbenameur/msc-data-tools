@@ -1,20 +1,25 @@
 {{ partial "header.html" . }}
 
-<h1 class="theme-title" style="margin-block-start: 0.67em;
-    margin-block-end: 0.67em;"><i class="fas fa-folder-open"></i> All Tags :</h1>
+<h1 class="theme-title-home" style="margin-block-start: 0.67em;
+    margin-block-end: 0.67em;"><i class="fas fa-folder-open"></i> All Sections :</h1>
     
 <div class="themes-container">
+    
+    
     {{ range .Data.Terms.ByCount }}
-    <div class="column">
-
-
-                    <a class="" href="{{ .Page.Permalink }}"><i class="far fa-folder-open"></i>{{ .Page.Title }}</a>
-                    {{ $pageCount := len .Pages }}
-                    <p>{{ $pageCount }} post{{ if ne $pageCount 1 }}s{{ end }} </p>
-                </div>
-            
-
+    
+    <div class="single-section-container">
+        <a class="section-title-main" href="{{ .Page.Permalink }}">
+            <div class="section-box">
+            <i class="far fa-folder-open"></i>{{ .Page.Title }}
+            {{ $pageCount := len .Pages }}
+            <p class="section-count">{{ $pageCount }} post{{ if ne $pageCount 1 }}s{{ end }} </p>
+            </div>
+        </a>
+    </div>
     {{ end }}
+    
+    
 </div>
 {{ partial "footer.html" . }}
 

@@ -36,33 +36,54 @@
     {{ end }}
 
   </div>
-  
-  <h1 class="bio-title">Bio</h1>
+  <div class="bio-title">
+    <ul>
+      <li><h1>Bio</h1></li>
+    </ul>
+  </div>
   <div class="author-bio">
     {{ .Content }}
   </div>
  
   {{ if .Data.Pages }}
-    <h1 class="contributions-title"><hr><br>Contributions :</h1>
+  <div class="contributions-title">
+    <br>
+  <hr>
+  <ul>
+    <li><h1>Contributions</h1></li>
+  </ul>
+  </div>
   <div class="author-articles">
     {{ $pageCount := len .Pages }}
     <h2>Post{{ if ne $pageCount 1 }}s{{ end }} ({{ $pageCount := len .Pages }}
                     {{ $pageCount }})</h2>
     {{ range .Data.Pages }}
+    
     <div class="author-article-container">
      
         <a href="{{ .Permalink }}" style="text-decoration:none;"><span class="author-articles-title">{{ .Title }}</span></a>
         <div class="author-articles-date">{{ .Date.Format (i18n "summary-dateformat") }}<span class="archive-svg"><i class="far fa-calendar"></i></span></div>
-        <div>{{ range (.GetTerms "categories") }}
+        <div class="author-archive-category">{{ range (.GetTerms "categories") }}
           <i>{{ (i18n "theme") }} :</i>
           <a href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder-open archive-svg"></i>
           {{ end }}</div>
-        <div class="author-articles-descr">{{ $params := .Params }}
+          <div class="author-articles-descr">{{ $params := .Params }}
         {{ with $params.Description }}
           {{ . }}
         {{ else }}
           {{ .Summary }}
         {{ end }}</div>
+          <div class="archive-author-image">
+        {{ $image := findRE "<img.*?>" .Content }}
+        {{ $has_image := ge ($image) 0 }}
+        {{ if $has_image }}
+        {{ range first 1 $image }}
+            <i>{{ . | safeHTML }}</i>
+           {{ else }}
+            <img src="/images/identicon/default.png" alt="default image of computer">
+        {{ end }}
+        {{ end }}
+          </div>
     </div>  
     <hr>
     {{ end }}
