@@ -1425,19 +1425,19 @@ pre {
   font-size:16px;
   font-weight:600;  
   text-align:center;
+  padding-bottom:15px;
 }
 
 .archive-date {
   grid-area:articleDate;
   text-align:center;
-  padding:0;
+  padding:10px 0 10px 0;
   
 }
 
 .archive-readtime {
   grid-area:articleTime;
   text-align:center;
-  padding:0;
 
 }
 
