@@ -1173,7 +1173,8 @@ input {
   }
   
   .nav-linksResp {
-    display:block;
+  display:block;
+  padding-right:45px;
     
   }
 

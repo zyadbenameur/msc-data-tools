@@ -107,7 +107,7 @@
 .bio-title {
   grid-area: titleBio;
   display:flex;
-  align-items:flex-start;
+  align-items:center;
   
 }
 

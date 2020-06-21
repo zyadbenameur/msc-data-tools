@@ -33,8 +33,6 @@
         {{ if $has_image }}
         {{ range first 1 $image }}
             <i>{{ . | safeHTML }}</i>
-           {{ else }}
-            <img src="/images/identicon/default.png" alt="default image of computer">
         {{ end }}
         {{ end }}
       </div>
