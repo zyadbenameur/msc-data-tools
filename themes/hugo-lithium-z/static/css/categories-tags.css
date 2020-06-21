@@ -102,8 +102,12 @@
 }
 
 .single-section-container {
-  padding:0 15px 0 15px;
+  padding:15px;
   
+}
+
+.section-titles a {
+  text-decoration-color: var(--heading-color);
 }
 
 .section-box {
@@ -112,22 +116,24 @@
   border-radius:15px;
   border-style: solid;
   border-color:var(--highlight-color);
+  transition: 200ms ease;
 }
 
-
-
-.section-box:hover {
-  background-color:#DAFFE6;
-  cursor: pointer;
+.section-box a {
+  text-decoration:none;
 }
+
 
 .section-count {
   font-size:18px;
+  transition: 200ms ease;
 }
 
-.section-count a:link {
-  text-decoration:none;
+.section-box:hover{
+  background-color:var(--section-box-color);
+  cursor: pointer;
 }
+
 
 
 @media (max-width: 700px) {

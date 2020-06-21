@@ -9,13 +9,13 @@
     {{ range .Data.Terms.ByCount }}
     
     <div class="single-section-container">
-        <a class="section-title-main" href="{{ .Page.Permalink }}">
             <div class="section-box">
-            <i class="far fa-folder-open"></i>{{ .Page.Title }}
-            {{ $pageCount := len .Pages }}
-            <p class="section-count">{{ $pageCount }} post{{ if ne $pageCount 1 }}s{{ end }} </p>
+                <a class="section-title-main" href="{{ .Page.Permalink }}">
+                    <h3 class="section-titles">{{ .Page.Title }}</h3>
+                    {{ $pageCount := len .Pages }}
+                    <p class="section-count">{{ $pageCount }} post{{ if ne $pageCount 1 }}s{{ end }} </p>
+                </a>
             </div>
-        </a>
     </div>
     {{ end }}
     
