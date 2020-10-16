@@ -1,9 +1,9 @@
 ---
 title: "Author Page"
 name: "Captain Canada"
-status: "M.sc student in Data science at HEC Montreal. I am a at Videns."
+status: "M.sc student in Data science at HEC Montreal."
 email: Zyad.benameur@hec.ca
 linkedin: https://www.linkedin.com/in/zben/
 description: Currently an M.sc student in Data science at HEC Montreal
 ---
-Trying a personnal page with no posts
+Trying a personnal page with no posts.
