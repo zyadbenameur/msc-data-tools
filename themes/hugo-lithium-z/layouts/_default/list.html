@@ -20,11 +20,11 @@
   
     {{ $pages := .Pages }}
     {{ if .IsHome }}
-      <h2 class="archive-title"><i class="far fa-newspaper"></i> Latest Posts :</h2>
+      <h2 class="archive-title"><i class="far fa-newspaper"></i> Latest Post :</h2>
 
     
 {{ $pages := (where (where .Site.Pages "Type" "post") "IsPage" true) }}
-{{ range first 2 $pages }}
+{{ range first 1 $pages }}
 <article class="archive-container">
       
       <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
