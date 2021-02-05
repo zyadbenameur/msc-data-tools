@@ -1,9 +1,9 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "M.Sc. Data blog"
+title = "Data science for students"
 theme = "hugo-lithium-z"
-googleAnalytics = ""
-disqusShortname = ""
+googleAnalytics = "rsconnect::setAccountInfo(name='babynames', token='4568291F9BAC3685599C20A230DA277D', secret='Qe0h3Xn8JgALNdZ9+4tTgpI1Cnv6LcPm0iirgMpZ')"
+
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 
@@ -29,38 +29,34 @@ PaginatePath = "/post/"
     url = "/categories/"
     weight = 3
 [[menu.main]]
-    name = "Authors"
-    url = "/authors/"
-    weight = 4
-[[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 5
+    weight = 4
 
 
 [params]
   
-    description = "A website built through Hugo and blogdown."
+  description = "This is a blog created by a graduate student to share articles about data science and relevant data science and Business intelligence with the student community in the university of HEC montreal"
 
-    # options for highlight.js (version, additional languages, and theme)
-    highlightjsVersion = "9.12.0"
-    highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
-    highlightjsLang = ["r", "yaml"]
-    highlightjsTheme = "dracula"
+  # options for highlight.js (version, additional languages, and theme)
+  highlightjsVersion = "9.12.0"
+  highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
+  highlightjsLang = ["r", "yaml"]
+  highlightjsTheme = "dracula"
 
-    MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
-    MathJaxVersion = "2.7.5"
+  MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
+  MathJaxVersion = "2.7.5"
 
-    # path to the favicon, under "static"
-    favicon = "favicon.png"
+  # path to the favicon, under "static"
+  favicon = "favicon.png"
 
 [params.logo]
-url = "logo.png"
-width = 50
-height = 50
-alt = "Logo"
+    url = "logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"
     
 [taxonomies]
-author="authors" 
-tag = "tags"
-category = "categories"
+    author="authors" 
+    tag = "tags"
+    category = "categories"
