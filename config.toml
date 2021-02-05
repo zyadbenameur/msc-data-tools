@@ -2,8 +2,7 @@ baseurl = "/"
 languageCode = "en-us"
 title = "Data science for students"
 theme = "hugo-lithium-z"
-googleAnalytics = "rsconnect::setAccountInfo(name='babynames', token='4568291F9BAC3685599C20A230DA277D', secret='Qe0h3Xn8JgALNdZ9+4tTgpI1Cnv6LcPm0iirgMpZ')"
-
+googleAnalytics = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 
