@@ -25,6 +25,7 @@
     <span class="article-date">{{ .Date.Format "2006-01-02" }}</span>
     {{ end }}
     
+    <!--
     <span class="article-author">{{range .Params.Authors }}
     <ul style="list-style-type:none;padding-left: 15px;">
       <li><a href="{{ "authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</li></a>
@@ -52,8 +53,8 @@
     {{ end }}
     {{ end }}
     </span>
+    -->
     </div>
-  
     <div class="article-content">
       {{ .Content }}
     </div>

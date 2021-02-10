@@ -24,11 +24,27 @@
 
     
 {{ $pages := (where (where .Site.Pages "Type" "post") "IsPage" true) }}
-{{ range first 1 $pages }}
+{{ range first 4 $pages }}
 <article class="archive-container">
       
       <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
     
+      <div class="theme-cont">
+        {{ range (.GetTerms "categories") }}
+          <i>{{ (i18n "theme") }} :</i>
+          <a class="archive-theme" href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder-open archive-svg"></i>
+      {{ end }}
+      </div>
+      
+      <div class="archive-tags-cont"> 
+      <i class="fas fa-tags posts-tags-icon"></i>
+    {{ range .Params.tags }}
+      <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}"  class="archive-tags">
+        {{ . }}
+      </a>  
+    {{ end }}
+      </div>
+      
       <div class="archive-description">
         {{ $params := .Params }}
 
@@ -92,30 +108,7 @@
         </div>
         {{ end }}
         {{ end }}
-
-        
-
-      {{ end }}
-      
-            
-      <div class="theme-cont">
-        {{ range (.GetTerms "categories") }}
-          <i>{{ (i18n "theme") }} :</i>
-          <a class="archive-theme" href="{{ .Permalink }}">{{ .LinkTitle }}</a><i class="far fa-folder-open archive-svg"></i>
-      {{ end }}
-      </div>
-      
-      <div class="archive-tags-cont"> 
-      <i class="fas fa-tags posts-tags-icon"></i>
-    {{ range .Params.tags }}
-      <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}"  class="archive-tags">
-        {{ . }}
-      </a>  
-    {{ end }}
-      </div>
-      
-      
-      
+        {{ end }}
       
       </div> 
       

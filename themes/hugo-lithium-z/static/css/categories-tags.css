@@ -45,12 +45,15 @@
   font-size: 35px;
   text-align: center;
   margin:0;  
+  text-decoration: underline;
 }
 
 .theme-title {
   font-size: 35px;
   text-align: center;
   margin:0;  
+  text-decoration: underline;
+  text-decoration-color: var(--heading-color);
 }
 
 .theme-back {
@@ -75,7 +78,6 @@
 }
 
 #theme-title-posts {
-  
   padding-top:0;
 }
 
